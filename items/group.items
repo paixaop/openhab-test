@@ -1,0 +1,39 @@
+/**************************************************************************************************
+ *** Master Groups
+ **************************************************************************************************/
+
+// Group of all things in the house
+Group All
+
+// Ground Floor
+Group gGF  		(All)
+
+// Group for all things in the First Floor
+Group gFF 		(All)
+
+// Group for all Outdoors
+Group Outdoor 	(All)
+
+// Group for all Indoors
+Group Indoor 	(All)
+
+// Group for all Shutters
+Group Shutters 	(All)
+
+Group Weather 	(All)
+Group Status 	(All)
+
+// Group all RGB Color Strips controlled by Fibaro RGBW
+Group AllRGBItems  (All)
+
+Group AllRGBChannels (All)
+
+
+/**************************************************************************************************
+ *** Active Groups
+ **************************************************************************************************/
+Group:Switch:OR(ON, OFF) 		Lights 		"All Lights [(%d)]" 								(All)
+Group:Switch:OR(ON, OFF) 		Heating 	"No. of Active Heatings [(%d)]" 	<heating> 		(All)
+Group:Number:AVG 				Temperature	"Avg. Room Temperature [%.1f C]" 	<temperature>	(Status)
+Group:Contact:OR(OPEN, CLOSED) 	Windows 	"Open windows [(%d)]"				<contact>		(All)
+Group:Contact:OR(OPEN, CLOSED) 	Doors 		"Open doors [(%d)]"					<contact>		(All)

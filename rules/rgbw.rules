@@ -1,0 +1,178 @@
+import java.awt.Color
+import java.util.Map
+import java.util.HashMap
+import org.openhab.core.library.types.*
+import org.openhab.core.library.items.*
+import org.openhab.core.items.*
+
+var Map<String, Map<String, org.openhab.core.items.GenericItem>>  rgbItems = newHashMap()
+ 
+val org.eclipse.xtext.xbase.lib.Functions$Function3 createRGBItem = [
+	String itemName,
+	java.util.ArrayList<org.openhab.core.items.GenericItem> itemList,
+	Map<String, Map<String, org.openhab.core.items.GenericItem>> rgbItems |
+	
+	if (!rgbItems.containsKey(itemName)) {
+		if ( itemList.size() == 4 ) {
+			var HashMap<String, org.openhab.core.items.GenericItem> item = newHashMap (
+                                    "colorPicker" -> itemList.get(0),
+                                    "red" -> itemList.get(1),
+                                    "green" -> itemList.get(2),
+                                    "blue" -> itemList.get(3)
+                                )
+            logInfo("RGBItems", itemName + " RGB Item Created")
+			rgbItems.put(itemName, item)
+		}
+		else {
+			logInfo("RGBItems", itemName + " RGB Item *NOT* Created - item list must have a ColorItem, and 3 DimmerItems")
+		}
+	}
+	else {
+		logInfo("RGBItems", itemName + " RGB Item already exists")
+	}
+]
+
+val org.eclipse.xtext.xbase.lib.Functions$Function2 updateRGBItem = [
+	String itemName,
+	Map<String, Map<String, org.openhab.core.items.GenericItem>> rgbItems |
+	
+	if (rgbItems.containsKey(itemName)) {
+		var ColorItem itemColorPicker = rgbItems.get(itemName).get("colorPicker") as ColorItem
+		var DimmerItem itemRedChannel = rgbItems.get(itemName).get("red") as DimmerItem
+		var DimmerItem itemGreenChannel = rgbItems.get(itemName).get("green") as DimmerItem
+		var DimmerItem itemBlueChannel = rgbItems.get(itemName).get("blue") as DimmerItem
+		
+		var HSBType hsbValue
+		hsbValue = itemColorPicker.state as HSBType
+		logInfo("RGBItems", itemName + " R:" + hsbValue.red.intValue.toString 
+			+ " G:" + hsbValue.green.intValue.toString
+			+ " B:" + hsbValue.blue.intValue.toString
+		)
+		sendCommand(itemRedChannel,   hsbValue.red.intValue.toString)
+	    sendCommand(itemGreenChannel, hsbValue.green.intValue.toString)
+	    sendCommand(itemBlueChannel,  hsbValue.blue.intValue.toString)	
+	}
+	else {
+		logInfo("RGBItems", itemName + " updateRGBItem Item *NOT* found")	
+	}
+]
+
+val org.eclipse.xtext.xbase.lib.Functions$Function3 setRGBItemColor = [
+	String itemName,
+	java.awt.Color color,
+	Map<String, Map<String, org.openhab.core.items.GenericItem>> rgbItems |
+	
+	if (rgbItems.containsKey(itemName)) {
+		var item = rgbItems.get(itemName)
+		var ColorItem itemColorPicker = item.get("colorPicker") as ColorItem
+		var DimmerItem itemRedChannel = item.get("red") as DimmerItem
+		var DimmerItem itemGreenChannel = item.get("green") as DimmerItem
+		var DimmerItem itemBlueChannel = item.get("blue") as DimmerItem
+		
+		var HSBType hsbValue = new HSBType(color)
+		
+		logInfo("RGBItems", itemName + " setRGBItemColor R:" + hsbValue.red.intValue.toString 
+			+ " G:" + hsbValue.green.intValue.toString
+			+ " B:" + hsbValue.blue.intValue.toString
+		)
+		
+		sendCommand(itemColorPicker, hsbValue)
+		sendCommand(itemRedChannel,   hsbValue.red.intValue.toString)
+	    sendCommand(itemGreenChannel, hsbValue.green.intValue.toString)
+	    sendCommand(itemBlueChannel,  hsbValue.blue.intValue.toString)	
+	}
+	else {
+		logInfo("RGBItems", itemName + " setRGBItemColor Item *NOT* found")	
+	}
+]
+
+val org.eclipse.xtext.xbase.lib.Functions$Function3 sendCommandUsingItemName = [
+	GroupItem group,
+	String name,
+	String value |
+	
+	var i = group.members.findFirst(x | x.name == name)
+	sendCommand(i,value)
+]
+
+rule "Initialize RBG Channels"
+	when
+		System started
+	then
+		createRGBItem.apply(
+			"RGB_GF_Kitchen_Island", 
+			newArrayList(RGB_GF_Kitchen_Island_Color, RGB_GF_Kitchen_Island_Color_R, RGB_GF_Kitchen_Island_Color_G, RGB_GF_Kitchen_Island_Color_B), 
+			rgbItems
+		)
+end
+
+rule "Kitchen RGB Value"
+when
+	Item RGB_GF_Kitchen_Island_Color changed
+then
+	logInfo("RGBItems", "Kitchen Color Changed")	
+	//updateRGBItem.apply(room, rgbItems)
+	//logInfo("RGBItems", room + " RGBW Changed Rule -> Name: " + RGBW.getName())
+	//logInfo("RGBItems", room + " Previous State:" + previousState.toString())
+	//setRGBItemColor.apply(room, new Color(0xE2CC33), rgbItems)
+end
+
+/** 
+ * Control two LED strips using Fibaro RGBW Controller
+ * 
+ * This rule can individually control a large number of RGB LED Strips using a group
+ * of Color items, and each of the Red, Green and Blue Dimmer items of 
+ * Fibaro RGBW contollers 
+ * 
+ * Example Configuration:
+ *   LED Strip 1 is in the Kitchen island
+ *   LED Strip 2 is in the stairs 
+ * 
+ * Items Setup:
+ * 
+ *   Group AllRGBItems  (All)
+ * 
+ *   // Color Pickers
+ *   Color  RGB_GF_Kitchen_Island_Color "Color Picker" <slider> (AllRGBItems)
+ *   Color  RGB_GF_Stairs_Color "Color Picker" <slider> (AllRGBItems)
+ * 
+ *   // Real RGB Channels for the Kitchen Strip
+ *   Dimmer RGB_GF_Kitchen_Island_Color_R "Red [%d %%]" <switch> {zwave="6:3"}
+ *   Dimmer RGB_GF_Kitchen_Island_Color_G "Green [%d %%]" <switch> {zwave="6:2"}
+ *   Dimmer RGB_GF_Kitchen_Island_Color_B "Blue [%d %%]" <switch> {zwave="6:4"}
+ * 
+ *   // Real RGB Channels for the Stairs Strip
+ *   Dimmer RGB_GF_Staris_Color_R "Red [%d %%]" <switch> {zwave="7:3"}
+ *   Dimmer RGB_GF_Staris_Color_G "Green [%d %%]" <switch> {zwave="7:2"}
+ *   Dimmer RGB_GF_Staris_Color_B "Blue [%d %%]" <switch> {zwave="7:4"}
+ *
+ * Persistence: Items section of the db4o.persist file
+ *  
+ *   AllRGBItems* : strategy = everyChange, restoreOnStartup  
+ */
+rule "All RGB Items"
+when
+ 
+	Item AllRGBItems changed
+	
+then
+	/** 
+	 * To determine which item in the group changed we need to iterate all items 
+	 * and check if the item's previous state it the same as the previousState context variable.
+	 * Once we find which Items changed we append _R, _G, _B to their names, to determine the item's
+	 * Red, Green and Blue channels.
+	 */ 
+	logInfo("RGBItems", 'A RGB Color Item was Changed')
+	AllRGBItems.members.forEach([item |
+		// Get the control that changed!
+		if( item.previousState(false, "db4o").getState() == previousState) {
+			logInfo("RGBItems", item.name + ' Color Changed')
+			var HSBType hsbValue 
+			hsbValue = item.state as HSBType
+			
+			sendCommand(item.name + "_R", hsbValue.red.intValue.toString)
+			sendCommand(item.name + "_G", hsbValue.green.intValue.toString)
+			sendCommand(item.name + "_B", hsbValue.blue.intValue.toString)						
+		}
+	])
+end

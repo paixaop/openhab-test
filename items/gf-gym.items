@@ -1,0 +1,41 @@
+/**************************************************************************************************
+ *** Ground Floor Gym
+ ***
+ *** Author: Pedro Paixao
+ *** Date: 5/2/2015
+ **************************************************************************************************/
+
+
+
+/**************************************************************************************************
+ * Group for all items
+ **************************************************************************************************/
+Group GF_Gym                    "Gym"           <gym>                 (gGF, Indoor)
+
+
+
+/**************************************************************************************************
+ * Only the lights
+ **************************************************************************************************/
+Group GF_Gym_Lights              "Gym Lights"                         (GF_Gym, Lights)
+
+
+
+/**************************************************************************************************
+ * Doors and Windows
+ **************************************************************************************************/
+Contact GF_Gym_Front_Door        "Gym Front [MAP(en.map):%s]"         (GF_Gym, Doors)
+Contact GF_Gym_Back_Door         "Gym Back [MAP(en.map):%s]"          (GF_Gym, Doors)
+Contact GF_Gym_Garage_Door       "Gym to Garage [MAP(en.map):%s]"     (GF_Gym, Doors)
+
+Contact GF_Gym_Front_Window      "Gym Front [MAP(en.map):%s]"         (GF_Gym, Windows)
+Contact GF_Gym_Side_Window       "Gym Side [MAP(en.map):%s]"          (GF_Gym, Windows)
+Contact GF_Gym_Front_Top_Window  "Gym Top Front [MAP(en.map):%s]"     (GF_Gym, Windows)
+Contact GF_Gym_Side_Top_Window   "Gym Top Side [MAP(en.map):%s]"      (GF_Gym, Windows)
+
+
+
+/**************************************************************************************************
+ * All the lights and dimmers
+ **************************************************************************************************/
+

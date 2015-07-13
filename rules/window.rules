@@ -1,0 +1,23 @@
+/**
+ * Rules for window contacts
+ */
+
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+
+rule "GF_Office_Window_Rule"
+when
+	Item GF_Office_Window changed
+then
+	logInfo("Contacts", "GF_Office_Window State: " + GF_Office_Window.state)
+    if( GF_Office_Window.state == OPEN) {
+    	sendCommand(Light_GF_Office_Ceiling, ON)    
+    }
+    else if( GF_Office_Window.state == CLOSED) {
+    	sendCommand(Light_GF_Office_Ceiling, OFF)	
+	}
+	else {
+		logError("Contacts", "GF_Office_Window Bad state: " + GF_Office_Window.state)
+	}
+end

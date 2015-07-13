@@ -1,0 +1,50 @@
+/**************************************************************************************************
+ *** Ground Floor Kitchen
+ ***
+ *** Author: Pedro Paixao
+ *** Date: 5/2/2015
+ **************************************************************************************************/
+
+
+
+/**************************************************************************************************
+ * Group for all items in the Foyer
+ **************************************************************************************************/
+Group GF_Kitchen                    "Kitchen"       <kitchen>       (gGF, Indoor)
+
+
+
+/**************************************************************************************************
+ * Only the lights in the Foyer
+ **************************************************************************************************/
+Group GF_Kitchen_Lights              "Kitchen Lights"                (GF_Kitchen, Lights)
+
+
+
+/**************************************************************************************************
+ * Doors and Windows
+ **************************************************************************************************/
+Contact GF_Kitchen_Door             "Kitchen [MAP(en.map):%s]"          (GF_Kitchen, Doors)
+Contact GF_Kitchen_Window_Right     "Kitchen Right [MAP(en.map):%s]"    (GF_Kitchen, Windows)
+Contact GF_Kitchen_Window_Left      "Kitchen Left [MAP(en.map):%s]"     (GF_Kitchen, Windows)
+
+
+
+/**************************************************************************************************
+ * All the lights and dimmers
+ **************************************************************************************************/
+Switch Light_GF_Kitchen_Ceiling 	"Kitchen Ceiling" 		(GF_Kitchen_Lights)
+Switch Light_GF_Kitchen_Table 		"Kitchen Table" 		(GF_Kitchen_Lights)
+
+
+/* Fibaro RGBW Controller */
+Group RGB_GF_Kitchen_Island "Island LEDs" 	<colorwheel>              (GF_Kitchen)
+
+Color  RGB_GF_Kitchen_Island_Color "Color Picker"      <slider>       (AllRGBItems, RGB_GF_Kitchen_Island)
+Dimmer RGB_GF_Kitchen_Island_All   "Intensity [%d %%]" <slider>       (RGB_GF_Kitchen_Island)  {zwave="6"}
+Dimmer RGB_GF_Kitchen_Island_White "White [%d %%]"     <slider>       (RGB_GF_Kitchen_Island)  {zwave="6:5"}
+
+// RGB Control Channels
+Dimmer RGB_GF_Kitchen_Island_Color_R "Red [%d %%]"   <switch> (AllRGBChannels) {zwave="6:3"}
+Dimmer RGB_GF_Kitchen_Island_Color_G "Green [%d %%]" <switch> (AllRGBChannels) {zwave="6:2"}
+Dimmer RGB_GF_Kitchen_Island_Color_B "Blue [%d %%]"  <switch> (AllRGBChannels) {zwave="6:4"}
