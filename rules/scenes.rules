@@ -1,0 +1,33 @@
+rule "Activate Scene TV LivingRoom"
+when
+	Item GF_Living_Scene received command 1
+then
+	logInfo("Scenes", "Living Room - TV Scene Active")
+	sendCommand(GF_Living_Ceiling, 30)
+	sendCommand(RGB_GF_Kitchen_Island_All, 30)
+end
+
+rule "Activate Scene Dinner LivingRoom"
+when
+	Item GF_Living_Scene received command 2
+then
+	logInfo("Scenes", "Living Room - Dinner Scene Atcive")
+	sendCommand(GF_Living_Ceiling, 100)
+	sendCommand(RGB_GF_Kitchen_Island_All, 100)
+end
+
+rule "Activate Scene Off LivingRoom"
+when
+	Item GF_Living_Scene received command 0
+then
+	logInfo("Scenes", "Living Room - Off")
+	sendCommand(GF_Living_Ceiling, 0)
+	sendCommand(RGB_GF_Kitchen_Island_All, 0)
+end
+
+rule "Manual Living Room"
+when
+	Item GF_Living_Ceiling changed 
+then
+	sendCommand(RGB_GF_Kitchen_Island_All, 100)
+end
