@@ -1,28 +1,9 @@
 sitemap demo label="Main Menu"
 {
 	Frame {
-		Group item=gFF label="First Floor" icon="firstfloor"
 		Group item=gGF label="Ground Floor" icon="groundfloor"
+		Group item=gFF label="First Floor" icon="firstfloor"
 		Group item=Outdoor icon="garden" 
-	}
-    
-    Frame label="Main Category" {
-		Text label="Ground Floor" icon="groundfloor" {
-			Group item=GF_Guest_Room label="Guest Bedroom" icon="bedroom"
-			Group item=GF_Corridor label="Corridor" 
-			Text label="Living Room" icon="sofa" {
-				Group item=GF_Living label="Living Room"
-			}
-			Text label="Office" icon="office" {
-				Group item=GF_Living label="Living Room"
-			}
-		}	
-		Text label="First Floor" icon="firstfloor" {
-			 Switch item=Lights mappings=[OFF="All Off"]
-		}
-		Text label="Outdoor" icon="garden" {
-			 Switch item=Lights mappings=[OFF="All Off"]
-		}
 	}
     
 	Frame label="Weather" {
@@ -42,8 +23,10 @@ sitemap demo label="Main Menu"
 			}
 		}
 	}
-	Frame label="Date" {
-		Text item=Date
+	Frame label="Status" {
+		Group item=Status 
+        Group item=Network
+        Group item=Presence
 	}
     Frame label="Groups" {
         Switch item=Lights mappings=[OFF="All Off"]
@@ -59,8 +42,9 @@ sitemap demo label="Main Menu"
 				Switch item=DemoSwitch label="Button Switch" mappings=[ON="On"]
 			}
 			Frame label="Discrete Widgets" {
-				Selection item=Scene_General label="Scene Selection" mappings=[0=off, 1=TV, 2=Dinner, 3=Reading]
-				Switch item=Scene_General label="Scene" mappings=[1=TV, 2=Dinner, 3=Reading]
+				Selection item=GF_Living_Scene label="Scene Selection" mappings=[0=off, 1=TV, 2=Dinner, 3=Party]
+				Switch item=GF_Living_Scene label="Scene" mappings=[1=TV, 2=Dinner, 3=Party]
+				
 				Setpoint item=Temperature_Setpoint minValue=16 maxValue=28 step=0.5
 			}
 			Frame label="Percent-based Widgets" {
