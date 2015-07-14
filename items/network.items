@@ -1,0 +1,5 @@
+// Group for all networked devices
+Group Network "Network" <net> (All)
+
+Switch Network_Internet   "Internet"   (Status, Network)   { nh="google.com:80" }
+Switch Network_Firewall   "Firewall"   (Status, Network)   { nh="192.168.32.253:443" }
