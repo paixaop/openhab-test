@@ -24,6 +24,6 @@ Contact	GF_Office_Window	"Office [MAP(en.map):%s]"	(GF_Office, Windows)
 /**************************************************************************************************
  * All the lights and dimmers
  **************************************************************************************************/
-Switch	Light_GF_Office_Ceiling	  "Office Ceiling"	   (GF_Office, GF_Office_Lights)		
+Switch	Light_GF_Office_Ceiling	  "Office Ceiling"	   (GF_Office, Lights)		
         { zwave="2:command=switch_binary,respond_to_basic=true" }
  
