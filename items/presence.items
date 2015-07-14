@@ -1,0 +1,17 @@
+
+Group:Switch:OR(ON,OFF) Presence "Presence [(%d)]" <boy3> (All, Status)
+
+Group:Switch:OR(ON, OFF) Presence_Pedro "Pedro [(%d)]" <boy0> (Presence)
+Group:Switch:OR(ON, OFF) Presence_Rute "Rute [(%d)]" <boy1> (Presence)
+Group:Switch:OR(ON, OFF) Presence_Rita "Rita [(%d)]" <boy2> (Presence)
+
+// Ping Pedro's hosts
+Switch Host_Pedro_Laptop "Pedro's Laptop" <laptop> (Presence_Pedro) { exec="<[/srv/openhab/scripts/host_alive.sh 192.168.32.121:5000:REGEX((.*))]" }
+Switch Host_Pedro_Phone "Pedro's Phone" <iphone> (Presence_Pedro) { exec="<[/srv/openhab/scripts/host_alive.sh 192.168.32.114:5000:REGEX((.*))]" }
+
+// Ping Rute's hosts
+Switch Host_Rute_Phone "Rute's Phone" <iphone> (Presence_Rute) { exec="<[/srv/openhab/scripts/host_alive.sh 192.168.32.115:5000:REGEX((.*))]" }
+
+// Ping Rita's hosts
+Switch Host_Rita_Phone "Rita's Phone" <iphone> (Presence_Rita) { exec="<[/srv/openhab/scripts/host_alive.sh 192.168.32.116:5000:REGEX((.*))]" }
+
