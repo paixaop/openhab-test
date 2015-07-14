@@ -1,11 +1,12 @@
-sitemap demo label="Home Sweet Home"
+sitemap demo label="Main Menu"
 {
 	Frame {
-		Group item=gGF     label="Ground Floor" icon="groundfloor"
-		Group item=gFF     label="First Floor"  icon="firstfloor"
-		Group item=Outdoor label="Outdoors"     icon="garden" 
+		Group item=gFF label="First Floor" icon="firstfloor"
+		Group item=gGF label="Ground Floor" icon="groundfloor"
+		Group item=Outdoor icon="garden" 
 	}
-	Frame label="Main Category" {
+    
+    Frame label="Main Category" {
 		Text label="Ground Floor" icon="groundfloor" {
 			Group item=GF_Guest_Room label="Guest Bedroom" icon="bedroom"
 			Group item=GF_Corridor label="Corridor" 
@@ -23,18 +24,14 @@ sitemap demo label="Home Sweet Home"
 			 Switch item=Lights mappings=[OFF="All Off"]
 		}
 	}
+    
 	Frame label="Weather" {
 		Text item=Weather_Temperature valuecolor=[Weather_LastUpdate=="Uninitialized"="lightgray",Weather_LastUpdate>90="lightgray",>25="orange",>15="green",>5="orange",<=5="blue"] {
 			Frame {
 				Text item=Weather_Temp_Max valuecolor=[>25="orange",>15="green",>5="orange",<=5="blue"]
 				Text item=Weather_Temp_Min valuecolor=[>25="orange",>15="green",>5="orange",<=5="blue"]
-<<<<<<< HEAD
-				Text item=Weather_Humidity 
-				Text item=Weather_Humidex 
-=======
 				Text item=Weather_Humidity
 				Text item=Weather_Humidex
->>>>>>> 84d5bf653e3c11fbeb9aca7d9238db68ee463dd0
 				Text item=Weather_LastUpdate visibility=[Weather_LastUpdate>30] valuecolor=[Weather_LastUpdate>120="orange", Weather_LastUpdate>300="red"]
 			}
 			Frame {
@@ -46,16 +43,16 @@ sitemap demo label="Home Sweet Home"
 		}
 	}
 	Frame label="Date" {
-		Text item=Date icon="calendar"
+		Text item=Date
 	}
-	Frame label="Global" {
-		Text label="Status" icon="firstfloor" {
-			Switch item=Lights mappings=[OFF="All Off"]
-			Group item=Heating
-			Group item=Windows
-			Group item=Doors
-			Text item=Temperature
-		}
+    Frame label="Groups" {
+        Switch item=Lights mappings=[OFF="All Off"]
+        Group item=Heating
+        Group item=Windows
+        Text item=Temperature
+	}
+	Frame label="Demo" {
+		
 		Text label="Widget Overview" icon="chart" {
 			Frame label="Binary Widgets" {
 				Switch item=DemoSwitch label="Toggle Switch"
