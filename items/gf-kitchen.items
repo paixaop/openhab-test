@@ -41,7 +41,7 @@ Switch Light_GF_Kitchen_Table 		"Kitchen Table" 		(GF_Kitchen_Lights)
 Group RGB_GF_Kitchen_Island "Island LEDs" 	<colorwheel>              (GF_Kitchen)
 
 Color  RGB_GF_Kitchen_Island_Color "Color Picker"      <slider>       (AllRGBItems, RGB_GF_Kitchen_Island)
-Dimmer RGB_GF_Kitchen_Island_All   "Intensity [%d %%]" <slider>       (RGB_GF_Kitchen_Island)  {zwave="6"}
+Dimmer RGB_GF_Kitchen_Island_All   "Intensity [%d %%]" <slider>       (RGB_GF_Kitchen_Island, Lights)  {zwave="6"}
 Dimmer RGB_GF_Kitchen_Island_White "White [%d %%]"     <slider>       (RGB_GF_Kitchen_Island)  {zwave="6:5"}
 
 // RGB Control Channels
