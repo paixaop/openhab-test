@@ -1,0 +1,16 @@
+/* 
+rule "Network Check - Ping Known Devices"
+when
+	Item Host_Pedro_Laptop received command
+	Item Host_Pedro_Phone received command
+then	
+	if( receivedCommand == ON) {
+		sendCommand(Presence_Pedro, ON)
+		logInfo("Presence", "Pedro is Home")
+	}
+	else {
+		sendCommand(Presence_Pedro, OFF)
+		logInfo("Presence", "Pedro is Away")
+	}
+end
+*/
