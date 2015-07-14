@@ -31,6 +31,7 @@ Contact GF_Living_Door 				"Living Room [MAP(en.map):%s]"		(GF_Living, Doors)
 /**************************************************************************************************
  * All the lights and dimmers
  **************************************************************************************************/
+Dimmer GF_Living_Ceiling   "Ceiling [%d %%]" <slider>       (GF_Living, Lights)  {zwave="4"}
 
-
+Number GF_Living_Scene			"Scene"					<sofa>  (GF_Living)
 
