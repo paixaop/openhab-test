@@ -28,6 +28,9 @@ Group AllRGBItems  (All)
 
 Group AllRGBChannels (All)
 
+// Status information
+Group Status "Status" <info> (All)
+
 
 /**************************************************************************************************
  *** Active Groups
