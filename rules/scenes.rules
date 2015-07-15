@@ -1,3 +1,5 @@
+import org.openhab.core.library.types.DecimalType
+
 rule "Activate Scene TV LivingRoom"
 when
 	Item GF_Living_Scene received command 1
@@ -30,4 +32,27 @@ when
 	Item GF_Living_Ceiling changed 
 then
 	sendCommand(RGB_GF_Kitchen_Island_All, 100)
+end
+
+rule "BedLight"
+	when
+		Item GF_Living_Ceiling received command
+	then
+	    var Number percent = 0
+		if(GF_Living_Ceiling.state instanceof DecimalType) {
+			percent = GF_Living_Ceiling.state as DecimalType	
+		}
+		 
+		if(receivedCommand==INCREASE) percent = percent + 5
+		if(receivedCommand==DECREASE) percent = percent - 5
+		if(receivedCommand==OFF) percent = 0	
+		if(receivedCommand==ON) percent = 100		
+		
+		if(percent<0)   percent = 0
+		if(percent>100) percent = 100
+
+		//we scale decimally, not hexadicimal!
+		sendCommand(RGB_GF_Kitchen_Island_All, percent)
+		postUpdate(GF_Living_Ceiling, percent);
+
 end
