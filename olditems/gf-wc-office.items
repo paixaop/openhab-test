@@ -31,14 +31,3 @@ Contact GF_Office_WC_Door 	"Powder Room [MAP(en.map):%s]"		 (GF_Office_WC, Doors
  * All the lights and dimmers
  **************************************************************************************************/
 
-/* Fibaro RGBW Controller */
-Group RGB_GF_Office_WC_Sofit "Sofit LEDs" 	<colorwheel>              (GF_Office_WC)
-
-Color  RGB_GF_Office_WC_Sofit_Color "Color Picker"      <slider>       (RGB_GF_Office_WC_Sofit)
-Dimmer RGB_GF_Office_WC_Sofit_All   "Intensity [%d %%]" <slider>       (RGB_GF_Office_WC_Sofit)  {zwave="7"}
-Dimmer RGB_GF_Office_WC_Sofit_White "White [%d %%]"     <slider>       (RGB_GF_Office_WC_Sofit)  {zwave="7:5"}
-
-// RGB Control Channels
-Dimmer RGB_GF_Office_WC_Sofit_Color_R "Red [%d %%]"   <switch> {zwave="7:3"}
-Dimmer RGB_GF_Office_WC_Sofit_Color_G "Green [%d %%]" <switch> {zwave="7:2"}
-Dimmer RGB_GF_Office_WC_Sofit_Color_B "Blue [%d %%]"  <switch> {zwave="7:4"}

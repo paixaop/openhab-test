@@ -21,7 +21,6 @@ Group Indoor 	(All)
 Group Shutters 	(All)
 
 Group Weather 	(All)
-Group Status 	(All)
 
 // Group all RGB Color Strips controlled by Fibaro RGBW
 Group AllRGBItems  (All)
@@ -31,6 +30,12 @@ Group AllRGBChannels (All)
 // Status information
 Group Status "Status" <info> (All)
 
+// Group for all battery devices so we can get alerts when one or
+// more has low bat
+Group Battery "Battery Devices" <info> (All)
+
+// Scene Controllers
+Group SC_GRP "Scene Controllers" <info> (All)
 
 /**************************************************************************************************
  *** Active Groups

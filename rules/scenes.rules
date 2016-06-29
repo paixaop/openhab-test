@@ -1,4 +1,177 @@
-import org.openhab.core.library.types.DecimalType
+import org.openhab.core.library.types.*
+import org.openhab.core.persistence.*
+import org.openhab.model.script.actions.*
+import org.joda.time.DateTime
+
+var DateTime lastTap_Light_GF_Kitchen_Ceiling = new DateTime()
+val int ignoreDoubleTapInterval = 1
+
+val org.eclipse.xtext.xbase.lib.Functions$Function2 indicator = [
+	String itemName,
+	int mask |
+	
+	
+]
+
+rule "Toggle Kitchen Ceiling"
+when
+	Item Panel7_Btn_1 received update
+then
+	if (now.isAfter(lastTap_Light_GF_Kitchen_Ceiling.plusSeconds(ignoreDoubleTapInterval)))
+    {    
+       	if( Light_GF_Kitchen_Ceiling.state == ON) {
+       		logInfo("SCENES", "Panel-7 1 Trigger  ON ---> OFF")
+			sendCommand(Light_GF_Kitchen_Ceiling,OFF)
+		}
+		else {
+			logInfo("SCENES", "Panel-7 1 Trigger  OFF ---> ON")
+			sendCommand(Light_GF_Kitchen_Ceiling,ON)
+		}
+    }
+    else {
+    	logInfo("ZWN-SC7", "Light_GF_Kitchen_Ceiling double click detected IGNORE")
+    }
+    lastTap_Light_GF_Kitchen_Ceiling = new DateTime()
+end
+
+rule "Kitchen Panel Update Status Indicators"
+when
+	Item Light_GF_Kitchen_Ceiling changed
+then
+	logInfo("IndicatorSet", "Update Kitchen Ceiling Indicator")
+	if (Panel7_Indicator_status.state == Undefined || Panel7_Indicator_status.state == Uninitialized) {
+		logInfo("IndicatorSet", "Reset Panel_GF_Kitchen_status state. Was Undefined!")
+		sendCommand(Panel7_Indicator_status, 0x00)
+    }
+	var Integer state = (Panel7_Indicator_status.state as DecimalType).intValue
+	
+	if( Light_GF_Kitchen_Ceiling.state == OFF) {
+		sendCommand(Panel7_Indicator_status,state.bitwiseAnd(0xFB))	
+	}
+	else {
+		sendCommand(Panel7_Indicator_status,state.bitwiseOr(0x04))
+	}
+end
+
+rule "Panel 7 Buttons"
+when
+	Item Panel7_Indicator_status changed
+then
+	logInfo("IndicatorReport", "Kitchen Evolve Panel Indicator Report")
+	if (Panel7_Indicator_status.state == Undefined || Panel7_Indicator_status.state == Uninitialized) {
+		logInfo("IndicatorReport", "Reset Panel_GF_Kitchen_status state. Was Undefined!")
+		sendCommand(Panel7_Indicator_status, 0x00)
+    }
+	var Integer state = (Panel7_Indicator_status.state as DecimalType).intValue
+	var Integer pState = (previousState as DecimalType).intValue
+	var int button = 0
+    var int mask
+    
+    logInfo("IndicatorReport", "Indicator State: {}", state);
+	
+	if( state.bitwiseAnd(0x01) == 0x01 ) {
+		logInfo("IndicatorReport", "Privacy Button on");
+	}
+	if( state.bitwiseAnd(0x02) == 0x02 ) {
+		logInfo("IndicatorReport", "House Keeping Button on");
+	}
+	
+	button = 1
+	mask = 0x04
+	if( state.bitwiseAnd(mask) == mask ) {
+		if( pState.bitwiseAnd(mask) == 0 ) {
+			logInfo("IndicatorReport", "Button {} turned on", button);
+		}
+		else {
+			logInfo("IndicatorReport", "Button {} is on", button);
+		}
+	} 
+	else {
+		if( pState.bitwiseAnd(mask) == mask ) {
+			logInfo("IndicatorReport", "Button {} turned off", button);
+		}
+		else {
+			logInfo("IndicatorReport", "Button {} is off", button);
+		}
+	}
+	
+	button = 2
+	mask = 0x08
+	if( state.bitwiseAnd(mask) == mask ) {
+		if( pState.bitwiseAnd(mask) == 0 ) {
+			logInfo("IndicatorReport", "Button {} turned on", button);
+		}
+		else {
+			logInfo("IndicatorReport", "Button {} is on", button);
+		}
+	} 
+	else {
+		if( pState.bitwiseAnd(mask) == mask ) {
+			logInfo("IndicatorReport", "Button {} turned off", button);
+		}
+		else {
+			logInfo("IndicatorReport", "Button {} is off", button);
+		}
+	}
+	
+	button = 3
+	mask = 0x10
+	if( state.bitwiseAnd(mask) == mask ) {
+		if( pState.bitwiseAnd(mask) == 0 ) {
+			logInfo("IndicatorReport", "Button {} turned on", button);
+		}
+		else {
+			logInfo("IndicatorReport", "Button {} is on", button);
+		}
+	} 
+	else {
+		if( pState.bitwiseAnd(mask) == mask ) {
+			logInfo("IndicatorReport", "Button {} turned off", button);
+		}
+		else {
+			logInfo("IndicatorReport", "Button {} is off", button);
+		}
+	}
+	
+	button = 4
+	mask = 0x20
+	if( state.bitwiseAnd(mask) == mask ) {
+		if( pState.bitwiseAnd(mask) == 0 ) {
+			logInfo("IndicatorReport", "Button {} turned on", button);
+		}
+		else {
+			logInfo("IndicatorReport", "Button {} is on", button);
+		}
+	} 
+	else {
+		if( pState.bitwiseAnd(mask) == mask ) {
+			logInfo("IndicatorReport", "Button {} turned off", button);
+		}
+		else {
+			logInfo("IndicatorReport", "Button {} is off", button);
+		}
+	}
+	
+	button = 5
+	mask = 0x40
+	if( state.bitwiseAnd(mask) == mask ) {
+		if( pState.bitwiseAnd(mask) == 0 ) {
+			logInfo("IndicatorReport", "Button {} turned on", button);
+		}
+		else {
+			logInfo("IndicatorReport", "Button {} is on", button);
+		}
+	} 
+	else {
+		if( pState.bitwiseAnd(mask) == mask ) {
+			logInfo("IndicatorReport", "Button {} turned off", button);
+		}
+		else {
+			logInfo("IndicatorReport", "Button {} is off", button);
+		}
+	}
+	
+end
 
 rule "Activate Scene TV LivingRoom"
 when
@@ -6,7 +179,7 @@ when
 then
 	logInfo("Scenes", "Living Room - TV Scene Active")
 	sendCommand(GF_Living_Ceiling, 30)
-	sendCommand(RGB_GF_Kitchen_Island_All, 30)
+	//sendCommand(RGB_GF_Kitchen_Island_All, 30)
 end
 
 rule "Activate Scene Dinner LivingRoom"
@@ -15,7 +188,7 @@ when
 then
 	logInfo("Scenes", "Living Room - Dinner Scene Atcive")
 	sendCommand(GF_Living_Ceiling, 100)
-	sendCommand(RGB_GF_Kitchen_Island_All, 100)
+	//sendCommand(RGB_GF_Kitchen_Island_All, 100)
 end
 
 rule "Activate Scene Off LivingRoom"
@@ -24,14 +197,7 @@ when
 then
 	logInfo("Scenes", "Living Room - Off")
 	sendCommand(GF_Living_Ceiling, 0)
-	sendCommand(RGB_GF_Kitchen_Island_All, 0)
-end
-
-rule "Manual Living Room"
-when
-	Item GF_Living_Ceiling changed 
-then
-	sendCommand(RGB_GF_Kitchen_Island_All, 100)
+	//sendCommand(RGB_GF_Kitchen_Island_All, 0)
 end
 
 rule "BedLight"
@@ -52,7 +218,7 @@ rule "BedLight"
 		if(percent>100) percent = 100
 
 		//we scale decimally, not hexadicimal!
-		sendCommand(RGB_GF_Kitchen_Island_All, percent)
+		//sendCommand(RGB_GF_Kitchen_Island_All, percent)
 		postUpdate(GF_Living_Ceiling, percent);
 
 end

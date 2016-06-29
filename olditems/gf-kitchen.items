@@ -33,11 +33,23 @@ Contact GF_Kitchen_Window_Left      "Kitchen Left [MAP(en.map):%s]"     (GF_Kitc
 /**************************************************************************************************
  * All the lights and dimmers
  **************************************************************************************************/
-Switch Light_GF_Kitchen_Ceiling 	"Kitchen Ceiling" 		(GF_Kitchen_Lights)
 Switch Light_GF_Kitchen_Table 		"Kitchen Table" 		(GF_Kitchen_Lights)
 
+Dimmer Light_GF_Kitchen_Ceiling 	"Kitchen Ceiling" 		(GF_Kitchen_Lights) 
+	{zwave="5:0:command=SWITCH_MULTILEVEL"}
+
+//Switch Panel_GF_Kitchen_1_off        "Kitchen Panel Button 1 Off" {zwave="11:0:command=SCENE_ACTIVATION,scene=6,state=0"}             
+
+Number Panel7_Indicator_status   {zwave="7:0:command=INDICATOR"}
+
+Switch Panel7_Btn_1 {zwave="7:0:command=SCENE_ACTIVATION,scene=1,state=1"}
+Switch Panel7_Btn_2 {zwave="7:0:command=SCENE_ACTIVATION,scene=2,state=1"}
+Switch Panel7_Btn_3 {zwave="7:0:command=SCENE_ACTIVATION,scene=3,state=1"}
+Switch Panel7_Btn_4 {zwave="7:0:command=SCENE_ACTIVATION,scene=4,state=1"}
+Switch Panel7_Btn_5 {zwave="7:0:command=SCENE_ACTIVATION,scene=5,state=1"}
 
 /* Fibaro RGBW Controller */
+/*
 Group RGB_GF_Kitchen_Island "Island LEDs" 	<colorwheel>              (GF_Kitchen)
 
 Color  RGB_GF_Kitchen_Island_Color "Color Picker"      <slider>       (AllRGBItems, RGB_GF_Kitchen_Island)
@@ -48,3 +60,5 @@ Dimmer RGB_GF_Kitchen_Island_White "White [%d %%]"     <slider>       (RGB_GF_Ki
 Dimmer RGB_GF_Kitchen_Island_Color_R "Red [%d %%]"   <switch> (AllRGBChannels) {zwave="6:3"}
 Dimmer RGB_GF_Kitchen_Island_Color_G "Green [%d %%]" <switch> (AllRGBChannels) {zwave="6:2"}
 Dimmer RGB_GF_Kitchen_Island_Color_B "Blue [%d %%]"  <switch> (AllRGBChannels) {zwave="6:4"}
+ */
+

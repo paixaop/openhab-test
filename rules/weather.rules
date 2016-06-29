@@ -7,7 +7,7 @@ var Timer timer = null
 rule "Update max and min temperatures"
 when
 	Item Weather_Temperature changed or
-	Time cron "0 0 0 * * ?" or
+	Time cron "0 0/5 * * * ?" or
 	System started
 then	
 	postUpdate(Weather_Temp_Max, Weather_Temperature.maximumSince(now.toDateMidnight).state)
