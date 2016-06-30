@@ -1,0 +1,410 @@
+/*******
+ * GYM Thermostat Items
+ */
+
+Group gGYM_HVAC "GYM Thermostat"
+Group gGYM_HVAC_INFO "Detailed Information" (gGYM_HVAC)
+
+Group gGYM_HVAC_AMBIENT_TEMPERATURE_CHART_C "GYM Temperature Chart °C"
+Group gGYM_HVAC_AMBIENT_TEMPERATURE_CHART_F "GYM Temperature Chart °F"
+
+Number GYM_HVAC_AMBIENT_TEMPERATURE_MAX_C "GYM Maximum [%.1f °C]"	<temperature> (gGYM_HVAC_AMBIENT_TEMPERATURE_CHART_C)
+Number GYM_HVAC_AMBIENT_TEMPERATURE_MIN_C "GYM Minimum [%.1f °C]"	<temperature> (gGYM_HVAC_AMBIENT_TEMPERATURE_CHART_C)
+Number GYM_HVAC_AMBIENT_TEMPERATURE_MAX_F "GYM Maximum [%.1f °F]"	<temperature> (gGYM_HVAC_AMBIENT_TEMPERATURE_CHART_F)
+Number GYM_HVAC_AMBIENT_TEMPERATURE_MIN_F "GYM Minimum [%.1f °F]"	<temperature> (gGYM_HVAC_AMBIENT_TEMPERATURE_CHART_F)
+
+Number GYM_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD "Chart Period"
+
+/**
+ * Indicates whether HVAC system is actively heating, cooling or is off.
+  * Use this value to indicate HVAC activity state.
+ * Type     string enum
+ * Values   "heating", "cooling", "off"
+ * Permissions READ
+ *      Thermostat read / v3-v4
+ *      Thermostat read/write / v3-v4
+ * Considerations
+ *      When "off", the HVAC system is not actively heating or cooling.
+ *      hvac_state is independent of fan operation.
+ */
+String GYM_HVAC_STATE "State [MAP(nest_state_en.map):%s]"
+   <climate>
+   (gGYM_HVAC)
+   {nest="<[thermostats(Gym).hvac_state]"}
+
+/**
+ * Humidity, in percent (%) format, measured at the device.
+ * Type     number
+ * Example  35, 40
+ * Permissions READ
+ *      Thermostat read / v2-v4
+ *      Thermostat read/write / v2-v4
+ * Considerations
+ *      Humidity is limited to a range of 0-100.
+ */
+Number GYM_HVAC_HUMIDITY "Humidity [%d %%]"
+    <humidity>
+    (gGYM_HVAC)
+    {nest="<[thermostats(Gym).humidity]"}
+
+/**
+ * Fahrenheit or Celsius; used with temperature display.
+ * Type     string enum
+ * Values   "F", "C"
+ * Example  "F"
+ * Permissions READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+String GYM_HVAC_TEMPERATURE_SCALE "Temperature Scale [°%s]"
+    <temperature>
+    (gGYM_HVAC_INFO)
+    {nest="<[thermostats(Gym).temperature_scale]"}
+
+/**
+ * Emergency Heat status in systems with heat pumps for cooling.
+ * Type     boolean
+ * Example  true
+ * Permissions READ
+ *      Thermostat read/write / v1-v4
+ *      For any other permission, this value cannot be accessed.
+ * Considerations
+ *      When emergency heat is on, the user can adjust the target
+ *      temperature, but cannot change the hvac_mode (Heat, Cool, Heat-Cool)
+ *      until emergency heat is turned off.
+ */
+Switch GYM_HVAC_IS_USING_EMERGENCY_HEAT "Is using emergency heat [%s]"
+    (gGYM_HVAC)
+    {nest="<[thermostats(Gym).is_using_emergency_heat]"}
+
+/**
+ * Temperature, measured at the device, in half degrees Celsius (0.5°C).
+ * hvac_mode = "heat" or "cool".
+ * Type     number
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+Number GYM_HVAC_AMBIENT_TEMPERATURE_C "Ambient Temperature [%.1f °C]"
+    <temperature>
+    (gGYM_HVAC,gGYM_HVAC_AMBIENT_TEMPERATURE_CHART_C)
+    {nest="<[thermostats(Gym).ambient_temperature_c]"}
+
+/**
+ * Temperature, measured at the device, in whole degrees Fahrenheit (1°F).
+ * hvac_mode = "heat" or "cool".
+ * Type     number
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+Number GYM_HVAC_AMBIENT_TEMPERATURE_F "Ambient Temperature [%.1f °F]"
+    <temperature>
+    (gGYM_HVAC,gGYM_HVAC_AMBIENT_TEMPERATURE_CHART_F)
+    {nest="<[thermostats(Gym).ambient_temperature_f]"}
+
+/**
+ * Maximum away temperature, displayed in half degrees Celcius (0.5°C).
+ * hvac_mode = "heat" or "cool".
+ * Type     number
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+Number GYM_HVAC_AWAY_TEMPERATURE_HIGH_C "Away Temperature High [%.1f °C]"
+    <temperature>
+    (gGYM_HVAC)
+    {nest="<[thermostats(Gym).away_temperature_high_c]"}
+
+/**
+ * Maximum away temperature, displayed in whole degrees Fahrenheit (1°F).
+ * hvac_mode = "heat" or "cool".
+ * Type     number
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+Number GYM_HVAC_AWAY_TEMPERATURE_HIGH_F "Away Temperature High [%.1f °F]"
+    <temperature>
+    (gGYM_HVAC)
+    {nest="<[thermostats(Gym).away_temperature_high_f]"}
+
+/**
+ * Minimum away temperature, displayed in half degrees Celcius (0.5°C).
+ * hvac_mode = "heat" or "cool".
+ * Type     number
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+Number GYM_HVAC_AWAY_TEMPERATURE_LOW_C "Away Temperature Low [%.1f °C]"
+    <temperature>
+    (gGYM_HVAC)
+    {nest="<[thermostats(Gym).away_temperature_low_c]"}
+
+/**
+ * Minimum away temperature, displayed in whole degrees Fahrenheit (1°F).
+ * hvac_mode = "heat" or "cool".
+ * Type     number
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+Number GYM_HVAC_AWAY_TEMPERATURE_LOW_F "Away Temperature Low [%.1f °F]"
+    <temperature>
+    (gGYM_HVAC)
+    {nest="<[thermostats(Gym).away_temperature_low_f]"}
+
+/**
+ * Timestamp of the last successful interaction with the Nest service, in ISO 8601 format.
+ * Type     String
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+DateTime GYM_HVAC_LAST_CONNECTION "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    (gGYM_HVAC)
+    {nest="<[thermostats(Gym).last_connection]"}
+
+/**
+ * Display name of the device. This data value is presented in labels in the Nest app.
+ * Type     String
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+String GYM_HVAC_NAME "Name [%s]"
+    (gGYM_HVAC_INFO)
+    {nest="<[thermostats(Gym).name]"}
+
+/**
+ * Long display name of the device. This data value is selected by the user
+ * and presented in labels in the Nest app. Learn more about where names for
+ * Nest Thermostats, Nest Protects and Nest Cams. Similar to name.
+ * Type     String
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+String GYM_HVAC_NAME_LONG "Name Long [%s]"
+    (gGYM_HVAC_INFO)
+    {nest="<[thermostats(Gym).name_long]"}
+
+/**
+ * Device connection status with the Nest Service.
+ * Type     Boolean
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+Switch GYM_HVAC_IS_ONLINE "Is Online [MAP(nest_online_en.map):%s]"
+    (gGYM_HVAC_INFO)
+    {nest="<[thermostats(Gym).is_online]"}
+
+/**
+ * Software version.
+ * Type     String
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+String GYM_HVAC_SOFTWARE_VERSION "Software Version [%s]"
+    (gGYM_HVAC_INFO)
+    {nest="<[thermostats(Gym).software_version]"}
+
+/**
+ * Desired temperature, in half degrees Celcius (0.5°C). Used when
+ * hvac_mode = "heat" or "cool".
+ * Type     number
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ * Permission WRITE
+ *      Thermostat read/write / v1-v4
+ * Considerations
+ *      Target temperature is limited to a range of 9 - 32°F.
+ */
+Number GYM_HVAC_TARGET_TEMPERATURE_C "Target Temperature [%.1f °C]"
+    <temperature>
+    (gGYM_HVAC)
+    {nest="=[thermostats(Gym).target_temperature_c]"}
+/**
+ * Desired temperature, in full degrees Fahrenheit (1°F). Used when
+ * hvac_mode = "heat" or "cool".
+ * Type     number
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ * Permission WRITE
+ *      Thermostat read/write / v1-v4
+ * Considerations
+ *      Target temperature is limited to a range of 50 - 90°F.
+ */
+Number GYM_HVAC_TARGET_TEMPERATURE_F "Target Temperature [%.1f °F]"
+    <temperature>
+    (gGYM_HVAC)
+    {nest="=[thermostats(Gym).target_temperature_f]"}
+
+/**
+ * Maximum target temperature, displayed in half degrees Celcius (0.5°C).
+ * Used when hvac_mode = "heat-cool" (Heat-Cool mode).
+ * Type     number
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ * Permission WRITE
+ *      Thermostat read/write / v1-v4
+ */
+Number GYM_HVAC_TARGET_TEMPERATURE_HIGH_C "Target Temperature High [%.1f °C]"
+    <temperature>
+    (gGYM_HVAC)
+    {nest="=[thermostats(Gym).target_temperature_high_c]"}
+
+/**
+ * Maximum target temperature, displayed in whole degrees Fahrenheit (1°F).
+ * Used when hvac_mode = "heat-cool" (Heat-Cool mode).
+ * Type     number
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ * Permission WRITE
+ *      Thermostat read/write / v1-v4
+ */
+Number GYM_HVAC_TARGET_TEMPERATURE_HIGH_F "Target Temperature High [%.1f °F]"
+    <temperature>
+    (gGYM_HVAC)
+    {nest="=[thermostats(Gym).target_temperature_high_f]"}
+
+/**
+ * Minimum target temperature, displayed in half degrees Celcius (0.5°C).
+ * Used when hvac_mode = "heat-cool" (Heat-Cool mode).
+ * Type     number
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ * Permission WRITE
+ *      Thermostat read/write / v1-v4
+ */
+Number GYM_HVAC_TARGET_TEMPERATURE_LOW_C "Target Temperature Low [%.1f °C]"
+    <temperature>
+    (gGYM_HVAC)
+    {nest="=[thermostats(Gym).target_temperature_low_c]"}
+
+/**
+ * Minimum target temperature, displayed in whole degrees Fahrenheit (1°F).
+ * Used when hvac_mode = "heat-cool" (Heat-Cool mode).
+ * Type     number
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ * Permission WRITE
+ *      Thermostat read/write / v1-v4
+ */
+Number GYM_HVAC_TARGET_TEMPERATURE_LOW_F "Target Temperature Low [%.1f °F]"
+    <temperature>
+    (gGYM_HVAC)
+    {nest="=[thermostats(Gym).target_temperature_low_f]"}
+
+/**
+ * Indicates HVAC system heating/cooling modes.
+ * For systems with both heating and cooling capability, set this value to "heat-cool"
+ * to get the best experience.
+ * Heat-Cool Mode switches automatically between heating and cooling to
+ * keep the temperature within your preferred range. This is useful for climates
+ * that consistently require both heating and cooling in the same day. For example,
+ * if you’re living in a desert climate and require cooling during the day and
+ * heating at night.
+ *
+ * Type     string enum
+ * Values   "heat", "cool", "heat-cool", "off"
+ * Example  "heat-cool"
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ * Permission WRITE
+ *      Thermostat read/write / v1-v4
+ *
+ * Considerations
+ *      When hvac_mode="off", then target_temperature_f and target_temperature_c cannot be changed.
+ */
+String GYM_HVAC_MODE "HVAC Mode [MAP(nest_mode_en.map):%s]"
+    <climate>
+    (gGYM_HVAC_INFO)
+    {nest="=[thermostats(Gym).hvac_mode]"}
+
+/**
+ * System ability to heat
+ * Type     boolean
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+Switch GYM_HVAC_CAN_HEAT "Can Heat [MAP(nest_bool_en.map):%s]"
+    (gGYM_HVAC_INFO)
+    {nest="<[thermostats(Gym).can_heat]"}
+
+/**
+ * System ability to cool (has AC).
+ * Type     boolean
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+Switch GYM_HVAC_CAN_COOL "Can Cool [MAP(nest_bool_en.map):%s]"
+    (gGYM_HVAC_INFO)
+    {nest="<[thermostats(Gym).can_cool]"}
+/**
+ * System ability to control the fan independently from heating or cooling.
+ * Type     boolean
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+Switch GYM_HVAC_HAS_FAN "Has Fan [MAP(nest_bool_en.map):%s]"
+    (gGYM_HVAC_INFO)
+    {nest="<[thermostats(Gym).has_fan]"}
+
+/**
+ * Displayed when the thermostat is set to an energy-saving temperature.
+ *
+ * Read
+ * Type     boolean
+ * Permission READ
+ *      Thermostat read / v1-v4
+ *      Thermostat read/write / v1-v4
+ */
+Switch GYM_HVAC_HAS_LEAF "Has Leaf [MAP(nest_bool_en.map):%s]"
+    (gGYM_HVAC_INFO)
+    {nest="<[thermostats(Gym).has_leaf]"}
+
+/**
+ * Indicates if the fan timer is engaged; used with 'fan_timer_timeout'
+ * to turn on the fan for a (user-specified) preset duration
+ *
+ * Value: boolean
+ *     true: Fan timer is active
+ *     false: Fan timer is not active
+ *
+ * Permissions: Write
+ */
+Switch GYM_HVAC_FAN_TIMER_ACTIVE "Fan Timer Active [MAP(nest_bool_en.map):%s]"
+    (gGYM_HVAC_INFO)
+    {nest="=[thermostats(Gym).fan_timer_active]"}
+
+/**
+ * Timestamp, showing when the fan timer reaches 0 (end of timer duration),
+ * in ISO 8601 format
+ *
+ * Value: String
+ * Permissions: Read
+ */
+DateTime GYM_HVAC_FAN_TIMER_TIMEOUT "Fan Timer Timeout [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    (gGYM_HVAC)
+    {nest="<[thermostats(Gym).fan_timer_timeout]"}
+
+// Nest API: Read Only
+String GYM_HVAC_LOCALE "Locale [%s]"
+    (gGYM_HVAC_INFO)
+    {nest="<[thermostats(Gym).locale]"}

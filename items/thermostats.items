@@ -1,0 +1,22 @@
+/**
+ * Indicates the state of the structure.
+ * In order for a structure to be in the Auto-Away state, all devices must
+ * also be in Auto-Away state. When any device leaves the Auto-Away state,
+ * then the structure also leaves the Auto-Away state.
+ *
+ * Type 	string
+ * Values 	"home", "away", "auto-away"
+ * Example 	"home"
+ * Permissions READ
+ * 		Thermostat read / v1-v4
+ * 		Thermostat read/write / v1-v4
+ * 		Smoke+CO read / v1-v4
+ *		Away read / v1-v2
+ *		Away read/write / v1-v2
+ * Permissions WRITE
+ *		Away read/write / v1-v2
+ */
+String HOME_AWAY "Home [%s]" <present> { nest="=[structures(Home).away]" }
+String GYM_AWAY "Gym [%s]" <present> { nest="=[structures(Home).away]" }
+
+// Individual thermostats in their own files

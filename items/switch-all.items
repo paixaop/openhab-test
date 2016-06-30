@@ -1,0 +1,11 @@
+/**
+ * Z-Wave Switch All On of All Off
+ * When user toggles this switch a All On or All Off message will be sent to ALL
+ * Z-Wave nodes that support the Switch All Command Class
+ *
+ * The node ID used in the zwave binding MUST be the ID of any one node that
+ * supports the SwithAll command class.
+ * Usually devices such as dimmers or regular wall switches will support the
+ * Z-Wave Switch All command class
+ */
+Switch AllOnOff "All On/Off" {zwave="1:command=SWITCH_ALL"}

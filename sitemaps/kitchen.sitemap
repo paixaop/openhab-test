@@ -1,0 +1,10 @@
+sitemap Kitchen label="Kitchen"
+{
+	Frame {
+		Switch item=Light_GF_Kitchen_Ceiling label="Ceiling"
+		Switch item=Light_GF_Kitchen_Table label="Table"
+		Slider item=RGB_GF_Kitchen_Island_White label="Sofit"
+		Selection item=GF_Living_Scene label="Scene Selection" mappings=[0=off, 1=TV, 2=Dinner, 3=Party]
+		Switch item=GF_Living_Scene label="Scene" mappings=[1=TV, 2=Dinner, 3=Party]
+	}    
+}

@@ -3,14 +3,51 @@ import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 import org.joda.time.DateTime
 
+import org.openhab.core.library.types.DecimalType
+
+rule "Corridor 1 sofit scene"
+when
+	Item CORRIDOR1_SOFIT_1_LDIM received command or
+	Item CORRIDOR1_SOFIT_2_LDIM received command or
+	Item CORRIDOR1_SOFIT_3_LDIM received command or
+	Item CORRIDOR1_SOFIT_4_LDIM received command
+then
+	 var onItems = CORRIDOR1_SOFITS.members.filter(x|x.state == ON)
+     onItems.forEach [ sensor |
+end
+
+
+rule "BedLight"
+	when
+		Item GF_Living_Ceiling received command
+	then
+	    var Number percent = 0
+		if(GF_Living_Ceiling.state instanceof DecimalType) {
+			percent = GF_Living_Ceiling.state as DecimalType
+		}
+
+		if(receivedCommand==INCREASE) percent = percent + 5
+		if(receivedCommand==DECREASE) percent = percent - 5
+		if(receivedCommand==OFF) percent = 0
+		if(receivedCommand==ON) percent = 100
+
+		if(percent<0)   percent = 0
+		if(percent>100) percent = 100
+
+		//we scale decimally, not hexadicimal!
+		//sendCommand(RGB_GF_Kitchen_Island_All, percent)
+		postUpdate(GF_Living_Ceiling, percent);
+
+end
+
 var DateTime lastTap_Light_GF_Kitchen_Ceiling = new DateTime()
 val int ignoreDoubleTapInterval = 1
 
 val org.eclipse.xtext.xbase.lib.Functions$Function2 indicator = [
 	String itemName,
 	int mask |
-	
-	
+
+
 ]
 
 rule "Toggle Kitchen Ceiling"
@@ -18,7 +55,7 @@ when
 	Item Panel7_Btn_1 received update
 then
 	if (now.isAfter(lastTap_Light_GF_Kitchen_Ceiling.plusSeconds(ignoreDoubleTapInterval)))
-    {    
+    {
        	if( Light_GF_Kitchen_Ceiling.state == ON) {
        		logInfo("SCENES", "Panel-7 1 Trigger  ON ---> OFF")
 			sendCommand(Light_GF_Kitchen_Ceiling,OFF)
@@ -44,9 +81,9 @@ then
 		sendCommand(Panel7_Indicator_status, 0x00)
     }
 	var Integer state = (Panel7_Indicator_status.state as DecimalType).intValue
-	
+
 	if( Light_GF_Kitchen_Ceiling.state == OFF) {
-		sendCommand(Panel7_Indicator_status,state.bitwiseAnd(0xFB))	
+		sendCommand(Panel7_Indicator_status,state.bitwiseAnd(0xFB))
 	}
 	else {
 		sendCommand(Panel7_Indicator_status,state.bitwiseOr(0x04))
@@ -66,16 +103,16 @@ then
 	var Integer pState = (previousState as DecimalType).intValue
 	var int button = 0
     var int mask
-    
+
     logInfo("IndicatorReport", "Indicator State: {}", state);
-	
+
 	if( state.bitwiseAnd(0x01) == 0x01 ) {
 		logInfo("IndicatorReport", "Privacy Button on");
 	}
 	if( state.bitwiseAnd(0x02) == 0x02 ) {
 		logInfo("IndicatorReport", "House Keeping Button on");
 	}
-	
+
 	button = 1
 	mask = 0x04
 	if( state.bitwiseAnd(mask) == mask ) {
@@ -85,7 +122,7 @@ then
 		else {
 			logInfo("IndicatorReport", "Button {} is on", button);
 		}
-	} 
+	}
 	else {
 		if( pState.bitwiseAnd(mask) == mask ) {
 			logInfo("IndicatorReport", "Button {} turned off", button);
@@ -94,7 +131,7 @@ then
 			logInfo("IndicatorReport", "Button {} is off", button);
 		}
 	}
-	
+
 	button = 2
 	mask = 0x08
 	if( state.bitwiseAnd(mask) == mask ) {
@@ -104,7 +141,7 @@ then
 		else {
 			logInfo("IndicatorReport", "Button {} is on", button);
 		}
-	} 
+	}
 	else {
 		if( pState.bitwiseAnd(mask) == mask ) {
 			logInfo("IndicatorReport", "Button {} turned off", button);
@@ -113,7 +150,7 @@ then
 			logInfo("IndicatorReport", "Button {} is off", button);
 		}
 	}
-	
+
 	button = 3
 	mask = 0x10
 	if( state.bitwiseAnd(mask) == mask ) {
@@ -123,7 +160,7 @@ then
 		else {
 			logInfo("IndicatorReport", "Button {} is on", button);
 		}
-	} 
+	}
 	else {
 		if( pState.bitwiseAnd(mask) == mask ) {
 			logInfo("IndicatorReport", "Button {} turned off", button);
@@ -132,7 +169,7 @@ then
 			logInfo("IndicatorReport", "Button {} is off", button);
 		}
 	}
-	
+
 	button = 4
 	mask = 0x20
 	if( state.bitwiseAnd(mask) == mask ) {
@@ -142,7 +179,7 @@ then
 		else {
 			logInfo("IndicatorReport", "Button {} is on", button);
 		}
-	} 
+	}
 	else {
 		if( pState.bitwiseAnd(mask) == mask ) {
 			logInfo("IndicatorReport", "Button {} turned off", button);
@@ -151,7 +188,7 @@ then
 			logInfo("IndicatorReport", "Button {} is off", button);
 		}
 	}
-	
+
 	button = 5
 	mask = 0x40
 	if( state.bitwiseAnd(mask) == mask ) {
@@ -161,7 +198,7 @@ then
 		else {
 			logInfo("IndicatorReport", "Button {} is on", button);
 		}
-	} 
+	}
 	else {
 		if( pState.bitwiseAnd(mask) == mask ) {
 			logInfo("IndicatorReport", "Button {} turned off", button);
@@ -170,7 +207,7 @@ then
 			logInfo("IndicatorReport", "Button {} is off", button);
 		}
 	}
-	
+
 end
 
 rule "Activate Scene TV LivingRoom"
@@ -206,14 +243,14 @@ rule "BedLight"
 	then
 	    var Number percent = 0
 		if(GF_Living_Ceiling.state instanceof DecimalType) {
-			percent = GF_Living_Ceiling.state as DecimalType	
+			percent = GF_Living_Ceiling.state as DecimalType
 		}
-		 
+
 		if(receivedCommand==INCREASE) percent = percent + 5
 		if(receivedCommand==DECREASE) percent = percent - 5
-		if(receivedCommand==OFF) percent = 0	
-		if(receivedCommand==ON) percent = 100		
-		
+		if(receivedCommand==OFF) percent = 0
+		if(receivedCommand==ON) percent = 100
+
 		if(percent<0)   percent = 0
 		if(percent>100) percent = 100
 

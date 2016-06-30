@@ -1,5 +1,35 @@
 // Group for all networked devices
 Group Network "Network" <net> (All)
 
-Switch Network_Internet   "Internet"   (Status, Network)   { nh="google.com:80" }
-Switch Network_Firewall   "Firewall"   (Status, Network)   { nh="192.168.32.253:443" }
+Switch Network_Internet "Internet"
+    (Status, Network)
+    { nh="google.com:80" }
+
+Switch Network_Firewall "Firewall"
+    (Status, Network)
+    { nh="fw.home:443" }
+
+Switch Network_FortiVoice "Phone System"
+    (Status, Network)
+    { nh="phone.home:443" }
+
+Switch Network_Wifi "Wifi Controller"
+    (Status, Network)
+    { nh="wifi.home:443" }
+
+Switch Network_SW1 "Switch 1"
+    (Status, Network)
+    { nh="sw1.home:443" }
+
+Switch Network_SW2 "Switch 2"
+    (Status, Network)
+    { nh="sw2.home:443" }
+
+Switch Network_FortiRecorder "FortiRecorder"
+    (Status, Network)
+    { nh="cam.home:443" }
+
+Switch Network_FortiAnalyzer "FortiAnalyzer"
+    (Status, Network)
+    { nh="log.home:443" }
+

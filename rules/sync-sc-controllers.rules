@@ -1,0 +1,44 @@
+
+/**
+ * Set state of all members of an Item group to either ON or OFF
+ * based on the state of another Item
+ *
+ * @param item which state should be copied to all group members
+ * @param group of Items to sync
+ */
+val org.eclipse.xtext.xbase.lib.Functions$Function2 syncSwitchGroup = [
+	org.openhab.core.items.GenericItem item,
+	org.openhab.core.items.GroupItem group |
+
+    var Number percent
+    if( item.state instanceof org.openhab.core.library.types.DecimalType) {
+        percent = item.state as org.openhab.core.library.types.DecimalType
+    }
+    else {
+    	if( item.state == ON) {
+    		percent = 100
+    	}
+    	else if( item.state == OFF ) {
+    		percent = 0
+    	}
+    	else {
+    		return null
+    	}
+    }
+    sendCommand(group, percent)
+    if( percent == 0 ) {
+        sendCommand(group, OFF)
+    }
+    else {
+        sendCommand(group, ON)
+    }
+]
+
+
+rule "Sync Corridor 1 Ceiling Indicators"
+when
+	Item CORRIDOR1_CEILING_DIM changed
+then
+    syncSwitchGroup.apply(CORRIDOR1_CEILING_DIM, gCORRIDOR1_CEILING_IND)
+end
+
