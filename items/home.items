@@ -1,258 +1,331 @@
-// 5 button Scene Controllers
-Group (ENTRY_SC1_GRP) "Entry SC1" <scicon> (gGF)
+/****
+ * Main Home Items
+ */
+
+ // Scene Controllers
+Group SCENE_CONTROLLERS "Scene Controllers" <info> (All)
 
 // Location: Main door
-Group ENTRY_SC1_GRP "Entry SC1" <video> (SC_GRP)
-Dimmer ENTRY_SC1 "Entry SC1" (ENTRY_SC1_GRP) {zwave="2:0:command=SWITCH_MULTILEVEL"}
-Switch ENTRY_SC1_BTN_1i "Entry SC1 Button 1 Indicator" (ENTRY_SC1_GRP) {zwave="2:0:command=INDICATOR, bit=0"}
-Switch ENTRY_SC1_BTN_2i "Entry SC1 Button 2 Indicator" (ENTRY_SC1_GRP) {zwave="2:0:command=INDICATOR, bit=1"}
-Switch ENTRY_SC1_BTN_3i "Entry SC1 Button 3 Indicator" (ENTRY_SC1_GRP) {zwave="2:0:command=INDICATOR, bit=2"}
-Switch ENTRY_SC1_BTN_4i "Entry SC1 Button 4 Indicator" (ENTRY_SC1_GRP) {zwave="2:0:command=INDICATOR, bit=3"}
-Switch ENTRY_SC1_BTN_5i "Entry SC1 Button 5 Indicator" (ENTRY_SC1_GRP) {zwave="2:0:command=INDICATOR, bit=4"}
-Switch ENTRY_SC1_BTN_1s "Entry SC1 Button 1 Scene" (ENTRY_SC1_GRP) {zwave="2:0:command=SCENE_ACTIVATION, scene=0"}
-Switch ENTRY_SC1_BTN_2s "Entry SC1 Button 2 Scene" (ENTRY_SC1_GRP) {zwave="2:0:command=SCENE_ACTIVATION, scene=0"}
-Switch ENTRY_SC1_BTN_3s "Entry SC1 Button 3 Scene" (ENTRY_SC1_GRP) {zwave="2:0:command=SCENE_ACTIVATION, scene=0"}
-Switch ENTRY_SC1_BTN_4s "Entry SC1 Button 4 Scene" (ENTRY_SC1_GRP) {zwave="2:0:command=SCENE_ACTIVATION, scene=0"}
-Switch ENTRY_SC1_BTN_5s "Entry SC1 Button 5 Scene" (ENTRY_SC1_GRP) {zwave="2:0:command=SCENE_ACTIVATION, scene=0"}
+Group FOYER_SC1 "FOYER SC1" <video> (SCENE_CONTROLLERS)
+Dimmer FOYER_SC1_DIM "FOYER SC1" (FOYER_SC1) {zwave="2:0:command=SWITCH_MULTILEVEL"}
+Switch FOYER_SC1_BTN_1i "FOYER SC1 Button 1 Indicator" (FOYER_SC1) {zwave="2:0:command=INDICATOR, bit=0"}
+Switch FOYER_SC1_BTN_2i "FOYER SC1 Button 2 Indicator" (FOYER_SC1) {zwave="2:0:command=INDICATOR, bit=1"}
+Switch FOYER_SC1_BTN_3i "FOYER SC1 Button 3 Indicator" (FOYER_SC1) {zwave="2:0:command=INDICATOR, bit=2"}
+Switch FOYER_SC1_BTN_4i "FOYER SC1 Button 4 Indicator" (FOYER_SC1) {zwave="2:0:command=INDICATOR, bit=3"}
+Switch FOYER_SC1_BTN_5i "FOYER SC1 Button 5 Indicator" (FOYER_SC1) {zwave="2:0:command=INDICATOR, bit=4"}
+/*
+Switch FOYER_SC1_BTN_1s "FOYER SC1 Button 1 Scene" (FOYER_SC1) {zwave="2:0:command=SCENE_ACTIVATION, scene=0"}
+Switch FOYER_SC1_BTN_2s "FOYER SC1 Button 2 Scene" (FOYER_SC1) {zwave="2:0:command=SCENE_ACTIVATION, scene=0"}
+Switch FOYER_SC1_BTN_3s "FOYER SC1 Button 3 Scene" (FOYER_SC1) {zwave="2:0:command=SCENE_ACTIVATION, scene=0"}
+Switch FOYER_SC1_BTN_4s "FOYER SC1 Button 4 Scene" (FOYER_SC1) {zwave="2:0:command=SCENE_ACTIVATION, scene=0"}
+Switch FOYER_SC1_BTN_5s "FOYER SC1 Button 5 Scene" (FOYER_SC1) {zwave="2:0:command=SCENE_ACTIVATION, scene=0"}
+*/
+
+Group FOYER_SC2 "FOYER SC2" <video> (SCENE_CONTROLLERS)
+Dimmer FOYER_SC2_DIM "FOYER SC2" (FOYER_SC2) {zwave="3:0:command=SWITCH_MULTILEVEL"}
+Switch FOYER_SC2_BTN_1i "FOYER SC2 Button 1 Indicator" (FOYER_SC2) {zwave="3:0:command=INDICATOR, bit=0"}
+Switch FOYER_SC2_BTN_2i "FOYER SC2 Button 2 Indicator" (FOYER_SC2) {zwave="3:0:command=INDICATOR, bit=1"}
+Switch FOYER_SC2_BTN_3i "FOYER SC2 Button 3 Indicator" (FOYER_SC2) {zwave="3:0:command=INDICATOR, bit=2"}
+Switch FOYER_SC2_BTN_4i "FOYER SC2 Button 4 Indicator" (FOYER_SC2) {zwave="3:0:command=INDICATOR, bit=3"}
+Switch FOYER_SC2_BTN_5i "FOYER SC2 Button 5 Indicator" (FOYER_SC2) {zwave="3:0:command=INDICATOR, bit=4"}
+/*
+Switch FOYER_SC2_BTN_1s "FOYER SC2 Button 1 Scene" (FOYER_SC2) {zwave="3:0:command=SCENE_ACTIVATION, scene=0"}
+Switch FOYER_SC2_BTN_2s "FOYER SC2 Button 2 Scene" (FOYER_SC2) {zwave="3:0:command=SCENE_ACTIVATION, scene=0"}
+Switch FOYER_SC2_BTN_3s "FOYER SC2 Button 3 Scene" (FOYER_SC2) {zwave="3:0:command=SCENE_ACTIVATION, scene=0"}
+Switch FOYER_SC2_BTN_4s "FOYER SC2 Button 4 Scene" (FOYER_SC2) {zwave="3:0:command=SCENE_ACTIVATION, scene=0"}
+Switch FOYER_SC2_BTN_5s "FOYER SC2 Button 5 Scene" (FOYER_SC2) {zwave="3:0:command=SCENE_ACTIVATION, scene=0"}
+*/
+
+Group KITCHEN_DINING_SC "Kitchen 1" <video> (SCENE_CONTROLLERS)
+Dimmer KITCHEN_DINING_SC_DIM "Kitchen 1" (KITCHEN_DINING_SC) {zwave="5:0:command=SWITCH_MULTILEVEL"}
+Switch KITCHEN_DINING_SC_BTN_1i "Kitchen 1 Button 1 Indicator" (KITCHEN_DINING_SC) {zwave="5:0:command=INDICATOR, bit=0"}
+Switch KITCHEN_DINING_SC_BTN_2i "Kitchen 1 Button 2 Indicator" (KITCHEN_DINING_SC) {zwave="5:0:command=INDICATOR, bit=1"}
+Switch KITCHEN_DINING_SC_BTN_3i "Kitchen 1 Button 3 Indicator" (KITCHEN_DINING_SC) {zwave="5:0:command=INDICATOR, bit=2"}
+Switch KITCHEN_DINING_SC_BTN_4i "Kitchen 1 Button 4 Indicator" (KITCHEN_DINING_SC) {zwave="5:0:command=INDICATOR, bit=3"}
+Switch KITCHEN_DINING_SC_BTN_5i "Kitchen 1 Button 5 Indicator" (KITCHEN_DINING_SC) {zwave="5:0:command=INDICATOR, bit=4"}
+/*
+Switch KITCHEN_DINING_SC_BTN_1s "Kitchen 1 Button 1 Scene" (KITCHEN_DINING_SC) {zwave="5:0:command=SCENE_ACTIVATION, scene=0"}
+Switch KITCHEN_DINING_SC_BTN_2s "Kitchen 1 Button 2 Scene" (KITCHEN_DINING_SC) {zwave="5:0:command=SCENE_ACTIVATION, scene=0"}
+Switch KITCHEN_DINING_SC_BTN_3s "Kitchen 1 Button 3 Scene" (KITCHEN_DINING_SC) {zwave="5:0:command=SCENE_ACTIVATION, scene=0"}
+Switch KITCHEN_DINING_SC_BTN_4s "Kitchen 1 Button 4 Scene" (KITCHEN_DINING_SC) {zwave="5:0:command=SCENE_ACTIVATION, scene=0"}
+Switch KITCHEN_DINING_SC_BTN_5s "Kitchen 1 Button 5 Scene" (KITCHEN_DINING_SC) {zwave="5:0:command=SCENE_ACTIVATION, scene=0"}
+*/
+
+Group KITCHEN_FAMILY_SC "Kitchen 2" <video> (SCENE_CONTROLLERS)
+Dimmer KITCHEN_FAMILY_SC_DIM "Kitchen 2" (KITCHEN_FAMILY_SC) {zwave="6:0:command=SWITCH_MULTILEVEL"}
+Switch KITCHEN_FAMILY_SC_BTN_1i "Kitchen 2 Button 1 Indicator" (KITCHEN_FAMILY_SC) {zwave="6:0:command=INDICATOR, bit=0"}
+Switch KITCHEN_FAMILY_SC_BTN_2i "Kitchen 2 Button 2 Indicator" (KITCHEN_FAMILY_SC) {zwave="6:0:command=INDICATOR, bit=1"}
+Switch KITCHEN_FAMILY_SC_BTN_3i "Kitchen 2 Button 3 Indicator" (KITCHEN_FAMILY_SC) {zwave="6:0:command=INDICATOR, bit=2"}
+Switch KITCHEN_FAMILY_SC_BTN_4i "Kitchen 2 Button 4 Indicator" (KITCHEN_FAMILY_SC) {zwave="6:0:command=INDICATOR, bit=3"}
+Switch KITCHEN_FAMILY_SC_BTN_5i "Kitchen 2 Button 5 Indicator" (KITCHEN_FAMILY_SC) {zwave="6:0:command=INDICATOR, bit=4"}
+/*
+Switch KITCHEN_FAMILY_SC_BTN_1s "Kitchen 2 Button 1 Scene" (KITCHEN_FAMILY_SC) {zwave="6:0:command=SCENE_ACTIVATION, scene=0"}
+Switch KITCHEN_FAMILY_SC_BTN_2s "Kitchen 2 Button 2 Scene" (KITCHEN_FAMILY_SC) {zwave="6:0:command=SCENE_ACTIVATION, scene=0"}
+Switch KITCHEN_FAMILY_SC_BTN_3s "Kitchen 2 Button 3 Scene" (KITCHEN_FAMILY_SC) {zwave="6:0:command=SCENE_ACTIVATION, scene=0"}
+Switch KITCHEN_FAMILY_SC_BTN_4s "Kitchen 2 Button 4 Scene" (KITCHEN_FAMILY_SC) {zwave="6:0:command=SCENE_ACTIVATION, scene=0"}
+Switch KITCHEN_FAMILY_SC_BTN_5s "Kitchen 2 Button 5 Scene" (KITCHEN_FAMILY_SC) {zwave="6:0:command=SCENE_ACTIVATION, scene=0"}
+*/
+
+Group KITCHEN_LIVING_SC "Kitchen 3" <video> (SCENE_CONTROLLERS)
+Dimmer KITCHEN_LIVING_SC_DIM "Kitchen 3" (KITCHEN_LIVING_SC) {zwave="7:0:command=SWITCH_MULTILEVEL"}
+Switch KITCHEN_LIVING_SC_BTN_1i "Kitchen 3 Button 1 Indicator" (KITCHEN_LIVING_SC) {zwave="7:0:command=INDICATOR, bit=0"}
+Switch KITCHEN_LIVING_SC_BTN_2i "Kitchen 3 Button 2 Indicator" (KITCHEN_LIVING_SC) {zwave="7:0:command=INDICATOR, bit=1"}
+Switch KITCHEN_LIVING_SC_BTN_3i "Kitchen 3 Button 3 Indicator" (KITCHEN_LIVING_SC) {zwave="7:0:command=INDICATOR, bit=2"}
+Switch KITCHEN_LIVING_SC_BTN_4i "Kitchen 3 Button 4 Indicator" (KITCHEN_LIVING_SC) {zwave="7:0:command=INDICATOR, bit=3"}
+Switch KITCHEN_LIVING_SC_BTN_5i "Kitchen 3 Button 5 Indicator" (KITCHEN_LIVING_SC) {zwave="7:0:command=INDICATOR, bit=4"}
+/*
+Switch KITCHEN_LIVING_SC_BTN_1s "Kitchen 3 Button 1 Scene" (KITCHEN_LIVING_SC) {zwave="7:0:command=SCENE_ACTIVATION, scene=0"}
+Switch KITCHEN_LIVING_SC_BTN_2s "Kitchen 3 Button 2 Scene" (KITCHEN_LIVING_SC) {zwave="7:0:command=SCENE_ACTIVATION, scene=0"}
+Switch KITCHEN_LIVING_SC_BTN_3s "Kitchen 3 Button 3 Scene" (KITCHEN_LIVING_SC) {zwave="7:0:command=SCENE_ACTIVATION, scene=0"}
+Switch KITCHEN_LIVING_SC_BTN_4s "Kitchen 3 Button 4 Scene" (KITCHEN_LIVING_SC) {zwave="7:0:command=SCENE_ACTIVATION, scene=0"}
+Switch KITCHEN_LIVING_SC_BTN_5s "Kitchen 3 Button 5 Scene" (KITCHEN_LIVING_SC) {zwave="7:0:command=SCENE_ACTIVATION, scene=0"}
+*/
+
+Group C1_DINING_SC "C1 Dining SC" <video> (SCENE_CONTROLLERS)
+Dimmer C1_DINING_SC_DIM "C1 Dining SC" (C1_DINING_SC) {zwave="11:0:command=SWITCH_MULTILEVEL"}
+Switch C1_DINING_SC_BTN_1i "C1 Dining SC Button 1 Indicator" (C1_DINING_SC) {zwave="11:0:command=INDICATOR, bit=0"}
+Switch C1_DINING_SC_BTN_2i "C1 Dining SC Button 2 Indicator" (C1_DINING_SC) {zwave="11:0:command=INDICATOR, bit=1"}
+Switch C1_DINING_SC_BTN_3i "C1 Dining SC Button 3 Indicator" (C1_DINING_SC) {zwave="11:0:command=INDICATOR, bit=2"}
+Switch C1_DINING_SC_BTN_4i "C1 Dining SC Button 4 Indicator" (C1_DINING_SC) {zwave="11:0:command=INDICATOR, bit=3"}
+Switch C1_DINING_SC_BTN_5i "C1 Dining SC Button 5 Indicator" (C1_DINING_SC) {zwave="11:0:command=INDICATOR, bit=4"}
+/*
+Switch C1_DINING_SC_BTN_1s "C1 Dining SC Button 1 Scene" (C1_DINING_SC) {zwave="11:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C1_DINING_SC_BTN_2s "C1 Dining SC Button 2 Scene" (C1_DINING_SC) {zwave="11:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C1_DINING_SC_BTN_3s "C1 Dining SC Button 3 Scene" (C1_DINING_SC) {zwave="11:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C1_DINING_SC_BTN_4s "C1 Dining SC Button 4 Scene" (C1_DINING_SC) {zwave="11:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C1_DINING_SC_BTN_5s "C1 Dining SC Button 5 Scene" (C1_DINING_SC) {zwave="11:0:command=SCENE_ACTIVATION, scene=0"}
+*/
 
 
-Group ENTRY_SC2_GRP "Entry SC2" <video> (SC_GRP)
-Dimmer ENTRY_SC2 "Entry SC2" (ENTRY_SC2_GRP) {zwave="3:0:command=SWITCH_MULTILEVEL"}
-Switch ENTRY_SC2_BTN_1i "Entry SC2 Button 1 Indicator" (ENTRY_SC2_GRP) {zwave="3:0:command=INDICATOR, bit=0"}
-Switch ENTRY_SC2_BTN_2i "Entry SC2 Button 2 Indicator" (ENTRY_SC2_GRP) {zwave="3:0:command=INDICATOR, bit=1"}
-Switch ENTRY_SC2_BTN_3i "Entry SC2 Button 3 Indicator" (ENTRY_SC2_GRP) {zwave="3:0:command=INDICATOR, bit=2"}
-Switch ENTRY_SC2_BTN_4i "Entry SC2 Button 4 Indicator" (ENTRY_SC2_GRP) {zwave="3:0:command=INDICATOR, bit=3"}
-Switch ENTRY_SC2_BTN_5i "Entry SC2 Button 5 Indicator" (ENTRY_SC2_GRP) {zwave="3:0:command=INDICATOR, bit=4"}
-Switch ENTRY_SC2_BTN_1s "Entry SC2 Button 1 Scene" (ENTRY_SC2_GRP) {zwave="3:0:command=SCENE_ACTIVATION, scene=0"}
-Switch ENTRY_SC2_BTN_2s "Entry SC2 Button 2 Scene" (ENTRY_SC2_GRP) {zwave="3:0:command=SCENE_ACTIVATION, scene=0"}
-Switch ENTRY_SC2_BTN_3s "Entry SC2 Button 3 Scene" (ENTRY_SC2_GRP) {zwave="3:0:command=SCENE_ACTIVATION, scene=0"}
-Switch ENTRY_SC2_BTN_4s "Entry SC2 Button 4 Scene" (ENTRY_SC2_GRP) {zwave="3:0:command=SCENE_ACTIVATION, scene=0"}
-Switch ENTRY_SC2_BTN_5s "Entry SC2 Button 5 Scene" (ENTRY_SC2_GRP) {zwave="3:0:command=SCENE_ACTIVATION, scene=0"}
+Group C1_FAMILY_SC "C1 Family SC" <video> (SCENE_CONTROLLERS)
+Dimmer C1_FAMILY_SC_DIM "C1 Family SC" (C1_FAMILY_SC) {zwave="12:0:command=SWITCH_MULTILEVEL"}
+Switch C1_FAMILY_SC_BTN_1i "C1 Family SC Button 1 Indicator" (C1_FAMILY_SC) {zwave="12:0:command=INDICATOR, bit=0"}
+Switch C1_FAMILY_SC_BTN_2i "C1 Family SC Button 2 Indicator" (C1_FAMILY_SC) {zwave="12:0:command=INDICATOR, bit=1"}
+Switch C1_FAMILY_SC_BTN_3i "C1 Family SC Button 3 Indicator" (C1_FAMILY_SC) {zwave="12:0:command=INDICATOR, bit=2"}
+Switch C1_FAMILY_SC_BTN_4i "C1 Family SC Button 4 Indicator" (C1_FAMILY_SC) {zwave="12:0:command=INDICATOR, bit=3"}
+Switch C1_FAMILY_SC_BTN_5i "C1 Family SC Button 5 Indicator" (C1_FAMILY_SC) {zwave="12:0:command=INDICATOR, bit=4"}
+/*
+Switch C1_FAMILY_SC_BTN_1s "C1 Family SC Button 1 Scene" (C1_FAMILY_SC) {zwave="12:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C1_FAMILY_SC_BTN_2s "C1 Family SC Button 2 Scene" (C1_FAMILY_SC) {zwave="12:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C1_FAMILY_SC_BTN_3s "C1 Family SC Button 3 Scene" (C1_FAMILY_SC) {zwave="12:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C1_FAMILY_SC_BTN_4s "C1 Family SC Button 4 Scene" (C1_FAMILY_SC) {zwave="12:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C1_FAMILY_SC_BTN_5s "C1 Family SC Button 5 Scene" (C1_FAMILY_SC) {zwave="12:0:command=SCENE_ACTIVATION, scene=0"}
+*/
+
+Group C1_LAUNDRY_SC "C1 Laundry SC" <video> (SCENE_CONTROLLERS)
+Dimmer C1_LAUNDRY_SC_DIM "C1 Laundry SC" (C1_LAUNDRY_SC) {zwave="13:0:command=SWITCH_MULTILEVEL"}
+Switch C1_LAUNDRY_SC_BTN_1i "C1 Laundry SC Button 1 Indicator" (C1_LAUNDRY_SC) {zwave="13:0:command=INDICATOR, bit=0"}
+Switch C1_LAUNDRY_SC_BTN_2i "C1 Laundry SC Button 2 Indicator" (C1_LAUNDRY_SC) {zwave="13:0:command=INDICATOR, bit=1"}
+Switch C1_LAUNDRY_SC_BTN_3i "C1 Laundry SC Button 3 Indicator" (C1_LAUNDRY_SC) {zwave="13:0:command=INDICATOR, bit=2"}
+Switch C1_LAUNDRY_SC_BTN_4i "C1 Laundry SC Button 4 Indicator" (C1_LAUNDRY_SC) {zwave="13:0:command=INDICATOR, bit=3"}
+Switch C1_LAUNDRY_SC_BTN_5i "C1 Laundry SC Button 5 Indicator" (C1_LAUNDRY_SC) {zwave="13:0:command=INDICATOR, bit=4"}
+/*
+Switch C1_LAUNDRY_SC_BTN_1s "C1 Laundry SC Button 1 Scene" (C1_LAUNDRY_SC) {zwave="13:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C1_LAUNDRY_SC_BTN_2s "C1 Laundry SC Button 2 Scene" (C1_LAUNDRY_SC) {zwave="13:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C1_LAUNDRY_SC_BTN_3s "C1 Laundry SC Button 3 Scene" (C1_LAUNDRY_SC) {zwave="13:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C1_LAUNDRY_SC_BTN_4s "C1 Laundry SC Button 4 Scene" (C1_LAUNDRY_SC) {zwave="13:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C1_LAUNDRY_SC_BTN_5s "C1 Laundry SC Button 5 Scene" (C1_LAUNDRY_SC) {zwave="13:0:command=SCENE_ACTIVATION, scene=0"}
+*/
+
+Group C2_2_SC "C2 2 SC" <video> (SCENE_CONTROLLERS)
+Dimmer C2_2_SC_DIM "C2 2 SC" (C2_2_SC) {zwave="29:0:command=SWITCH_MULTILEVEL"}
+Switch C2_2_SC_BTN_1i "C2 2 SC Button 1 Indicator" (C2_2_SC) {zwave="29:0:command=INDICATOR, bit=0"}
+Switch C2_2_SC_BTN_2i "C2 2 SC Button 2 Indicator" (C2_2_SC) {zwave="29:0:command=INDICATOR, bit=1"}
+Switch C2_2_SC_BTN_3i "C2 2 SC Button 3 Indicator" (C2_2_SC) {zwave="29:0:command=INDICATOR, bit=2"}
+Switch C2_2_SC_BTN_4i "C2 2 SC Button 4 Indicator" (C2_2_SC) {zwave="29:0:command=INDICATOR, bit=3"}
+Switch C2_2_SC_BTN_5i "C2 2 SC Button 5 Indicator" (C2_2_SC) {zwave="29:0:command=INDICATOR, bit=4"}
+/*
+Switch C2_2_SC_BTN_1s "C2 2 SC Button 1 Scene" (C2_2_SC) {zwave="29:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C2_2_SC_BTN_2s "C2 2 SC Button 2 Scene" (C2_2_SC) {zwave="29:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C2_2_SC_BTN_3s "C2 2 SC Button 3 Scene" (C2_2_SC) {zwave="29:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C2_2_SC_BTN_4s "C2 2 SC Button 4 Scene" (C2_2_SC) {zwave="29:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C2_2_SC_BTN_5s "C2 2 SC Button 5 Scene" (C2_2_SC) {zwave="29:0:command=SCENE_ACTIVATION, scene=0"}
+*/
+
+Group C2_1_SC "C2 1 SC" <video> (SCENE_CONTROLLERS)
+Dimmer C2_1_SC_DIM "C2 1 SC" (C2_1_SC) {zwave="30:0:command=SWITCH_MULTILEVEL"}
+Switch C2_1_SC_BTN_1i "C2 1 SC Button 1 Indicator" (C2_1_SC) {zwave="30:0:command=INDICATOR, bit=0"}
+Switch C2_1_SC_BTN_2i "C2 1 SC Button 2 Indicator" (C2_1_SC) {zwave="30:0:command=INDICATOR, bit=1"}
+Switch C2_1_SC_BTN_3i "C2 1 SC Button 3 Indicator" (C2_1_SC) {zwave="30:0:command=INDICATOR, bit=2"}
+Switch C2_1_SC_BTN_4i "C2 1 SC Button 4 Indicator" (C2_1_SC) {zwave="30:0:command=INDICATOR, bit=3"}
+Switch C2_1_SC_BTN_5i "C2 1 SC Button 5 Indicator" (C2_1_SC) {zwave="30:0:command=INDICATOR, bit=4"}
+
+/*
+Switch C2_1_SC_BTN_1s "C2 1 SC Button 1 Scene" (C2_1_SC) {zwave="30:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C2_1_SC_BTN_2s "C2 1 SC Button 2 Scene" (C2_1_SC) {zwave="30:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C2_1_SC_BTN_3s "C2 1 SC Button 3 Scene" (C2_1_SC) {zwave="30:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C2_1_SC_BTN_4s "C2 1 SC Button 4 Scene" (C2_1_SC) {zwave="30:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C2_1_SC_BTN_5s "C2 1 SC Button 5 Scene" (C2_1_SC) {zwave="30:0:command=SCENE_ACTIVATION, scene=0"}
+*/
+
+Group C2_3_SC "C2 3 SC" <video> (SCENE_CONTROLLERS)
+Dimmer C2_3_SC_DIM "C2 3 SC" (C2_3_SC) {zwave="31:0:command=SWITCH_MULTILEVEL"}
+Switch C2_3_SC_BTN_1i "C2 3 SC Button 1 Indicator" (C2_3_SC) {zwave="31:0:command=INDICATOR, bit=0"}
+Switch C2_3_SC_BTN_2i "C2 3 SC Button 2 Indicator" (C2_3_SC) {zwave="31:0:command=INDICATOR, bit=1"}
+Switch C2_3_SC_BTN_3i "C2 3 SC Button 3 Indicator" (C2_3_SC) {zwave="31:0:command=INDICATOR, bit=2"}
+Switch C2_3_SC_BTN_4i "C2 3 SC Button 4 Indicator" (C2_3_SC) {zwave="31:0:command=INDICATOR, bit=3"}
+Switch C2_3_SC_BTN_5i "C2 3 SC Button 5 Indicator" (C2_3_SC) {zwave="31:0:command=INDICATOR, bit=4"}
+/*
+Switch C2_3_SC_BTN_1s "C2 3 SC Button 1 Scene" (C2_3_SC) {zwave="31:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C2_3_SC_BTN_2s "C2 3 SC Button 2 Scene" (C2_3_SC) {zwave="31:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C2_3_SC_BTN_3s "C2 3 SC Button 3 Scene" (C2_3_SC) {zwave="31:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C2_3_SC_BTN_4s "C2 3 SC Button 4 Scene" (C2_3_SC) {zwave="31:0:command=SCENE_ACTIVATION, scene=0"}
+Switch C2_3_SC_BTN_5s "C2 3 SC Button 5 Scene" (C2_3_SC) {zwave="31:0:command=SCENE_ACTIVATION, scene=0"}
+*/
+
+Group MASTER_HIS_SC "Master His SC" <video> (SCENE_CONTROLLERS)
+Dimmer MASTER_HIS_SC_DIM "Master His SC" (MASTER_HIS_SC) {zwave="32:0:command=SWITCH_MULTILEVEL"}
+Switch MASTER_HIS_SC_BTN_1i "Master His SC Button 1 Indicator" (MASTER_HIS_SC) {zwave="32:0:command=INDICATOR, bit=0"}
+Switch MASTER_HIS_SC_BTN_2i "Master His SC Button 2 Indicator" (MASTER_HIS_SC) {zwave="32:0:command=INDICATOR, bit=1"}
+Switch MASTER_HIS_SC_BTN_3i "Master His SC Button 3 Indicator" (MASTER_HIS_SC) {zwave="32:0:command=INDICATOR, bit=2"}
+Switch MASTER_HIS_SC_BTN_4i "Master His SC Button 4 Indicator" (MASTER_HIS_SC) {zwave="32:0:command=INDICATOR, bit=3"}
+Switch MASTER_HIS_SC_BTN_5i "Master His SC Button 5 Indicator" (MASTER_HIS_SC) {zwave="32:0:command=INDICATOR, bit=4"}
+/*
+Switch MASTER_HIS_SC_BTN_1s "Master His SC Button 1 Scene" (MASTER_HIS_SC) {zwave="32:0:command=SCENE_ACTIVATION, scene=0"}
+Switch MASTER_HIS_SC_BTN_2s "Master His SC Button 2 Scene" (MASTER_HIS_SC) {zwave="32:0:command=SCENE_ACTIVATION, scene=0"}
+Switch MASTER_HIS_SC_BTN_3s "Master His SC Button 3 Scene" (MASTER_HIS_SC) {zwave="32:0:command=SCENE_ACTIVATION, scene=0"}
+Switch MASTER_HIS_SC_BTN_4s "Master His SC Button 4 Scene" (MASTER_HIS_SC) {zwave="32:0:command=SCENE_ACTIVATION, scene=0"}
+Switch MASTER_HIS_SC_BTN_5s "Master His SC Button 5 Scene" (MASTER_HIS_SC) {zwave="32:0:command=SCENE_ACTIVATION, scene=0"}
+*/
+
+Group MASTER_HER_SC "Master Her SC" <video> (SCENE_CONTROLLERS)
+Dimmer MASTER_HER_SC_DIM "Master Her SC" (MASTER_HER_SC) {zwave="33:0:command=SWITCH_MULTILEVEL"}
+Switch MASTER_HER_SC_BTN_1i "Master Her SC Button 1 Indicator" (MASTER_HER_SC) {zwave="33:0:command=INDICATOR, bit=0"}
+Switch MASTER_HER_SC_BTN_2i "Master Her SC Button 2 Indicator" (MASTER_HER_SC) {zwave="33:0:command=INDICATOR, bit=1"}
+Switch MASTER_HER_SC_BTN_3i "Master Her SC Button 3 Indicator" (MASTER_HER_SC) {zwave="33:0:command=INDICATOR, bit=2"}
+Switch MASTER_HER_SC_BTN_4i "Master Her SC Button 4 Indicator" (MASTER_HER_SC) {zwave="33:0:command=INDICATOR, bit=3"}
+Switch MASTER_HER_SC_BTN_5i "Master Her SC Button 5 Indicator" (MASTER_HER_SC) {zwave="33:0:command=INDICATOR, bit=4"}
+/*
+Switch MASTER_HER_SC_BTN_1s "Master Her SC Button 1 Scene" (MASTER_HER_SC) {zwave="33:0:command=SCENE_ACTIVATION, scene=0"}
+Switch MASTER_HER_SC_BTN_2s "Master Her SC Button 2 Scene" (MASTER_HER_SC) {zwave="33:0:command=SCENE_ACTIVATION, scene=0"}
+Switch MASTER_HER_SC_BTN_3s "Master Her SC Button 3 Scene" (MASTER_HER_SC) {zwave="33:0:command=SCENE_ACTIVATION, scene=0"}
+Switch MASTER_HER_SC_BTN_4s "Master Her SC Button 4 Scene" (MASTER_HER_SC) {zwave="33:0:command=SCENE_ACTIVATION, scene=0"}
+Switch MASTER_HER_SC_BTN_5s "Master Her SC Button 5 Scene" (MASTER_HER_SC) {zwave="33:0:command=SCENE_ACTIVATION, scene=0"}
+*/
+
+Group WC_MASTER_SC "Master WC SC" <video> (SCENE_CONTROLLERS)
+Dimmer WC_MASTER_SC_DIM "Master WC SC" (WC_MASTER_SC) {zwave="42:0:command=SWITCH_MULTILEVEL"}
+Switch WC_MASTER_SC_BTN_1i "Master WC SC Button 1 Indicator" (WC_MASTER_SC) {zwave="42:0:command=INDICATOR, bit=0"}
+Switch WC_MASTER_SC_BTN_2i "Master WC SC Button 2 Indicator" (WC_MASTER_SC) {zwave="42:0:command=INDICATOR, bit=1"}
+Switch WC_MASTER_SC_BTN_3i "Master WC SC Button 3 Indicator" (WC_MASTER_SC) {zwave="42:0:command=INDICATOR, bit=2"}
+Switch WC_MASTER_SC_BTN_4i "Master WC SC Button 4 Indicator" (WC_MASTER_SC) {zwave="42:0:command=INDICATOR, bit=3"}
+Switch WC_MASTER_SC_BTN_5i "Master WC SC Button 5 Indicator" (WC_MASTER_SC) {zwave="42:0:command=INDICATOR, bit=4"}
+/*
+Switch WC_MASTER_SC_BTN_1s "Master WC SC Button 1 Scene" (WC_MASTER_SC) {zwave="42:0:command=SCENE_ACTIVATION, scene=0"}
+Switch WC_MASTER_SC_BTN_2s "Master WC SC Button 2 Scene" (WC_MASTER_SC) {zwave="42:0:command=SCENE_ACTIVATION, scene=0"}
+Switch WC_MASTER_SC_BTN_3s "Master WC SC Button 3 Scene" (WC_MASTER_SC) {zwave="42:0:command=SCENE_ACTIVATION, scene=0"}
+Switch WC_MASTER_SC_BTN_4s "Master WC SC Button 4 Scene" (WC_MASTER_SC) {zwave="42:0:command=SCENE_ACTIVATION, scene=0"}
+*/
 
 
-Group KITCHEN_DINING_SC_GRP "Kitchen 1" <video> (SC_GRP)
-Dimmer KITCHEN_DINING_SC "Kitchen 1" (KITCHEN_DINING_SC_GRP) {zwave="5:0:command=SWITCH_MULTILEVEL"}
-Switch KITCHEN_DINING_SC_BTN_1i "Kitchen 1 Button 1 Indicator" (KITCHEN_DINING_SC_GRP) {zwave="5:0:command=INDICATOR, bit=0"}
-Switch KITCHEN_DINING_SC_BTN_2i "Kitchen 1 Button 2 Indicator" (KITCHEN_DINING_SC_GRP) {zwave="5:0:command=INDICATOR, bit=1"}
-Switch KITCHEN_DINING_SC_BTN_3i "Kitchen 1 Button 3 Indicator" (KITCHEN_DINING_SC_GRP) {zwave="5:0:command=INDICATOR, bit=2"}
-Switch KITCHEN_DINING_SC_BTN_4i "Kitchen 1 Button 4 Indicator" (KITCHEN_DINING_SC_GRP) {zwave="5:0:command=INDICATOR, bit=3"}
-Switch KITCHEN_DINING_SC_BTN_5i "Kitchen 1 Button 5 Indicator" (KITCHEN_DINING_SC_GRP) {zwave="5:0:command=INDICATOR, bit=4"}
-Switch KITCHEN_DINING_SC_BTN_1s "Kitchen 1 Button 1 Scene" (KITCHEN_DINING_SC_GRP) {zwave="5:0:command=SCENE_ACTIVATION, scene=0"}
-Switch KITCHEN_DINING_SC_BTN_2s "Kitchen 1 Button 2 Scene" (KITCHEN_DINING_SC_GRP) {zwave="5:0:command=SCENE_ACTIVATION, scene=0"}
-Switch KITCHEN_DINING_SC_BTN_3s "Kitchen 1 Button 3 Scene" (KITCHEN_DINING_SC_GRP) {zwave="5:0:command=SCENE_ACTIVATION, scene=0"}
-Switch KITCHEN_DINING_SC_BTN_4s "Kitchen 1 Button 4 Scene" (KITCHEN_DINING_SC_GRP) {zwave="5:0:command=SCENE_ACTIVATION, scene=0"}
-Switch KITCHEN_DINING_SC_BTN_5s "Kitchen 1 Button 5 Scene" (KITCHEN_DINING_SC_GRP) {zwave="5:0:command=SCENE_ACTIVATION, scene=0"}
+// Location: Kitchen
+Group KITCHEN "Kitchen" <kitchen> (gGF)
+Dimmer KITCHEN_CEILING_DIM "Kitchen Ceiling" (KITCHEN) {zwave="4:0:command=SWITCH_MULTILEVEL"}
+Dimmer KITCHEN_SOFFIT_DIM "Kitchen Soffit" (KITCHEN) {zwave="8:0:command=SWITCH_MULTILEVEL"}
+Dimmer KITCHEN_SOFFIT_LED "Kitchen Soffit LED" (KITCHEN) {zwave="9:0:command=SWITCH_MULTILEVEL"}
 
+// Location: Family Room
+Group FAMILY "Family Room" <video> (gGF)
+Dimmer FAMILY_CEILING_DIM "Family Ceiling" (FAMILY) {zwave="10:0:command=SWITCH_MULTILEVEL"}
+Dimmer FAMILY_TV_WALL_DIM "TV Wall" (FAMILY) {zwave="19:0:command=SWITCH_MULTILEVEL"}
 
-Group KITCHEN_FAMILY_SC_GRP "Kitchen 2" <video> (SC_GRP)
-Dimmer KITCHEN_FAMILY_SC "Kitchen 2" (KITCHEN_FAMILY_SC_GRP) {zwave="6:0:command=SWITCH_MULTILEVEL"}
-Switch KITCHEN_FAMILY_SC_BTN_1i "Kitchen 2 Button 1 Indicator" (KITCHEN_FAMILY_SC_GRP) {zwave="6:0:command=INDICATOR, bit=0"}
-Switch KITCHEN_FAMILY_SC_BTN_2i "Kitchen 2 Button 2 Indicator" (KITCHEN_FAMILY_SC_GRP) {zwave="6:0:command=INDICATOR, bit=1"}
-Switch KITCHEN_FAMILY_SC_BTN_3i "Kitchen 2 Button 3 Indicator" (KITCHEN_FAMILY_SC_GRP) {zwave="6:0:command=INDICATOR, bit=2"}
-Switch KITCHEN_FAMILY_SC_BTN_4i "Kitchen 2 Button 4 Indicator" (KITCHEN_FAMILY_SC_GRP) {zwave="6:0:command=INDICATOR, bit=3"}
-Switch KITCHEN_FAMILY_SC_BTN_5i "Kitchen 2 Button 5 Indicator" (KITCHEN_FAMILY_SC_GRP) {zwave="6:0:command=INDICATOR, bit=4"}
-Switch KITCHEN_FAMILY_SC_BTN_1s "Kitchen 2 Button 1 Scene" (KITCHEN_FAMILY_SC_GRP) {zwave="6:0:command=SCENE_ACTIVATION, scene=0"}
-Switch KITCHEN_FAMILY_SC_BTN_2s "Kitchen 2 Button 2 Scene" (KITCHEN_FAMILY_SC_GRP) {zwave="6:0:command=SCENE_ACTIVATION, scene=0"}
-Switch KITCHEN_FAMILY_SC_BTN_3s "Kitchen 2 Button 3 Scene" (KITCHEN_FAMILY_SC_GRP) {zwave="6:0:command=SCENE_ACTIVATION, scene=0"}
-Switch KITCHEN_FAMILY_SC_BTN_4s "Kitchen 2 Button 4 Scene" (KITCHEN_FAMILY_SC_GRP) {zwave="6:0:command=SCENE_ACTIVATION, scene=0"}
-Switch KITCHEN_FAMILY_SC_BTN_5s "Kitchen 2 Button 5 Scene" (KITCHEN_FAMILY_SC_GRP) {zwave="6:0:command=SCENE_ACTIVATION, scene=0"}
-
-
-Group KITCHEN_LIVING_SC_GRP "Kitchen 3" <video> (SC_GRP)
-Dimmer KITCHEN_LIVING_SC "Kitchen 3" (KITCHEN_LIVING_SC_GRP) {zwave="7:0:command=SWITCH_MULTILEVEL"}
-Switch KITCHEN_LIVING_SC_BTN_1i "Kitchen 3 Button 1 Indicator" (KITCHEN_LIVING_SC_GRP) {zwave="7:0:command=INDICATOR, bit=0"}
-Switch KITCHEN_LIVING_SC_BTN_2i "Kitchen 3 Button 2 Indicator" (KITCHEN_LIVING_SC_GRP) {zwave="7:0:command=INDICATOR, bit=1"}
-Switch KITCHEN_LIVING_SC_BTN_3i "Kitchen 3 Button 3 Indicator" (KITCHEN_LIVING_SC_GRP) {zwave="7:0:command=INDICATOR, bit=2"}
-Switch KITCHEN_LIVING_SC_BTN_4i "Kitchen 3 Button 4 Indicator" (KITCHEN_LIVING_SC_GRP) {zwave="7:0:command=INDICATOR, bit=3"}
-Switch KITCHEN_LIVING_SC_BTN_5i "Kitchen 3 Button 5 Indicator" (KITCHEN_LIVING_SC_GRP) {zwave="7:0:command=INDICATOR, bit=4"}
-Switch KITCHEN_LIVING_SC_BTN_1s "Kitchen 3 Button 1 Scene" (KITCHEN_LIVING_SC_GRP) {zwave="7:0:command=SCENE_ACTIVATION, scene=0"}
-Switch KITCHEN_LIVING_SC_BTN_2s "Kitchen 3 Button 2 Scene" (KITCHEN_LIVING_SC_GRP) {zwave="7:0:command=SCENE_ACTIVATION, scene=0"}
-Switch KITCHEN_LIVING_SC_BTN_3s "Kitchen 3 Button 3 Scene" (KITCHEN_LIVING_SC_GRP) {zwave="7:0:command=SCENE_ACTIVATION, scene=0"}
-Switch KITCHEN_LIVING_SC_BTN_4s "Kitchen 3 Button 4 Scene" (KITCHEN_LIVING_SC_GRP) {zwave="7:0:command=SCENE_ACTIVATION, scene=0"}
-Switch KITCHEN_LIVING_SC_BTN_5s "Kitchen 3 Button 5 Scene" (KITCHEN_LIVING_SC_GRP) {zwave="7:0:command=SCENE_ACTIVATION, scene=0"}
-
-
-Group C1_DINING_SC_GRP "C1 Dining SC" <video> (SC_GRP)
-Dimmer C1_DINING_SC "C1 Dining SC" (C1_DINING_SC_GRP) {zwave="11:0:command=SWITCH_MULTILEVEL"}
-Switch C1_DINING_SC_BTN_1i "C1 Dining SC Button 1 Indicator" (C1_DINING_SC_GRP) {zwave="11:0:command=INDICATOR, bit=0"}
-Switch C1_DINING_SC_BTN_2i "C1 Dining SC Button 2 Indicator" (C1_DINING_SC_GRP) {zwave="11:0:command=INDICATOR, bit=1"}
-Switch C1_DINING_SC_BTN_3i "C1 Dining SC Button 3 Indicator" (C1_DINING_SC_GRP) {zwave="11:0:command=INDICATOR, bit=2"}
-Switch C1_DINING_SC_BTN_4i "C1 Dining SC Button 4 Indicator" (C1_DINING_SC_GRP) {zwave="11:0:command=INDICATOR, bit=3"}
-Switch C1_DINING_SC_BTN_5i "C1 Dining SC Button 5 Indicator" (C1_DINING_SC_GRP) {zwave="11:0:command=INDICATOR, bit=4"}
-Switch C1_DINING_SC_BTN_1s "C1 Dining SC Button 1 Scene" (C1_DINING_SC_GRP) {zwave="11:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C1_DINING_SC_BTN_2s "C1 Dining SC Button 2 Scene" (C1_DINING_SC_GRP) {zwave="11:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C1_DINING_SC_BTN_3s "C1 Dining SC Button 3 Scene" (C1_DINING_SC_GRP) {zwave="11:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C1_DINING_SC_BTN_4s "C1 Dining SC Button 4 Scene" (C1_DINING_SC_GRP) {zwave="11:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C1_DINING_SC_BTN_5s "C1 Dining SC Button 5 Scene" (C1_DINING_SC_GRP) {zwave="11:0:command=SCENE_ACTIVATION, scene=0"}
-
-
-Group C1_FAMILY_SC_GRP "C1 Family SC" <video> (SC_GRP)
-Dimmer C1_FAMILY_SC "C1 Family SC" (C1_FAMILY_SC_GRP) {zwave="12:0:command=SWITCH_MULTILEVEL"}
-Switch C1_FAMILY_SC_BTN_1i "C1 Family SC Button 1 Indicator" (C1_FAMILY_SC_GRP) {zwave="12:0:command=INDICATOR, bit=0"}
-Switch C1_FAMILY_SC_BTN_2i "C1 Family SC Button 2 Indicator" (C1_FAMILY_SC_GRP) {zwave="12:0:command=INDICATOR, bit=1"}
-Switch C1_FAMILY_SC_BTN_3i "C1 Family SC Button 3 Indicator" (C1_FAMILY_SC_GRP) {zwave="12:0:command=INDICATOR, bit=2"}
-Switch C1_FAMILY_SC_BTN_4i "C1 Family SC Button 4 Indicator" (C1_FAMILY_SC_GRP) {zwave="12:0:command=INDICATOR, bit=3"}
-Switch C1_FAMILY_SC_BTN_5i "C1 Family SC Button 5 Indicator" (C1_FAMILY_SC_GRP) {zwave="12:0:command=INDICATOR, bit=4"}
-Switch C1_FAMILY_SC_BTN_1s "C1 Family SC Button 1 Scene" (C1_FAMILY_SC_GRP) {zwave="12:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C1_FAMILY_SC_BTN_2s "C1 Family SC Button 2 Scene" (C1_FAMILY_SC_GRP) {zwave="12:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C1_FAMILY_SC_BTN_3s "C1 Family SC Button 3 Scene" (C1_FAMILY_SC_GRP) {zwave="12:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C1_FAMILY_SC_BTN_4s "C1 Family SC Button 4 Scene" (C1_FAMILY_SC_GRP) {zwave="12:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C1_FAMILY_SC_BTN_5s "C1 Family SC Button 5 Scene" (C1_FAMILY_SC_GRP) {zwave="12:0:command=SCENE_ACTIVATION, scene=0"}
-
-
-Group C1_LAUNDRY_SC_GRP "C1 Laundry SC" <video> (SC_GRP)
-Dimmer C1_LAUNDRY_SC "C1 Laundry SC" (C1_LAUNDRY_SC_GRP) {zwave="13:0:command=SWITCH_MULTILEVEL"}
-Switch C1_LAUNDRY_SC_BTN_1i "C1 Laundry SC Button 1 Indicator" (C1_LAUNDRY_SC_GRP) {zwave="13:0:command=INDICATOR, bit=0"}
-Switch C1_LAUNDRY_SC_BTN_2i "C1 Laundry SC Button 2 Indicator" (C1_LAUNDRY_SC_GRP) {zwave="13:0:command=INDICATOR, bit=1"}
-Switch C1_LAUNDRY_SC_BTN_3i "C1 Laundry SC Button 3 Indicator" (C1_LAUNDRY_SC_GRP) {zwave="13:0:command=INDICATOR, bit=2"}
-Switch C1_LAUNDRY_SC_BTN_4i "C1 Laundry SC Button 4 Indicator" (C1_LAUNDRY_SC_GRP) {zwave="13:0:command=INDICATOR, bit=3"}
-Switch C1_LAUNDRY_SC_BTN_5i "C1 Laundry SC Button 5 Indicator" (C1_LAUNDRY_SC_GRP) {zwave="13:0:command=INDICATOR, bit=4"}
-Switch C1_LAUNDRY_SC_BTN_1s "C1 Laundry SC Button 1 Scene" (C1_LAUNDRY_SC_GRP) {zwave="13:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C1_LAUNDRY_SC_BTN_2s "C1 Laundry SC Button 2 Scene" (C1_LAUNDRY_SC_GRP) {zwave="13:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C1_LAUNDRY_SC_BTN_3s "C1 Laundry SC Button 3 Scene" (C1_LAUNDRY_SC_GRP) {zwave="13:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C1_LAUNDRY_SC_BTN_4s "C1 Laundry SC Button 4 Scene" (C1_LAUNDRY_SC_GRP) {zwave="13:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C1_LAUNDRY_SC_BTN_5s "C1 Laundry SC Button 5 Scene" (C1_LAUNDRY_SC_GRP) {zwave="13:0:command=SCENE_ACTIVATION, scene=0"}
-
-
-Group C2_2_SC_GRP "C2 2 SC" <video> (SC_GRP)
-Dimmer C2_2_SC "C2 2 SC" (C2_2_SC_GRP) {zwave="29:0:command=SWITCH_MULTILEVEL"}
-Switch C2_2_SC_BTN_1i "C2 2 SC Button 1 Indicator" (C2_2_SC_GRP) {zwave="29:0:command=INDICATOR, bit=0"}
-Switch C2_2_SC_BTN_2i "C2 2 SC Button 2 Indicator" (C2_2_SC_GRP) {zwave="29:0:command=INDICATOR, bit=1"}
-Switch C2_2_SC_BTN_3i "C2 2 SC Button 3 Indicator" (C2_2_SC_GRP) {zwave="29:0:command=INDICATOR, bit=2"}
-Switch C2_2_SC_BTN_4i "C2 2 SC Button 4 Indicator" (C2_2_SC_GRP) {zwave="29:0:command=INDICATOR, bit=3"}
-Switch C2_2_SC_BTN_5i "C2 2 SC Button 5 Indicator" (C2_2_SC_GRP) {zwave="29:0:command=INDICATOR, bit=4"}
-Switch C2_2_SC_BTN_1s "C2 2 SC Button 1 Scene" (C2_2_SC_GRP) {zwave="29:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C2_2_SC_BTN_2s "C2 2 SC Button 2 Scene" (C2_2_SC_GRP) {zwave="29:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C2_2_SC_BTN_3s "C2 2 SC Button 3 Scene" (C2_2_SC_GRP) {zwave="29:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C2_2_SC_BTN_4s "C2 2 SC Button 4 Scene" (C2_2_SC_GRP) {zwave="29:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C2_2_SC_BTN_5s "C2 2 SC Button 5 Scene" (C2_2_SC_GRP) {zwave="29:0:command=SCENE_ACTIVATION, scene=0"}
-
-
-Group C2_1_SC_GRP "C2 1 SC" <video> (SC_GRP)
-Dimmer C2_1_SC "C2 1 SC" (C2_1_SC_GRP) {zwave="30:0:command=SWITCH_MULTILEVEL"}
-Switch C2_1_SC_BTN_1i "C2 1 SC Button 1 Indicator" (C2_1_SC_GRP) {zwave="30:0:command=INDICATOR, bit=0"}
-Switch C2_1_SC_BTN_2i "C2 1 SC Button 2 Indicator" (C2_1_SC_GRP) {zwave="30:0:command=INDICATOR, bit=1"}
-Switch C2_1_SC_BTN_3i "C2 1 SC Button 3 Indicator" (C2_1_SC_GRP) {zwave="30:0:command=INDICATOR, bit=2"}
-Switch C2_1_SC_BTN_4i "C2 1 SC Button 4 Indicator" (C2_1_SC_GRP) {zwave="30:0:command=INDICATOR, bit=3"}
-Switch C2_1_SC_BTN_5i "C2 1 SC Button 5 Indicator" (C2_1_SC_GRP) {zwave="30:0:command=INDICATOR, bit=4"}
-Switch C2_1_SC_BTN_1s "C2 1 SC Button 1 Scene" (C2_1_SC_GRP) {zwave="30:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C2_1_SC_BTN_2s "C2 1 SC Button 2 Scene" (C2_1_SC_GRP) {zwave="30:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C2_1_SC_BTN_3s "C2 1 SC Button 3 Scene" (C2_1_SC_GRP) {zwave="30:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C2_1_SC_BTN_4s "C2 1 SC Button 4 Scene" (C2_1_SC_GRP) {zwave="30:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C2_1_SC_BTN_5s "C2 1 SC Button 5 Scene" (C2_1_SC_GRP) {zwave="30:0:command=SCENE_ACTIVATION, scene=0"}
-
-
-Group C2_3_SC_GRP "C2 3 SC" <video> (SC_GRP)
-Dimmer C2_3_SC "C2 3 SC" (C2_3_SC_GRP) {zwave="31:0:command=SWITCH_MULTILEVEL"}
-Switch C2_3_SC_BTN_1i "C2 3 SC Button 1 Indicator" (C2_3_SC_GRP) {zwave="31:0:command=INDICATOR, bit=0"}
-Switch C2_3_SC_BTN_2i "C2 3 SC Button 2 Indicator" (C2_3_SC_GRP) {zwave="31:0:command=INDICATOR, bit=1"}
-Switch C2_3_SC_BTN_3i "C2 3 SC Button 3 Indicator" (C2_3_SC_GRP) {zwave="31:0:command=INDICATOR, bit=2"}
-Switch C2_3_SC_BTN_4i "C2 3 SC Button 4 Indicator" (C2_3_SC_GRP) {zwave="31:0:command=INDICATOR, bit=3"}
-Switch C2_3_SC_BTN_5i "C2 3 SC Button 5 Indicator" (C2_3_SC_GRP) {zwave="31:0:command=INDICATOR, bit=4"}
-Switch C2_3_SC_BTN_1s "C2 3 SC Button 1 Scene" (C2_3_SC_GRP) {zwave="31:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C2_3_SC_BTN_2s "C2 3 SC Button 2 Scene" (C2_3_SC_GRP) {zwave="31:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C2_3_SC_BTN_3s "C2 3 SC Button 3 Scene" (C2_3_SC_GRP) {zwave="31:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C2_3_SC_BTN_4s "C2 3 SC Button 4 Scene" (C2_3_SC_GRP) {zwave="31:0:command=SCENE_ACTIVATION, scene=0"}
-Switch C2_3_SC_BTN_5s "C2 3 SC Button 5 Scene" (C2_3_SC_GRP) {zwave="31:0:command=SCENE_ACTIVATION, scene=0"}
-
-
-Group MASTER_HIS_SC_GRP "Master His SC" <video> (SC_GRP)
-Dimmer MASTER_HIS_SC "Master His SC" (MASTER_HIS_SC_GRP) {zwave="32:0:command=SWITCH_MULTILEVEL"}
-Switch MASTER_HIS_SC_BTN_1i "Master His SC Button 1 Indicator" (MASTER_HIS_SC_GRP) {zwave="32:0:command=INDICATOR, bit=0"}
-Switch MASTER_HIS_SC_BTN_2i "Master His SC Button 2 Indicator" (MASTER_HIS_SC_GRP) {zwave="32:0:command=INDICATOR, bit=1"}
-Switch MASTER_HIS_SC_BTN_3i "Master His SC Button 3 Indicator" (MASTER_HIS_SC_GRP) {zwave="32:0:command=INDICATOR, bit=2"}
-Switch MASTER_HIS_SC_BTN_4i "Master His SC Button 4 Indicator" (MASTER_HIS_SC_GRP) {zwave="32:0:command=INDICATOR, bit=3"}
-Switch MASTER_HIS_SC_BTN_5i "Master His SC Button 5 Indicator" (MASTER_HIS_SC_GRP) {zwave="32:0:command=INDICATOR, bit=4"}
-Switch MASTER_HIS_SC_BTN_1s "Master His SC Button 1 Scene" (MASTER_HIS_SC_GRP) {zwave="32:0:command=SCENE_ACTIVATION, scene=0"}
-Switch MASTER_HIS_SC_BTN_2s "Master His SC Button 2 Scene" (MASTER_HIS_SC_GRP) {zwave="32:0:command=SCENE_ACTIVATION, scene=0"}
-Switch MASTER_HIS_SC_BTN_3s "Master His SC Button 3 Scene" (MASTER_HIS_SC_GRP) {zwave="32:0:command=SCENE_ACTIVATION, scene=0"}
-Switch MASTER_HIS_SC_BTN_4s "Master His SC Button 4 Scene" (MASTER_HIS_SC_GRP) {zwave="32:0:command=SCENE_ACTIVATION, scene=0"}
-Switch MASTER_HIS_SC_BTN_5s "Master His SC Button 5 Scene" (MASTER_HIS_SC_GRP) {zwave="32:0:command=SCENE_ACTIVATION, scene=0"}
-
-
-Group MASTER_HER_SC_GRP "Master Her SC" <video> (SC_GRP)
-Dimmer MASTER_HER_SC "Master Her SC" (MASTER_HER_SC_GRP) {zwave="33:0:command=SWITCH_MULTILEVEL"}
-Switch MASTER_HER_SC_BTN_1i "Master Her SC Button 1 Indicator" (MASTER_HER_SC_GRP) {zwave="33:0:command=INDICATOR, bit=0"}
-Switch MASTER_HER_SC_BTN_2i "Master Her SC Button 2 Indicator" (MASTER_HER_SC_GRP) {zwave="33:0:command=INDICATOR, bit=1"}
-Switch MASTER_HER_SC_BTN_3i "Master Her SC Button 3 Indicator" (MASTER_HER_SC_GRP) {zwave="33:0:command=INDICATOR, bit=2"}
-Switch MASTER_HER_SC_BTN_4i "Master Her SC Button 4 Indicator" (MASTER_HER_SC_GRP) {zwave="33:0:command=INDICATOR, bit=3"}
-Switch MASTER_HER_SC_BTN_5i "Master Her SC Button 5 Indicator" (MASTER_HER_SC_GRP) {zwave="33:0:command=INDICATOR, bit=4"}
-Switch MASTER_HER_SC_BTN_1s "Master Her SC Button 1 Scene" (MASTER_HER_SC_GRP) {zwave="33:0:command=SCENE_ACTIVATION, scene=0"}
-Switch MASTER_HER_SC_BTN_2s "Master Her SC Button 2 Scene" (MASTER_HER_SC_GRP) {zwave="33:0:command=SCENE_ACTIVATION, scene=0"}
-Switch MASTER_HER_SC_BTN_3s "Master Her SC Button 3 Scene" (MASTER_HER_SC_GRP) {zwave="33:0:command=SCENE_ACTIVATION, scene=0"}
-Switch MASTER_HER_SC_BTN_4s "Master Her SC Button 4 Scene" (MASTER_HER_SC_GRP) {zwave="33:0:command=SCENE_ACTIVATION, scene=0"}
-Switch MASTER_HER_SC_BTN_5s "Master Her SC Button 5 Scene" (MASTER_HER_SC_GRP) {zwave="33:0:command=SCENE_ACTIVATION, scene=0"}
-
-
-Group WC_MASTER_SC_GRP "Master WC SC" <video> (SC_GRP)
-Dimmer WC_MASTER_SC "Master WC SC" (WC_MASTER_SC_GRP) {zwave="42:0:command=SWITCH_MULTILEVEL"}
-Switch WC_MASTER_SC_BTN_1i "Master WC SC Button 1 Indicator" (WC_MASTER_SC_GRP) {zwave="42:0:command=INDICATOR, bit=0"}
-Switch WC_MASTER_SC_BTN_2i "Master WC SC Button 2 Indicator" (WC_MASTER_SC_GRP) {zwave="42:0:command=INDICATOR, bit=1"}
-Switch WC_MASTER_SC_BTN_3i "Master WC SC Button 3 Indicator" (WC_MASTER_SC_GRP) {zwave="42:0:command=INDICATOR, bit=2"}
-Switch WC_MASTER_SC_BTN_4i "Master WC SC Button 4 Indicator" (WC_MASTER_SC_GRP) {zwave="42:0:command=INDICATOR, bit=3"}
-Switch WC_MASTER_SC_BTN_5i "Master WC SC Button 5 Indicator" (WC_MASTER_SC_GRP) {zwave="42:0:command=INDICATOR, bit=4"}
-Switch WC_MASTER_SC_BTN_1s "Master WC SC Button 1 Scene" (WC_MASTER_SC_GRP) {zwave="42:0:command=SCENE_ACTIVATION, scene=0"}
-Switch WC_MASTER_SC_BTN_2s "Master WC SC Button 2 Scene" (WC_MASTER_SC_GRP) {zwave="42:0:command=SCENE_ACTIVATION, scene=0"}
-Switch WC_MASTER_SC_BTN_3s "Master WC SC Button 3 Scene" (WC_MASTER_SC_GRP) {zwave="42:0:command=SCENE_ACTIVATION, scene=0"}
-Switch WC_MASTER_SC_BTN_4s "Master WC SC Button 4 Scene" (WC_MASTER_SC_GRP) {zwave="42:0:command=SCENE_ACTIVATION, scene=0"}
-Switch GYM_CEILING_1_DIM_BTN_5s "Gym Ceiling Button 5 Scene" (GYM_CEILING_1_DIM_GRP) {zwave="66:0:command=SCENE_ACTIVATION, scene=0"}
-
-
-Dimmer KITCHEN_CEILING_DIM "Kitchen Ceiling"  {zwave="4:0:command=SWITCH_MULTILEVEL"}
-Dimmer KITCHEN_SOFFIT_DIM "Kitchen Soffit"  {zwave="8:0:command=SWITCH_MULTILEVEL"}
-Dimmer KITCHEN_SOFFIT_LED "Kitchen Soffit LED"  {zwave="9:0:command=SWITCH_MULTILEVEL"}
-Dimmer FAMILY_CEILING_DIM "Family Ceiling"  {zwave="10:0:command=SWITCH_MULTILEVEL"}
 // Dimmer  ""  {zwave="14:0:command=SWITCH_MULTILEVEL"}
-Dimmer C1_1_NICHE_LDIM "Niche 1.1"  {zwave="15:1:command=SWITCH_MULTILEVEL"}
-Dimmer C1_1_SOFFIT_LDIM "Soffit 1.1"  {zwave="15:2:command=SWITCH_MULTILEVEL"}
-Dimmer C1_2_NICHE_LDIM "Niche 1.2"  {zwave="16:1:command=SWITCH_MULTILEVEL"}
-Dimmer C1_2_SOFFIT_LDIM "Soffit 1.2"  {zwave="16:2:command=SWITCH_MULTILEVEL"}
-Dimmer C1_3_NICHE_LDIM "Niche 1.3"  {zwave="17:1:command=SWITCH_MULTILEVEL"}
-Dimmer C1_3_SOFFIT_LDIM "Soffit 1.3"  {zwave="17:2:command=SWITCH_MULTILEVEL"}
-Dimmer C1_4_NICHE_LDIM "Niche 1.4"  {zwave="18:1:command=SWITCH_MULTILEVEL"}
-Dimmer C1_4_SOFFIT_LDIM "Soffit 1.4"  {zwave="18:2:command=SWITCH_MULTILEVEL"}
-Dimmer FAMILY_TV_WALL_DIM "TV Wall"  {zwave="19:0:command=SWITCH_MULTILEVEL"}
-Dimmer BRIDGE2_CEILING_DIM "Bridge Ceiling"  {zwave="20:0:command=SWITCH_MULTILEVEL"}
-Switch BRIDGE1_CEILING_DIM "Living Room Bridge"  {zwave="22:0:command=SWITCH_BINARY"}
-Dimmer BRIDGE2_SCONCE_DIM "Bridge Sconces"  {zwave="23:0:command=SWITCH_MULTILEVEL"}
-Dimmer BRIDGE1_SCONCE_DIM "Living Room Sconces"  {zwave="24:0:command=SWITCH_MULTILEVEL"}
-Switch C1_DINING_1_SW "C1 Dining 1"  {zwave="25:0:command=SWITCH_BINARY"}
+
+// Location: Corridor 1 which is the the ground floor corridor
+Group C1 "1st Floor Corridor" <video> (gGF)
+Dimmer C1_1_NICHE_LDIM "Niche 1.1" (C1) {zwave="15:1:command=SWITCH_MULTILEVEL"}
+Dimmer C1_1_SOFFIT_LDIM "Soffit 1.1" (C1) {zwave="15:2:command=SWITCH_MULTILEVEL"}
+Dimmer C1_2_NICHE_LDIM "Niche 1.2" (C1) {zwave="16:1:command=SWITCH_MULTILEVEL"}
+Dimmer C1_2_SOFFIT_LDIM "Soffit 1.2" (C1) {zwave="16:2:command=SWITCH_MULTILEVEL"}
+Dimmer C1_3_NICHE_LDIM "Niche 1.3" (C1) {zwave="17:1:command=SWITCH_MULTILEVEL"}
+Dimmer C1_3_SOFFIT_LDIM "Soffit 1.3" (C1) {zwave="17:2:command=SWITCH_MULTILEVEL"}
+Dimmer C1_4_NICHE_LDIM "Niche 1.4" (C1) {zwave="18:1:command=SWITCH_MULTILEVEL"}
+Dimmer C1_4_SOFFIT_LDIM "Soffit 1.4" (C1) {zwave="18:2:command=SWITCH_MULTILEVEL"}
+Switch C1_DINING_1_SW "C1 Dining 1" (C1) {zwave="25:0:command=SWITCH_BINARY"}
+
+// Location: Corridor 2 which is the the first floor corridor
+Group C2 "1st Floor Corridor" <video> (gFF)
+Dimmer C2_CEILING_DIM "Corridor 2 Ceiling" (C2) {zwave="28:0:command=SWITCH_MULTILEVEL"}
+
+// Location: Bridge2 which is the Bridge on the second floor
+Group B2 "2nd Floor Bridge" <video> (gFF)
+Dimmer B2_CEILING_DIM "Bridge Ceiling" (B2) {zwave="20:0:command=SWITCH_MULTILEVEL"}
+Dimmer B2_SCONCE_DIM "Bridge Sconces" (B2) {zwave="23:0:command=SWITCH_MULTILEVEL"}
+Dimmer B2_SOFFIT_LED "Bridge Soffit LED" (B2) {zwave="62:0:command=SWITCH_MULTILEVEL"}
+
+// Location: Living Room
+Group LIVING "2nd Floor Bridge" <video> (gGF)
+Switch LIVING_B1_CEILING_DIM "Living Room Bridge" (LIVING) {zwave="22:0:command=SWITCH_BINARY"}
+Dimmer LIVING_B1_SCONCE_DIM "Living Room Sconces" (LIVING) {zwave="24:0:command=SWITCH_MULTILEVEL"}
+Dimmer LIVING_CEILING_DIM "Living Room Ceiling" (LIVING) {zwave="57:0:command=SWITCH_MULTILEVEL"}
+Dimmer LIVING_SOFFIT_RIGHT_LDIM "Living Room Right Soffit LED" (LIVING) {zwave="59:0:command=SWITCH_MULTILEVEL"}
+Dimmer LIVING_SOFFIT_LEFT_LDIM "Living Room Left Soffit LED" (LIVING) {zwave="60:0:command=SWITCH_MULTILEVEL"}
+
+
 Switch GARAGE_EXTERIOR_SCONCES_SW "Garage Exterior Sconces" (EXTERIOR_SCONCES) {zwave="26:0:command=SWITCH_BINARY"}
 Switch PORTICO_SW "Portico" (EXTERIOR_SCONCES) {zwave="27:0:command=SWITCH_BINARY"}
-Dimmer C2_CEILING_DIM "Corridor 2 Ceiling"  {zwave="28:0:command=SWITCH_MULTILEVEL"}
-Switch MASTER_CEILING_SW "Master Bed Ceiling"  {zwave="34:0:command=SWITCH_BINARY"}
-Dimmer MASTER_FLOOD_DIM "Master Bed Flood Lights"  {zwave="35:0:command=SWITCH_MULTILEVEL"}
-Dimmer MASTER_CORRIDOR_DIM "Master Bed Corridor"  {zwave="36:0:command=SWITCH_MULTILEVEL"}
-Dimmer MASTER_HER_READING_DIM "Master Bed Her Reading"  {zwave="37:0:command=SWITCH_MULTILEVEL"}
-Dimmer MASTER_HIS_READING_DIM "Master Bed His Reading"  {zwave="38:0:command=SWITCH_MULTILEVEL"}
-Dimmer WC_MASTER_SHOWER_DIM "Master WC Shower"  {zwave="39:0:command=SWITCH_MULTILEVEL"}
-Dimmer WC_MASTER_CEILING_DIM "Master WC Ceiling"  {zwave="40:0:command=SWITCH_MULTILEVEL"}
-Dimmer WC_MASTER_CABINET_DIM "Master WC Cabinet"  {zwave="41:0:command=SWITCH_MULTILEVEL"}
-Switch WC_MASTER_FAN_SW "Master WC Fan"  {zwave="44:0:command=SWITCH_BINARY"}
-Dimmer OFFICE_CEILING_DIM "Office Ceiling"  {zwave="45:0:command=SWITCH_MULTILEVEL"}
-Switch GUEST_FAN_SW "Guest Fan"  {zwave="46:0:command=SWITCH_BINARY"}
-Dimmer GUEST_CEILING_DIM "Guest Ceiling"  {zwave="47:0:command=SWITCH_MULTILEVEL"}
-Switch GUEST_CLOSET_SW "Guest Closet"  {zwave="48:0:command=SWITCH_BINARY"}
-Switch WC_GUEST_CEILING_SW "Guest WC Ceiling"  {zwave="49:0:command=SWITCH_BINARY"}
-Switch WC_GUEST_VANITY_SW "Guest WC Vanity"  {zwave="50:0:command=SWITCH_BINARY"}
-Dimmer WC_MASTER_SHOWER_SOFFIT_LDIM "Master WC Shower Soffit"  {zwave="51:0:command=SWITCH_MULTILEVEL"}
-Dimmer WC_MASTER_VANITY_SOFFIT_LDIM "Master WC Vanity Soffit"  {zwave="52:0:command=SWITCH_MULTILEVEL"}
-Switch WC_MASTER_TOILET_CEILING_SW "Master WC Toilet"  {zwave="55:0:command=SWITCH_BINARY"}
-Dimmer ENTRY_SOFFIT_DIM "Entry Soffit"  {zwave="56:0:command=SWITCH_MULTILEVEL"}
-Dimmer LIVING_CEILING_DIM "Living Room Ceiling"  {zwave="57:0:command=SWITCH_MULTILEVEL"}
-Switch OFFICE_CLOSET_SW "Office Closet"  {zwave="58:0:command=SWITCH_BINARY"}
-Dimmer LIVING_SOFFIT_RIGHT_LDIM "Living Room Right Soffit LED"  {zwave="59:0:command=SWITCH_MULTILEVEL"}
-Dimmer LIVING_SOFFIT_LEFT_LDIM "Living Room Left Soffit LED"  {zwave="60:0:command=SWITCH_MULTILEVEL"}
-Dimmer ENTRY_SOFFIT_LDIM "Entry Soffit LED"  {zwave="61:0:command=SWITCH_MULTILEVEL"}
-Dimmer BRIDGE2_SOFFIT_LED "Bridge Soffit LED"  {zwave="62:0:command=SWITCH_MULTILEVEL"}
-Switch LAUNDRY_GARAGE_SW "Laundry"  {zwave="63:0:command=SWITCH_BINARY"}
-Switch LAUNDRY_C1_SW "Laundry"  {zwave="64:0:command=SWITCH_BINARY"}
-Switch GYM_EXTERIOR_SCONCES_SW "Gym Side Sconces"  {zwave="65:0:command=SWITCH_BINARY"}
-Dimmer GYM_CEILING_1_DIM "Gym Ceiling"  {zwave="66:0:command=SWITCH_MULTILEVEL"}
-Switch GYM_CABINET_SW "Gym Cabinet" (EXTERIOR_SCONCES) {zwave="67:0:command=SWITCH_BINARY"}
-Switch GYM_DOOR_EXTERIOR_SCONCE "Gym Door Sconce" (EXTERIOR_SCONCES) {zwave="68:0:command=SWITCH_BINARY"}
+
+
+// Location: Master Bedroom
+Group MASTER "Master Bedroom" <bedroom> (gFF)
+Switch MASTER_CEILING_SW "Master Bed Ceiling" (MASTER) {zwave="34:0:command=SWITCH_BINARY"}
+Dimmer MASTER_FLOOD_DIM "Master Bed Flood Lights" (MASTER) {zwave="35:0:command=SWITCH_MULTILEVEL"}
+Dimmer MASTER_CORRIDOR_DIM "Master Bed Corridor" (MASTER) {zwave="36:0:command=SWITCH_MULTILEVEL"}
+Dimmer MASTER_HER_READING_DIM "Master Bed Her Reading" (MASTER) {zwave="37:0:command=SWITCH_MULTILEVEL"}
+Dimmer MASTER_HIS_READING_DIM "Master Bed His Reading" (MASTER) {zwave="38:0:command=SWITCH_MULTILEVEL"}
+
+// Location: Master Bathroom
+Group WC_MASTER "Master Bathroom" <bath> (gFF, MASTER)
+Dimmer WC_MASTER_SHOWER_DIM "Master WC Shower" (WC_MASTER) {zwave="39:0:command=SWITCH_MULTILEVEL"}
+Dimmer WC_MASTER_CEILING_DIM "Master WC Ceiling" (WC_MASTER) {zwave="40:0:command=SWITCH_MULTILEVEL"}
+Dimmer WC_MASTER_CABINET_DIM "Master WC Cabinet" (WC_MASTER) {zwave="41:0:command=SWITCH_MULTILEVEL"}
+Switch WC_MASTER_FAN_SW "Master WC Fan" (WC_MASTER) {zwave="44:0:command=SWITCH_BINARY"}
+Dimmer WC_MASTER_CHANDELIER_DIM "Master WVC Chandelier" (WC_MASTER) {zwave="71:0:command=SWITCH_MULTILEVEL"}
+Dimmer WC_MASTER_VANITY_SCONCES_DIM "Master WC Vanity Sconces" (WC_MASTER) {zwave="72:0:command=SWITCH_MULTILEVEL"}
+Dimmer WC_MASTER_SHOWER_SOFFIT_LDIM "Master WC Shower Soffit" (WC_MASTER) {zwave="51:0:command=SWITCH_MULTILEVEL"}
+Dimmer WC_MASTER_VANITY_SOFFIT_LDIM "Master WC Vanity Soffit" (WC_MASTER) {zwave="52:0:command=SWITCH_MULTILEVEL"}
+Switch WC_MASTER_TOILET_CEILING_SW "Master WC Toilet" (WC_MASTER) {zwave="55:0:command=SWITCH_BINARY"}
+
 Dimmer WC_POWDER_SOFFIT_LDIM "Powder Room Soffit"  {zwave="70:0:command=SWITCH_MULTILEVEL"}
-Dimmer WC_MASTER_CHANDELIER_DIM "Master WVC Chandelier"  {zwave="71:0:command=SWITCH_MULTILEVEL"}
-Dimmer WC_MASTER_VANITY_SCONCES_DIM "Master WC Vanity Sconces"  {zwave="72:0:command=SWITCH_MULTILEVEL"}
-Dimmer ENTRY_CHANDELIER_DIM "Entry Chandelier"  {zwave="73:0:command=SWITCH_MULTILEVEL"}
-Switch PLAY_FAN "Play Room Fan"  {zwave="74:0:command=SWITCH_BINARY"}
+
+// Location: Inlaws Room First Floor
+Group INLAWS "Inlaws Bedroom" <bedroom> (gGF)
+Switch INLAWS_FAN_SW "Inlaws Fan" (INLAWS) {zwave="46:0:command=SWITCH_BINARY"}
+Dimmer INLAWS_CEILING_DIM "Inlaws Ceiling" (INLAWS) {zwave="47:0:command=SWITCH_MULTILEVEL"}
+Switch INLAWS_CLOSET_SW "Inlaws Closet" (INLAWS) {zwave="48:0:command=SWITCH_BINARY"}
+
+Group WC_INLAWS "Inlaws Bathroom" <bath> (INLAWS)
+Switch WC_INLAWS_CEILING_SW "Inlaws WC Ceiling" (WC_INLAWS) {zwave="49:0:command=SWITCH_BINARY"}
+Switch WC_INLAWS_VANITY_SW "Inlaws WC Vanity" (WC_INLAWS) {zwave="50:0:command=SWITCH_BINARY"}
+
+// Locaiton: Foyer/FOYER Main door
+Group FOYER "Foyer" <bedroom> (gGF)
+Dimmer FOYER_SOFFIT_DIM "Foyer Soffit" (FOYER) {zwave="56:0:command=SWITCH_MULTILEVEL"}
+Dimmer FOYER_CHANDELIER_DIM "Foyer Chandelier" (FOYER) {zwave="73:0:command=SWITCH_MULTILEVEL"}
+Dimmer FOYER_SOFFIT_LDIM "Foyer Soffit LED" (FOYER) {zwave="61:0:command=SWITCH_MULTILEVEL"}
+
+// Location: Office in the ground floor
+Group OFFICE "Office" <bedroom> (gGF)
+Switch OFFICE_CLOSET_SW "Office Closet" (OFFICE) {zwave="58:0:command=SWITCH_BINARY"}
+Dimmer OFFICE_CEILING_DIM "Office Ceiling" (OFFICE) {zwave="45:0:command=SWITCH_MULTILEVEL"}
+
+// Location: Laundry ground floor
+Group LAUNDRY "Office" <bedroom> (gGF)
+Switch LAUNDRY_GARAGE_SW "Laundry" (LAUNDRY) {zwave="63:0:command=SWITCH_BINARY"}
+Switch LAUNDRY_C1_SW "Laundry" (LAUNDRY) {zwave="64:0:command=SWITCH_BINARY"}
+
+// Exterior Lighting
+Group EXTERIOR_SCONCES "Exterior Sconces" <light> (Outdoor)
+Group GYM "Gym" <light> (gGF)
+Switch GYM_EXTERIOR_SCONCES_SW "Gym Side Sconces" (EXTERIOR_SCONCES, GYM) {zwave="65:0:command=SWITCH_BINARY"}
+Dimmer GYM_CEILING_1_DIM "Gym Ceiling" (GYM) {zwave="66:0:command=SWITCH_MULTILEVEL"}
+Switch GYM_CABINET_SW "Gym Cabinet" (EXTERIOR_SCONCES, GYM) {zwave="67:0:command=SWITCH_BINARY"}
+Switch GYM_DOOR_EXTERIOR_SCONCE "Gym Door Sconce" (EXTERIOR_SCONCES, GYM) {zwave="68:0:command=SWITCH_BINARY"}
+
+// Location: Playroom on the second floor
+Group PLAY "Play room" <bedroom> (gFF)
+Switch PLAY_FAN "Play Room Fan" (PLAY) {zwave="74:0:command=SWITCH_BINARY"}
+
+Group RITA "Rita's Bedroom" <bedroom> (gFF)
+Group GUEST "Guest Bedroom" <bedroom> (gFF)
+Group DINING "Dining Room" <bedroom> (gFF)

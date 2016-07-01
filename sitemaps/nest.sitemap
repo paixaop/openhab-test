@@ -3,41 +3,41 @@ sitemap nest label="Thermostats" {
 		Switch item=HOME_AWAY label="Home" mappings=[home="Occupied",away="Empty"]
 	    Switch item=GYM_AWAY label="Gym" mappings=[home="Occupied",away="Empty"]
 	}
-	  
+
 	Frame label="Temperatures" visibility=[LAUNDRY_HVAC_TEMPERATURE_SCALE=="F"] {
 		//Laundry
 		Setpoint item=LAUNDRY_HVAC_TARGET_TEMPERATURE_F label="Laundry [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[LAUNDRY_HVAC_MODE=="heat",LAUNDRY_HVAC_MODE=="cool"]
-		Setpoint item=LAUNDRY_HVAC_TARGET_TEMPERATURE_LOW_F label="Laundry Min [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[LAUNDRY_HVAC_MODE=="heat-cool"]	
+		Setpoint item=LAUNDRY_HVAC_TARGET_TEMPERATURE_LOW_F label="Laundry Min [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[LAUNDRY_HVAC_MODE=="heat-cool"]
 		Setpoint item=LAUNDRY_HVAC_TARGET_TEMPERATURE_HIGH_F label="Laundry Max [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[LAUNDRY_HVAC_MODE=="heat-cool"]
-	    
+
 	  	// Upstairs
-	  	Setpoint item=CORRIDOR2_HVAC_TARGET_TEMPERATURE_F label="Upstairs [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[CORRIDOR2_HVAC_MODE=="heat",CORRIDOR2_HVAC_MODE=="cool"]
-	    Setpoint item=CORRIDOR2_HVAC_TARGET_TEMPERATURE_LOW_F label="Upstairs Min [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[CORRIDOR2_HVAC_MODE=="heat-cool"]
-	    Setpoint item=CORRIDOR2_HVAC_TARGET_TEMPERATURE_HIGH_F label="Upstairs Max [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[CORRIDOR2_HVAC_MODE=="heat-cool"]
-	        
+	  	Setpoint item=C2_HVAC_TARGET_TEMPERATURE_F label="Upstairs [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[C2_HVAC_MODE=="heat",C2_HVAC_MODE=="cool"]
+	    Setpoint item=C2_HVAC_TARGET_TEMPERATURE_LOW_F label="Upstairs Min [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[C2_HVAC_MODE=="heat-cool"]
+	    Setpoint item=C2_HVAC_TARGET_TEMPERATURE_HIGH_F label="Upstairs Max [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[C2_HVAC_MODE=="heat-cool"]
+
 	    // Gym
 	    Setpoint item=GYM_HVAC_TARGET_TEMPERATURE_F label="Gym [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[GYM_HVAC_MODE=="heat",GYM_HVAC_MODE=="cool"]
 	    Setpoint item=GYM_HVAC_TARGET_TEMPERATURE_LOW_F label="Gym Min [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[GYM_HVAC_MODE=="heat-cool"]
 	    Setpoint item=GYM_HVAC_TARGET_TEMPERATURE_HIGH_F label="Gym Max[%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[GYM_HVAC_MODE=="heat-cool"]
 	  }
-	  
+
 	  Frame label="Temperatures" visibility=[LAUNDRY_HVAC_TEMPERATURE_SCALE=="C"] {
 		//Laundry
 	    Setpoint item=LAUNDRY_HVAC_TARGET_TEMPERATURE_C label="Laundry [%.1f °C]" minValue=9 maxValue=32 step=1 visibility=[LAUNDRY_HVAC_MODE=="heat",LAUNDRY_HVAC_MODE=="cool"]
 	    Setpoint item=LAUNDRY_HVAC_TARGET_TEMPERATURE_LOW_C label="Laundry Min [%.1f °C]" minValue=9 maxValue=32 step=1 visibility=[LAUNDRY_HVAC_MODE=="heat-cool"]
 	    Setpoint item=LAUNDRY_HVAC_TARGET_TEMPERATURE_HIGH_C label="Laundry Max [%.1f °C]" minValue=50 maxValue=80 step=1 visibility=[LAUNDRY_HVAC_MODE=="heat-cool"]
-	    
+
 	  	// Upstairs
-	  	Setpoint item=CORRIDOR2_HVAC_TARGET_TEMPERATURE_C label="Upstairs [%.1f °C]" minValue=9 maxValue=32 step=1 visibility=[CORRIDOR2_HVAC_MODE=="heat",CORRIDOR2_HVAC_MODE=="cool"]
-	    Setpoint item=CORRIDOR2_HVAC_TARGET_TEMPERATURE_LOW_C label="Upstairs Min [%.1f °C]" minValue=9 maxValue=32 step=1 visibility=[CORRIDOR2_HVAC_MODE=="heat-cool"]
-	    Setpoint item=CORRIDOR2_HVAC_TARGET_TEMPERATURE_HIGH_C label="Upstairs Max [%.1f °C]" minValue=9 maxValue=32 step=1 visibility=[CORRIDOR2_HVAC_MODE=="heat-cool"]
-	      
+	  	Setpoint item=C2_HVAC_TARGET_TEMPERATURE_C label="Upstairs [%.1f °C]" minValue=9 maxValue=32 step=1 visibility=[C2_HVAC_MODE=="heat",C2_HVAC_MODE=="cool"]
+	    Setpoint item=C2_HVAC_TARGET_TEMPERATURE_LOW_C label="Upstairs Min [%.1f °C]" minValue=9 maxValue=32 step=1 visibility=[C2_HVAC_MODE=="heat-cool"]
+	    Setpoint item=C2_HVAC_TARGET_TEMPERATURE_HIGH_C label="Upstairs Max [%.1f °C]" minValue=9 maxValue=32 step=1 visibility=[C2_HVAC_MODE=="heat-cool"]
+
 	    // Gym
 	    Setpoint item=GYM_HVAC_TARGET_TEMPERATURE_C label="Gym [%.1f °C]" minValue=9 maxValue=32 step=1 visibility=[GYM_HVAC_MODE=="heat",GYM_HVAC_MODE=="cool"]
 	    Setpoint item=GYM_HVAC_TARGET_TEMPERATURE_LOW_C label="Gym Min [%.1f °C]" minValue=9 maxValue=32 step=1 visibility=[GYM_HVAC_MODE=="heat-cool"]
 	    Setpoint item=GYM_HVAC_TARGET_TEMPERATURE_HIGH_C label="Gym Max[%.1f °C]" minValue=9 maxValue=32 step=1 visibility=[GYM_HVAC_MODE=="heat-cool"]
 	  }
-	  
+
 	  Frame label="Advanced Control" {
 	    Text label="Laundry Thermostat" icon="climate" {
 	  	    Frame label="Current Status" {
@@ -46,27 +46,27 @@ sitemap nest label="Thermostats" {
 			    Text item=LAUNDRY_HVAC_AMBIENT_TEMPERATURE_C label="Laundry Temperature [%.1f °C]" visibility=[LAUNDRY_HVAC_TEMPERATURE_SCALE=="C"]
 			    Text item=LAUNDRY_HVAC_HUMIDITY
 		    }
-		    
+
 		    Frame label="Temperature" visibility=[LAUNDRY_HVAC_TEMPERATURE_SCALE=="F"] {
 		    	Setpoint item=LAUNDRY_HVAC_TARGET_TEMPERATURE_F label="Target Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[LAUNDRY_HVAC_MODE=="heat",LAUNDRY_HVAC_MODE=="cool"]
 			    Setpoint item=LAUNDRY_HVAC_TARGET_TEMPERATURE_LOW_F label="Minimum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[LAUNDRY_HVAC_MODE=="heat-cool"]
 			    Setpoint item=LAUNDRY_HVAC_TARGET_TEMPERATURE_HIGH_F label="Maximum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[LAUNDRY_HVAC_MODE=="heat-cool"]
-			    
+
 		    	Text item=LAUNDRY_HVAC_AWAY_TEMPERATURE_HIGH_F label="Away Temperature [%.1f °F]" visibility=[LAUNDRY_HVAC_MODE=="heat",LAUNDRY_HVAC_MODE=="cool"]
 			  	Text item=LAUNDRY_HVAC_AWAY_TEMPERATURE_LOW_F label="Away Min [%.1f °F]" visibility=[LAUNDRY_HVAC_MODE=="heat-cool"]
 			    Text item=LAUNDRY_HVAC_AWAY_TEMPERATURE_HIGH_F label="Away Max [%.1f °F]" visibility=[LAUNDRY_HVAC_MODE=="heat-cool"]
 			}
-			
+
 			Frame label="Temperature" visibility=[LAUNDRY_HVAC_TEMPERATURE_SCALE=="C"] {
 				Setpoint item=LAUNDRY_HVAC_TARGET_TEMPERATURE_C label="Target Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[LAUNDRY_HVAC_MODE=="heat",LAUNDRY_HVAC_MODE=="cool"]
 			    Setpoint item=LAUNDRY_HVAC_TARGET_TEMPERATURE_LOW_C label="Minimum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[LAUNDRY_HVAC_MODE=="heat-cool"]
 			    Setpoint item=LAUNDRY_HVAC_TARGET_TEMPERATURE_HIGH_C label="Maximum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[LAUNDRY_HVAC_MODE=="heat-cool"]
-			    
+
 		    	Text item=LAUNDRY_HVAC_AWAY_TEMPERATURE_HIGH_C label="Away Temperature [%.1f °C]" visibility=[LAUNDRY_HVAC_MODE=="heat",LAUNDRY_HVAC_MODE=="cool"]
 			  	Text item=LAUNDRY_HVAC_AWAY_TEMPERATURE_LOW_C label="Away Min [%.1f °C]" visibility=[LAUNDRY_HVAC_MODE=="heat-cool"]
 			    Text item=LAUNDRY_HVAC_AWAY_TEMPERATURE_HIGH_C label="Away Max [%.1f °C]" visibility=[LAUNDRY_HVAC_MODE=="heat-cool"]
 			}
-	
+
 		    Frame label="Advanced Information" {
 			   	Text item=LAUNDRY_HVAC_IS_ONLINE icon="light"
 			    Text item=LAUNDRY_HVAC_LAST_CONNECTION
@@ -86,73 +86,73 @@ sitemap nest label="Thermostats" {
 			    	Text item=LAUNDRY_HVAC_LOCALE
 			    }
 		   	}
-		   	
+
 		   	Frame label="Temperature Chart °C" visibility=[LAUNDRY_HVAC_TEMPERATURE_SCALE=="C"] {
 				Switch item=LAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD label="Chart Period" mappings=[0="Hour", 1="Day", 2="Week"]
 				Chart item=gLAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_C period=h service="rrd4j" refresh=6000 visibility=[LAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD==0, LAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD=="Uninitialized"]
 				Chart item=gLAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_C period=D service="rrd4j" refresh=30000 visibility=[LAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD==1]
 				Chart item=gLAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_C period=W service="rrd4j" refresh=30000 visibility=[LAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD==2]
 			}
-			
+
 			Frame label="Temperature Chart °F" visibility=[LAUNDRY_HVAC_TEMPERATURE_SCALE=="F"] {
 				Switch item=LAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD label="Chart Period" mappings=[0="Hour", 1="Day", 2="Week"]
 				Chart item=gLAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_F period=h service="rrd4j" refresh=6000 visibility=[LAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD==0, LAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD=="Uninitialized"]
 				Chart item=gLAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_F period=D service="rrd4j" refresh=30000 visibility=[LAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD==1]
 				Chart item=gLAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_F period=W service="rrd4j" refresh=30000 visibility=[LAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD==2]
 			}
-			
+
 		}
-		
+
 	  	Text label="Upstairs Thermostat" icon="climate" {
 	  	    Frame label="Current Status" {
-	  	    	Switch item=CORRIDOR2_HVAC_MODE label="Mode" mappings=[heat="Heat",cool="Cool","heat-cool"="Auto",off="Off"]
-			    Text item=CORRIDOR2_HVAC_AMBIENT_TEMPERATURE_F label="Corridor 2 Temperature [%.1f °F]"visibility=[CORRIDOR2_HVAC_TEMPERATURE_SCALE=="F"]
-			    Text item=CORRIDOR2_HVAC_AMBIENT_TEMPERATURE_C label="Corridor 2 Temperature [%.1f °C]"visibility=[CORRIDOR2_HVAC_TEMPERATURE_SCALE=="C"]
-			    Text item=CORRIDOR2_HVAC_HUMIDITY
+	  	    	Switch item=C2_HVAC_MODE label="Mode" mappings=[heat="Heat",cool="Cool","heat-cool"="Auto",off="Off"]
+			    Text item=C2_HVAC_AMBIENT_TEMPERATURE_F label="Corridor 2 Temperature [%.1f °F]"visibility=[C2_HVAC_TEMPERATURE_SCALE=="F"]
+			    Text item=C2_HVAC_AMBIENT_TEMPERATURE_C label="Corridor 2 Temperature [%.1f °C]"visibility=[C2_HVAC_TEMPERATURE_SCALE=="C"]
+			    Text item=C2_HVAC_HUMIDITY
 		    }
-		    
-		    Frame label="Temperature" visibility=[CORRIDOR2_HVAC_TEMPERATURE_SCALE=="F"] {
-		    	Setpoint item=CORRIDOR2_HVAC_TARGET_TEMPERATURE_F label="Target Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[CORRIDOR2_HVAC_MODE=="heat",CORRIDOR2_HVAC_MODE=="cool"]
-			    Setpoint item=CORRIDOR2_HVAC_TARGET_TEMPERATURE_LOW_F label="Minimum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[CORRIDOR2_HVAC_MODE=="heat-cool"]
-			    Setpoint item=CORRIDOR2_HVAC_TARGET_TEMPERATURE_HIGH_F label="Maximum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[CORRIDOR2_HVAC_MODE=="heat-cool"]
-			    
-		    	Text item=CORRIDOR2_HVAC_AWAY_TEMPERATURE_HIGH_F label="Away Temperature [%.1f °F]" visibility=[CORRIDOR2_HVAC_MODE=="heat",CORRIDOR2_HVAC_MODE=="cool"]
-			  	Text item=CORRIDOR2_HVAC_AWAY_TEMPERATURE_LOW_F label="Away Min [%.1f °F]" visibility=[CORRIDOR2_HVAC_MODE=="heat-cool"]
-			    Text item=CORRIDOR2_HVAC_AWAY_TEMPERATURE_HIGH_F label="Away Max [%.1f °F]" visibility=[CORRIDOR2_HVAC_MODE=="heat-cool"]
+
+		    Frame label="Temperature" visibility=[C2_HVAC_TEMPERATURE_SCALE=="F"] {
+		    	Setpoint item=C2_HVAC_TARGET_TEMPERATURE_F label="Target Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[C2_HVAC_MODE=="heat",C2_HVAC_MODE=="cool"]
+			    Setpoint item=C2_HVAC_TARGET_TEMPERATURE_LOW_F label="Minimum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[C2_HVAC_MODE=="heat-cool"]
+			    Setpoint item=C2_HVAC_TARGET_TEMPERATURE_HIGH_F label="Maximum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[C2_HVAC_MODE=="heat-cool"]
+
+		    	Text item=C2_HVAC_AWAY_TEMPERATURE_HIGH_F label="Away Temperature [%.1f °F]" visibility=[C2_HVAC_MODE=="heat",C2_HVAC_MODE=="cool"]
+			  	Text item=C2_HVAC_AWAY_TEMPERATURE_LOW_F label="Away Min [%.1f °F]" visibility=[C2_HVAC_MODE=="heat-cool"]
+			    Text item=C2_HVAC_AWAY_TEMPERATURE_HIGH_F label="Away Max [%.1f °F]" visibility=[C2_HVAC_MODE=="heat-cool"]
 			}
-			
-			Frame label="Temperature" visibility=[CORRIDOR2_HVAC_TEMPERATURE_SCALE=="C"] {
-				Setpoint item=CORRIDOR2_HVAC_TARGET_TEMPERATURE_C label="Target Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[CORRIDOR2_HVAC_MODE=="heat",CORRIDOR2_HVAC_MODE=="cool"]
-			    Setpoint item=CORRIDOR2_HVAC_TARGET_TEMPERATURE_LOW_C label="Minimum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[CORRIDOR2_HVAC_MODE=="heat-cool"]
-			    Setpoint item=CORRIDOR2_HVAC_TARGET_TEMPERATURE_HIGH_C label="Maximum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[CORRIDOR2_HVAC_MODE=="heat-cool"]
-			    
-		    	Text item=CORRIDOR2_HVAC_AWAY_TEMPERATURE_HIGH_C label="Away Temperature [%.1f °C]" visibility=[CORRIDOR2_HVAC_MODE=="heat",CORRIDOR2_HVAC_MODE=="cool"]
-			  	Text item=CORRIDOR2_HVAC_AWAY_TEMPERATURE_LOW_C label="Away Min [%.1f °C]" visibility=[CORRIDOR2_HVAC_MODE=="heat-cool"]
-			    Text item=CORRIDOR2_HVAC_AWAY_TEMPERATURE_HIGH_C label="Away Max [%.1f °C]" visibility=[CORRIDOR2_HVAC_MODE=="heat-cool"]
+
+			Frame label="Temperature" visibility=[C2_HVAC_TEMPERATURE_SCALE=="C"] {
+				Setpoint item=C2_HVAC_TARGET_TEMPERATURE_C label="Target Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[C2_HVAC_MODE=="heat",C2_HVAC_MODE=="cool"]
+			    Setpoint item=C2_HVAC_TARGET_TEMPERATURE_LOW_C label="Minimum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[C2_HVAC_MODE=="heat-cool"]
+			    Setpoint item=C2_HVAC_TARGET_TEMPERATURE_HIGH_C label="Maximum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[C2_HVAC_MODE=="heat-cool"]
+
+		    	Text item=C2_HVAC_AWAY_TEMPERATURE_HIGH_C label="Away Temperature [%.1f °C]" visibility=[C2_HVAC_MODE=="heat",C2_HVAC_MODE=="cool"]
+			  	Text item=C2_HVAC_AWAY_TEMPERATURE_LOW_C label="Away Min [%.1f °C]" visibility=[C2_HVAC_MODE=="heat-cool"]
+			    Text item=C2_HVAC_AWAY_TEMPERATURE_HIGH_C label="Away Max [%.1f °C]" visibility=[C2_HVAC_MODE=="heat-cool"]
 			}
-	
+
 		    Frame label="Advanced Information" {
-			   	Text item=CORRIDOR2_HVAC_IS_ONLINE icon="light"
-			    Text item=CORRIDOR2_HVAC_LAST_CONNECTION
+			   	Text item=C2_HVAC_IS_ONLINE icon="light"
+			    Text item=C2_HVAC_LAST_CONNECTION
 			    Text label="Detailed Information" icon="climate" {
-			    	Text item=CORRIDOR2_HVAC_NAME
-			    	Text item=CORRIDOR2_HVAC_NAME_LONG
-			    	Text item=CORRIDOR2_HVAC_SOFTWARE_VERSION
-			    	Text item=CORRIDOR2_HVAC_STATE
-			    	Text item=CORRIDOR2_HVAC_TEMPERATURE_SCALE
-			    	Text item=CORRIDOR2_HVAC_IS_ONLINE
-			    	Text item=CORRIDOR2_HVAC_MODE
-			    	Text item=CORRIDOR2_HVAC_CAN_HEAT
-			    	Text item=CORRIDOR2_HVAC_CAN_COOL
-			    	Text item=CORRIDOR2_HVAC_HAS_FAN
-			    	Text item=CORRIDOR2_HVAC_HAS_LEAF
-			    	Text item=CORRIDOR2_HVAC_FAN_TIMER_ACTIVE
-			    	Text item=CORRIDOR2_HVAC_LOCALE
+			    	Text item=C2_HVAC_NAME
+			    	Text item=C2_HVAC_NAME_LONG
+			    	Text item=C2_HVAC_SOFTWARE_VERSION
+			    	Text item=C2_HVAC_STATE
+			    	Text item=C2_HVAC_TEMPERATURE_SCALE
+			    	Text item=C2_HVAC_IS_ONLINE
+			    	Text item=C2_HVAC_MODE
+			    	Text item=C2_HVAC_CAN_HEAT
+			    	Text item=C2_HVAC_CAN_COOL
+			    	Text item=C2_HVAC_HAS_FAN
+			    	Text item=C2_HVAC_HAS_LEAF
+			    	Text item=C2_HVAC_FAN_TIMER_ACTIVE
+			    	Text item=C2_HVAC_LOCALE
 			    }
 		   }
 		}
-	
-		
+
+
 		Text label="Gym Thermostat" icon="climate" {
 	  	    Frame label="Current Status" {
 	  	    	Switch item=GYM_HVAC_MODE label="Mode" mappings=[heat="Heat",cool="Cool","heat-cool"="Auto",off="Off"]
@@ -160,27 +160,27 @@ sitemap nest label="Thermostats" {
 			    Text item=GYM_HVAC_AMBIENT_TEMPERATURE_C label="Gym Temperature [%.1f °C]"visibility=[GYM_HVAC_TEMPERATURE_SCALE=="C"]
 			    Text item=GYM_HVAC_HUMIDITY
 		    }
-		    
+
 		    Frame label="Temperature" visibility=[GYM_HVAC_TEMPERATURE_SCALE=="F"] {
 		    	Setpoint item=GYM_HVAC_TARGET_TEMPERATURE_F label="Target Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[GYM_HVAC_MODE=="heat",GYM_HVAC_MODE=="cool"]
 			    Setpoint item=GYM_HVAC_TARGET_TEMPERATURE_LOW_F label="Minimum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[GYM_HVAC_MODE=="heat-cool"]
 			    Setpoint item=GYM_HVAC_TARGET_TEMPERATURE_HIGH_F label="Maximum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[GYM_HVAC_MODE=="heat-cool"]
-			    
+
 		    	Text item=GYM_HVAC_AWAY_TEMPERATURE_HIGH_F label="Away Temperature [%.1f °F]" visibility=[GYM_HVAC_MODE=="heat",GYM_HVAC_MODE=="cool"]
 			  	Text item=GYM_HVAC_AWAY_TEMPERATURE_LOW_F label="Away Min [%.1f °F]" visibility=[GYM_HVAC_MODE=="heat-cool"]
 			    Text item=GYM_HVAC_AWAY_TEMPERATURE_HIGH_F label="Away Max [%.1f °F]" visibility=[GYM_HVAC_MODE=="heat-cool"]
 			}
-			
+
 			Frame label="Temperature" visibility=[GYM_HVAC_TEMPERATURE_SCALE=="C"] {
 				Setpoint item=GYM_HVAC_TARGET_TEMPERATURE_C label="Target Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[GYM_HVAC_MODE=="heat",GYM_HVAC_MODE=="cool"]
 			    Setpoint item=GYM_HVAC_TARGET_TEMPERATURE_LOW_C label="Minimum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[GYM_HVAC_MODE=="heat-cool"]
 			    Setpoint item=GYM_HVAC_TARGET_TEMPERATURE_HIGH_C label="Maximum Temperature [%.1f °F]" minValue=50 maxValue=80 step=1 visibility=[GYM_HVAC_MODE=="heat-cool"]
-			    
+
 		    	Text item=GYM_HVAC_AWAY_TEMPERATURE_HIGH_C label="Away Temperature [%.1f °C]" visibility=[GYM_HVAC_MODE=="heat",GYM_HVAC_MODE=="cool"]
 			  	Text item=GYM_HVAC_AWAY_TEMPERATURE_LOW_C label="Away Min [%.1f °C]" visibility=[GYM_HVAC_MODE=="heat-cool"]
 			    Text item=GYM_HVAC_AWAY_TEMPERATURE_HIGH_C label="Away Max [%.1f °C]" visibility=[GYM_HVAC_MODE=="heat-cool"]
 			}
-	
+
 		    Frame label="Advanced Information" {
 			   	Text item=GYM_HVAC_IS_ONLINE icon="light"
 			    Text item=GYM_HVAC_LAST_CONNECTION
@@ -200,6 +200,10 @@ sitemap nest label="Thermostats" {
 			    	Text item=GYM_HVAC_LOCALE
 			    }
 		   }
-		} 	
+		}
+	  }
+	  Frame label="Navigation" {
+	  		Text item=URL_DEFAULT_SITEMAP
+			Text item=URL_THERMOSTATS_SITEMAP
 	  }
 }

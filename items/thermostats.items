@@ -19,4 +19,6 @@
 String HOME_AWAY "Home [%s]" <present> { nest="=[structures(Home).away]" }
 String GYM_AWAY "Gym [%s]" <present> { nest="=[structures(Home).away]" }
 
+Group THERMOSTATS "Thermostats" (All)
+
 // Individual thermostats in their own files

@@ -1,19 +1,19 @@
 /*******
- * CORRIDOR2 Thermostat Items
+ * C2 Thermostat Items
  */
 
-Group gCORRIDOR2_HVAC "CORRIDOR2 Thermostat"
-Group gCORRIDOR2_HVAC_INFO "Detailed Information" (gCORRIDOR2_HVAC)
+Group gC2_HVAC "C2 Thermostat" (THERMOSTATS)
+Group gC2_HVAC_INFO "Detailed Information" (gC2_HVAC)
 
-Group gCORRIDOR2_HVAC_AMBIENT_TEMPERATURE_CHART_C "CORRIDOR2 Temperature Chart °C"
-Group gCORRIDOR2_HVAC_AMBIENT_TEMPERATURE_CHART_F "CORRIDOR2 Temperature Chart °F"
+Group gC2_HVAC_AMBIENT_TEMPERATURE_CHART_C "C2 Temperature Chart °C" (gC2_HVAC)
+Group gC2_HVAC_AMBIENT_TEMPERATURE_CHART_F "C2 Temperature Chart °F" (gC2_HVAC)
 
-Number CORRIDOR2_HVAC_AMBIENT_TEMPERATURE_MAX_C "CORRIDOR2 Maximum [%.1f °C]"	<temperature> (gCORRIDOR2_HVAC_AMBIENT_TEMPERATURE_CHART_C)
-Number CORRIDOR2_HVAC_AMBIENT_TEMPERATURE_MIN_C "CORRIDOR2 Minimum [%.1f °C]"	<temperature> (gCORRIDOR2_HVAC_AMBIENT_TEMPERATURE_CHART_C)
-Number CORRIDOR2_HVAC_AMBIENT_TEMPERATURE_MAX_F "CORRIDOR2 Maximum [%.1f °F]"	<temperature> (gCORRIDOR2_HVAC_AMBIENT_TEMPERATURE_CHART_F)
-Number CORRIDOR2_HVAC_AMBIENT_TEMPERATURE_MIN_F "CORRIDOR2 Minimum [%.1f °F]"	<temperature> (gCORRIDOR2_HVAC_AMBIENT_TEMPERATURE_CHART_F)
+Number C2_HVAC_AMBIENT_TEMPERATURE_MAX_C "C2 Maximum [%.1f °C]"	<temperature> (gC2_HVAC_AMBIENT_TEMPERATURE_CHART_C)
+Number C2_HVAC_AMBIENT_TEMPERATURE_MIN_C "C2 Minimum [%.1f °C]"	<temperature> (gC2_HVAC_AMBIENT_TEMPERATURE_CHART_C)
+Number C2_HVAC_AMBIENT_TEMPERATURE_MAX_F "C2 Maximum [%.1f °F]"	<temperature> (gC2_HVAC_AMBIENT_TEMPERATURE_CHART_F)
+Number C2_HVAC_AMBIENT_TEMPERATURE_MIN_F "C2 Minimum [%.1f °F]"	<temperature> (gC2_HVAC_AMBIENT_TEMPERATURE_CHART_F)
 
-Number CORRIDOR2_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD "Chart Period"
+Number C2_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD "Chart Period"
 
 
 /**
@@ -28,10 +28,10 @@ Number CORRIDOR2_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD "Chart Period"
  *      When "off", the HVAC system is not actively heating or cooling.
  *      hvac_state is independent of fan operation.
  */
-String CORRIDOR2_HVAC_STATE "State [MAP(nest_state_en.map):%s]"
+String C2_HVAC_STATE "State [MAP(nest_state_en.map):%s]"
    <climate>
-   (gCORRIDOR2_HVAC)
-   {nest="<[thermostats(Gym).hvac_state]"}
+   (gC2_HVAC)
+   {nest="<[thermostats(Upstairs).hvac_state]"}
 
 /**
  * Humidity, in percent (%) format, measured at the device.
@@ -43,10 +43,10 @@ String CORRIDOR2_HVAC_STATE "State [MAP(nest_state_en.map):%s]"
  * Considerations
  *      Humidity is limited to a range of 0-100.
  */
-Number CORRIDOR2_HVAC_HUMIDITY "Humidity [%d %%]"
+Number C2_HVAC_HUMIDITY "Humidity [%d %%]"
     <humidity>
-    (gCORRIDOR2_HVAC)
-    {nest="<[thermostats(Gym).humidity]"}
+    (gC2_HVAC)
+    {nest="<[thermostats(Upstairs).humidity]"}
 
 /**
  * Fahrenheit or Celsius; used with temperature display.
@@ -57,10 +57,10 @@ Number CORRIDOR2_HVAC_HUMIDITY "Humidity [%d %%]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-String CORRIDOR2_HVAC_TEMPERATURE_SCALE "Temperature Scale [°%s]"
+String C2_HVAC_TEMPERATURE_SCALE "Temperature Scale [°%s]"
     <temperature>
-    (gCORRIDOR2_HVAC_INFO)
-    {nest="<[thermostats(Gym).temperature_scale]"}
+    (gC2_HVAC_INFO)
+    {nest="<[thermostats(Upstairs).temperature_scale]"}
 
 /**
  * Emergency Heat status in systems with heat pumps for cooling.
@@ -74,9 +74,9 @@ String CORRIDOR2_HVAC_TEMPERATURE_SCALE "Temperature Scale [°%s]"
  *      temperature, but cannot change the hvac_mode (Heat, Cool, Heat-Cool)
  *      until emergency heat is turned off.
  */
-Switch CORRIDOR2_HVAC_IS_USING_EMERGENCY_HEAT "Is using emergency heat [%s]"
-    (gCORRIDOR2_HVAC)
-    {nest="<[thermostats(Gym).is_using_emergency_heat]"}
+Switch C2_HVAC_IS_USING_EMERGENCY_HEAT "Is using emergency heat [%s]"
+    (gC2_HVAC)
+    {nest="<[thermostats(Upstairs).is_using_emergency_heat]"}
 
 /**
  * Temperature, measured at the device, in half degrees Celsius (0.5°C).
@@ -86,10 +86,10 @@ Switch CORRIDOR2_HVAC_IS_USING_EMERGENCY_HEAT "Is using emergency heat [%s]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-Number CORRIDOR2_HVAC_AMBIENT_TEMPERATURE_C "Ambient Temperature [%.1f °C]"
+Number C2_HVAC_AMBIENT_TEMPERATURE_C "Ambient Temperature [%.1f °C]"
     <temperature>
-    (gCORRIDOR2_HVAC,gCORRIDOR2_HVAC_AMBIENT_TEMPERATURE_CHART_C)
-    {nest="<[thermostats(Gym).ambient_temperature_c]"}
+    (gC2_HVAC,gC2_HVAC_AMBIENT_TEMPERATURE_CHART_C)
+    {nest="<[thermostats(Upstairs).ambient_temperature_c]"}
 
 /**
  * Temperature, measured at the device, in whole degrees Fahrenheit (1°F).
@@ -99,10 +99,10 @@ Number CORRIDOR2_HVAC_AMBIENT_TEMPERATURE_C "Ambient Temperature [%.1f °C]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-Number CORRIDOR2_HVAC_AMBIENT_TEMPERATURE_F "Ambient Temperature [%.1f °F]"
+Number C2_HVAC_AMBIENT_TEMPERATURE_F "Ambient Temperature [%.1f °F]"
     <temperature>
-    (gCORRIDOR2_HVAC,gCORRIDOR2_HVAC_AMBIENT_TEMPERATURE_CHART_F)
-    {nest="<[thermostats(Gym).ambient_temperature_f]"}
+    (gC2_HVAC,gC2_HVAC_AMBIENT_TEMPERATURE_CHART_F)
+    {nest="<[thermostats(Upstairs).ambient_temperature_f]"}
 
 /**
  * Maximum away temperature, displayed in half degrees Celcius (0.5°C).
@@ -112,10 +112,10 @@ Number CORRIDOR2_HVAC_AMBIENT_TEMPERATURE_F "Ambient Temperature [%.1f °F]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-Number CORRIDOR2_HVAC_AWAY_TEMPERATURE_HIGH_C "Away Temperature High [%.1f °C]"
+Number C2_HVAC_AWAY_TEMPERATURE_HIGH_C "Away Temperature High [%.1f °C]"
     <temperature>
-    (gCORRIDOR2_HVAC)
-    {nest="<[thermostats(Gym).away_temperature_high_c]"}
+    (gC2_HVAC)
+    {nest="<[thermostats(Upstairs).away_temperature_high_c]"}
 
 /**
  * Maximum away temperature, displayed in whole degrees Fahrenheit (1°F).
@@ -125,10 +125,10 @@ Number CORRIDOR2_HVAC_AWAY_TEMPERATURE_HIGH_C "Away Temperature High [%.1f °C]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-Number CORRIDOR2_HVAC_AWAY_TEMPERATURE_HIGH_F "Away Temperature High [%.1f °F]"
+Number C2_HVAC_AWAY_TEMPERATURE_HIGH_F "Away Temperature High [%.1f °F]"
     <temperature>
-    (gCORRIDOR2_HVAC)
-    {nest="<[thermostats(Gym).away_temperature_high_f]"}
+    (gC2_HVAC)
+    {nest="<[thermostats(Upstairs).away_temperature_high_f]"}
 
 /**
  * Minimum away temperature, displayed in half degrees Celcius (0.5°C).
@@ -138,10 +138,10 @@ Number CORRIDOR2_HVAC_AWAY_TEMPERATURE_HIGH_F "Away Temperature High [%.1f °F]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-Number CORRIDOR2_HVAC_AWAY_TEMPERATURE_LOW_C "Away Temperature Low [%.1f °C]"
+Number C2_HVAC_AWAY_TEMPERATURE_LOW_C "Away Temperature Low [%.1f °C]"
     <temperature>
-    (gCORRIDOR2_HVAC)
-    {nest="<[thermostats(Gym).away_temperature_low_c]"}
+    (gC2_HVAC)
+    {nest="<[thermostats(Upstairs).away_temperature_low_c]"}
 
 /**
  * Minimum away temperature, displayed in whole degrees Fahrenheit (1°F).
@@ -151,10 +151,10 @@ Number CORRIDOR2_HVAC_AWAY_TEMPERATURE_LOW_C "Away Temperature Low [%.1f °C]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-Number CORRIDOR2_HVAC_AWAY_TEMPERATURE_LOW_F "Away Temperature Low [%.1f °F]"
+Number C2_HVAC_AWAY_TEMPERATURE_LOW_F "Away Temperature Low [%.1f °F]"
     <temperature>
-    (gCORRIDOR2_HVAC)
-    {nest="<[thermostats(Gym).away_temperature_low_f]"}
+    (gC2_HVAC)
+    {nest="<[thermostats(Upstairs).away_temperature_low_f]"}
 
 /**
  * Timestamp of the last successful interaction with the Nest service, in ISO 8601 format.
@@ -163,10 +163,10 @@ Number CORRIDOR2_HVAC_AWAY_TEMPERATURE_LOW_F "Away Temperature Low [%.1f °F]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-DateTime CORRIDOR2_HVAC_LAST_CONNECTION "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"
+DateTime C2_HVAC_LAST_CONNECTION "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"
     <calendar>
-    (gCORRIDOR2_HVAC)
-    {nest="<[thermostats(Gym).last_connection]"}
+    (gC2_HVAC)
+    {nest="<[thermostats(Upstairs).last_connection]"}
 
 /**
  * Display name of the device. This data value is presented in labels in the Nest app.
@@ -175,9 +175,9 @@ DateTime CORRIDOR2_HVAC_LAST_CONNECTION "Last Connection [%1$tm/%1$td/%1$tY %1$t
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-String CORRIDOR2_HVAC_NAME "Name [%s]"
-    (gCORRIDOR2_HVAC_INFO)
-    {nest="<[thermostats(Gym).name]"}
+String C2_HVAC_NAME "Name [%s]"
+    (gC2_HVAC_INFO)
+    {nest="<[thermostats(Upstairs).name]"}
 
 /**
  * Long display name of the device. This data value is selected by the user
@@ -188,9 +188,9 @@ String CORRIDOR2_HVAC_NAME "Name [%s]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-String CORRIDOR2_HVAC_NAME_LONG "Name Long [%s]"
-    (gCORRIDOR2_HVAC_INFO)
-    {nest="<[thermostats(Gym).name_long]"}
+String C2_HVAC_NAME_LONG "Name Long [%s]"
+    (gC2_HVAC_INFO)
+    {nest="<[thermostats(Upstairs).name_long]"}
 
 /**
  * Device connection status with the Nest Service.
@@ -199,9 +199,9 @@ String CORRIDOR2_HVAC_NAME_LONG "Name Long [%s]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-Switch CORRIDOR2_HVAC_IS_ONLINE "Is Online [MAP(nest_online_en.map):%s]"
-    (gCORRIDOR2_HVAC_INFO)
-    {nest="<[thermostats(Gym).is_online]"}
+Switch C2_HVAC_IS_ONLINE "Is Online [MAP(nest_online_en.map):%s]"
+    (gC2_HVAC_INFO)
+    {nest="<[thermostats(Upstairs).is_online]"}
 
 /**
  * Software version.
@@ -210,9 +210,9 @@ Switch CORRIDOR2_HVAC_IS_ONLINE "Is Online [MAP(nest_online_en.map):%s]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-String CORRIDOR2_HVAC_SOFTWARE_VERSION "Software Version [%s]"
-    (gCORRIDOR2_HVAC_INFO)
-    {nest="<[thermostats(Gym).software_version]"}
+String C2_HVAC_SOFTWARE_VERSION "Software Version [%s]"
+    (gC2_HVAC_INFO)
+    {nest="<[thermostats(Upstairs).software_version]"}
 
 /**
  * Desired temperature, in half degrees Celcius (0.5°C). Used when
@@ -226,10 +226,10 @@ String CORRIDOR2_HVAC_SOFTWARE_VERSION "Software Version [%s]"
  * Considerations
  *      Target temperature is limited to a range of 9 - 32°F.
  */
-Number CORRIDOR2_HVAC_TARGET_TEMPERATURE_C "Target Temperature [%.1f °C]"
+Number C2_HVAC_TARGET_TEMPERATURE_C "Target Temperature [%.1f °C]"
     <temperature>
-    (gCORRIDOR2_HVAC)
-    {nest="=[thermostats(Gym).target_temperature_c]"}
+    (gC2_HVAC)
+    {nest="=[thermostats(Upstairs).target_temperature_c]"}
 /**
  * Desired temperature, in full degrees Fahrenheit (1°F). Used when
  * hvac_mode = "heat" or "cool".
@@ -242,10 +242,10 @@ Number CORRIDOR2_HVAC_TARGET_TEMPERATURE_C "Target Temperature [%.1f °C]"
  * Considerations
  *      Target temperature is limited to a range of 50 - 90°F.
  */
-Number CORRIDOR2_HVAC_TARGET_TEMPERATURE_F "Target Temperature [%.1f °F]"
+Number C2_HVAC_TARGET_TEMPERATURE_F "Target Temperature [%.1f °F]"
     <temperature>
-    (gCORRIDOR2_HVAC)
-    {nest="=[thermostats(Gym).target_temperature_f]"}
+    (gC2_HVAC)
+    {nest="=[thermostats(Upstairs).target_temperature_f]"}
 
 /**
  * Maximum target temperature, displayed in half degrees Celcius (0.5°C).
@@ -257,10 +257,10 @@ Number CORRIDOR2_HVAC_TARGET_TEMPERATURE_F "Target Temperature [%.1f °F]"
  * Permission WRITE
  *      Thermostat read/write / v1-v4
  */
-Number CORRIDOR2_HVAC_TARGET_TEMPERATURE_HIGH_C "Target Temperature High [%.1f °C]"
+Number C2_HVAC_TARGET_TEMPERATURE_HIGH_C "Target Temperature High [%.1f °C]"
     <temperature>
-    (gCORRIDOR2_HVAC)
-    {nest="=[thermostats(Gym).target_temperature_high_c]"}
+    (gC2_HVAC)
+    {nest="=[thermostats(Upstairs).target_temperature_high_c]"}
 
 /**
  * Maximum target temperature, displayed in whole degrees Fahrenheit (1°F).
@@ -272,10 +272,10 @@ Number CORRIDOR2_HVAC_TARGET_TEMPERATURE_HIGH_C "Target Temperature High [%.1f �
  * Permission WRITE
  *      Thermostat read/write / v1-v4
  */
-Number CORRIDOR2_HVAC_TARGET_TEMPERATURE_HIGH_F "Target Temperature High [%.1f °F]"
+Number C2_HVAC_TARGET_TEMPERATURE_HIGH_F "Target Temperature High [%.1f °F]"
     <temperature>
-    (gCORRIDOR2_HVAC)
-    {nest="=[thermostats(Gym).target_temperature_high_f]"}
+    (gC2_HVAC)
+    {nest="=[thermostats(Upstairs).target_temperature_high_f]"}
 
 /**
  * Minimum target temperature, displayed in half degrees Celcius (0.5°C).
@@ -287,10 +287,10 @@ Number CORRIDOR2_HVAC_TARGET_TEMPERATURE_HIGH_F "Target Temperature High [%.1f �
  * Permission WRITE
  *      Thermostat read/write / v1-v4
  */
-Number CORRIDOR2_HVAC_TARGET_TEMPERATURE_LOW_C "Target Temperature Low [%.1f °C]"
+Number C2_HVAC_TARGET_TEMPERATURE_LOW_C "Target Temperature Low [%.1f °C]"
     <temperature>
-    (gCORRIDOR2_HVAC)
-    {nest="=[thermostats(Gym).target_temperature_low_c]"}
+    (gC2_HVAC)
+    {nest="=[thermostats(Upstairs).target_temperature_low_c]"}
 
 /**
  * Minimum target temperature, displayed in whole degrees Fahrenheit (1°F).
@@ -302,10 +302,10 @@ Number CORRIDOR2_HVAC_TARGET_TEMPERATURE_LOW_C "Target Temperature Low [%.1f °C
  * Permission WRITE
  *      Thermostat read/write / v1-v4
  */
-Number CORRIDOR2_HVAC_TARGET_TEMPERATURE_LOW_F "Target Temperature Low [%.1f °F]"
+Number C2_HVAC_TARGET_TEMPERATURE_LOW_F "Target Temperature Low [%.1f °F]"
     <temperature>
-    (gCORRIDOR2_HVAC)
-    {nest="=[thermostats(Gym).target_temperature_low_f]"}
+    (gC2_HVAC)
+    {nest="=[thermostats(Upstairs).target_temperature_low_f]"}
 
 /**
  * Indicates HVAC system heating/cooling modes.
@@ -329,10 +329,10 @@ Number CORRIDOR2_HVAC_TARGET_TEMPERATURE_LOW_F "Target Temperature Low [%.1f °F
  * Considerations
  *      When hvac_mode="off", then target_temperature_f and target_temperature_c cannot be changed.
  */
-String CORRIDOR2_HVAC_MODE "HVAC Mode [MAP(nest_mode_en.map):%s]"
+String C2_HVAC_MODE "HVAC Mode [MAP(nest_mode_en.map):%s]"
     <climate>
-    (gCORRIDOR2_HVAC_INFO)
-    {nest="=[thermostats(Gym).hvac_mode]"}
+    (gC2_HVAC_INFO)
+    {nest="=[thermostats(Upstairs).hvac_mode]"}
 
 /**
  * System ability to heat
@@ -341,9 +341,9 @@ String CORRIDOR2_HVAC_MODE "HVAC Mode [MAP(nest_mode_en.map):%s]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-Switch CORRIDOR2_HVAC_CAN_HEAT "Can Heat [MAP(nest_bool_en.map):%s]"
-    (gCORRIDOR2_HVAC_INFO)
-    {nest="<[thermostats(Gym).can_heat]"}
+Switch C2_HVAC_CAN_HEAT "Can Heat [MAP(nest_bool_en.map):%s]"
+    (gC2_HVAC_INFO)
+    {nest="<[thermostats(Upstairs).can_heat]"}
 
 /**
  * System ability to cool (has AC).
@@ -352,9 +352,9 @@ Switch CORRIDOR2_HVAC_CAN_HEAT "Can Heat [MAP(nest_bool_en.map):%s]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-Switch CORRIDOR2_HVAC_CAN_COOL "Can Cool [MAP(nest_bool_en.map):%s]"
-    (gCORRIDOR2_HVAC_INFO)
-    {nest="<[thermostats(Gym).can_cool]"}
+Switch C2_HVAC_CAN_COOL "Can Cool [MAP(nest_bool_en.map):%s]"
+    (gC2_HVAC_INFO)
+    {nest="<[thermostats(Upstairs).can_cool]"}
 /**
  * System ability to control the fan independently from heating or cooling.
  * Type     boolean
@@ -362,9 +362,9 @@ Switch CORRIDOR2_HVAC_CAN_COOL "Can Cool [MAP(nest_bool_en.map):%s]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-Switch CORRIDOR2_HVAC_HAS_FAN "Has Fan [MAP(nest_bool_en.map):%s]"
-    (gCORRIDOR2_HVAC_INFO)
-    {nest="<[thermostats(Gym).has_fan]"}
+Switch C2_HVAC_HAS_FAN "Has Fan [MAP(nest_bool_en.map):%s]"
+    (gC2_HVAC_INFO)
+    {nest="<[thermostats(Upstairs).has_fan]"}
 
 /**
  * Displayed when the thermostat is set to an energy-saving temperature.
@@ -375,9 +375,9 @@ Switch CORRIDOR2_HVAC_HAS_FAN "Has Fan [MAP(nest_bool_en.map):%s]"
  *      Thermostat read / v1-v4
  *      Thermostat read/write / v1-v4
  */
-Switch CORRIDOR2_HVAC_HAS_LEAF "Has Leaf [MAP(nest_bool_en.map):%s]"
-    (gCORRIDOR2_HVAC_INFO)
-    {nest="<[thermostats(Gym).has_leaf]"}
+Switch C2_HVAC_HAS_LEAF "Has Leaf [MAP(nest_bool_en.map):%s]"
+    (gC2_HVAC_INFO)
+    {nest="<[thermostats(Upstairs).has_leaf]"}
 
 /**
  * Indicates if the fan timer is engaged; used with 'fan_timer_timeout'
@@ -389,9 +389,9 @@ Switch CORRIDOR2_HVAC_HAS_LEAF "Has Leaf [MAP(nest_bool_en.map):%s]"
  *
  * Permissions: Write
  */
-Switch CORRIDOR2_HVAC_FAN_TIMER_ACTIVE "Fan Timer Active [MAP(nest_bool_en.map):%s]"
-    (gCORRIDOR2_HVAC_INFO)
-    {nest="=[thermostats(Gym).fan_timer_active]"}
+Switch C2_HVAC_FAN_TIMER_ACTIVE "Fan Timer Active [MAP(nest_bool_en.map):%s]"
+    (gC2_HVAC_INFO)
+    {nest="=[thermostats(Upstairs).fan_timer_active]"}
 
 /**
  * Timestamp, showing when the fan timer reaches 0 (end of timer duration),
@@ -400,12 +400,12 @@ Switch CORRIDOR2_HVAC_FAN_TIMER_ACTIVE "Fan Timer Active [MAP(nest_bool_en.map):
  * Value: String
  * Permissions: Read
  */
-DateTime CORRIDOR2_HVAC_FAN_TIMER_TIMEOUT "Fan Timer Timeout [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"
+DateTime C2_HVAC_FAN_TIMER_TIMEOUT "Fan Timer Timeout [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"
     <calendar>
-    (gCORRIDOR2_HVAC)
-    {nest="<[thermostats(Gym).fan_timer_timeout]"}
+    (gC2_HVAC)
+    {nest="<[thermostats(Upstairs).fan_timer_timeout]"}
 
 // Nest API: Read Only
-String CORRIDOR2_HVAC_LOCALE "Locale [%s]"
-    (gCORRIDOR2_HVAC_INFO)
-    {nest="<[thermostats(Gym).locale]"}
+String C2_HVAC_LOCALE "Locale [%s]"
+    (gC2_HVAC_INFO)
+    {nest="<[thermostats(Upstairs).locale]"}

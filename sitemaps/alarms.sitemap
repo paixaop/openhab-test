@@ -1,0 +1,26 @@
+sitemap nest label="Alarms" {
+	Frame label="Master Bedroom" {
+        Text item=MASTER_SD_SMOKE valuecolor=[MASTER_SD_COLOR=="green"="green",MASTER_SD_COLOR=="gray"="gray",MASTER_SD_COLOR=="yellow"="yellow",MASTER_SD_COLOR=="red"="red"]
+        Text item=MASTER_SD_CO valuecolor=[MASTER_SD_COLOR=="green"="green",MASTER_SD_COLOR=="gray"="gray",MASTER_SD_COLOR=="yellow"="yellow",MASTER_SD_COLOR=="red"="red"]
+        Text item=MASTER_SD_LAST_CONNECTION
+
+        Text item=MASTER_SD_IS_ONLINE
+        Text label="Detailed Information" icon="info" {
+            Text item=MASTER_SD_NAME
+            Text item=MASTER_SD_NAME_LONG
+            Text item=MASTER_SD_BATTERY
+            Text item=MASTER_SD_VERSION
+            Text item=MASTER_SD_IS_ONLINE
+            Text item=MASTER_SD_LAST_CONNECTION
+            Text item=MASTER_SD_IS_MANUAL_TEST_ACTIVE
+            Text item=MASTER_SD_LAST_MANUAL_TEST_TIME
+            Text item=MASTER_SD_LOCALE
+        }
+
+    }
+    Frame label="Rita's Room" {
+        Text item=RITA_SD_SMOKE valuecolor=[RITA_SD_COLOR=="green"="green",RITA_SD_COLOR=="gray"="gray",RITA_SD_COLOR=="yellow"="yellow",RITA_SD_COLOR=="red"="red"]
+        Text item=RITA_SD_CO valuecolor=[RITA_SD_COLOR=="green"="green",RITA_SD_COLOR=="gray"="gray",RITA_SD_COLOR=="yellow"="yellow",RITA_SD_COLOR=="red"="red"]
+        Text item=RITA_SD_LAST_CONNECTION
+    }
+}

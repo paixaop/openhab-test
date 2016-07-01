@@ -2,11 +2,11 @@
  * GYM Thermostat Items
  */
 
-Group gGYM_HVAC "GYM Thermostat"
+Group gGYM_HVAC "GYM Thermostat" (THERMOSTATS)
 Group gGYM_HVAC_INFO "Detailed Information" (gGYM_HVAC)
 
-Group gGYM_HVAC_AMBIENT_TEMPERATURE_CHART_C "GYM Temperature Chart °C"
-Group gGYM_HVAC_AMBIENT_TEMPERATURE_CHART_F "GYM Temperature Chart °F"
+Group gGYM_HVAC_AMBIENT_TEMPERATURE_CHART_C "GYM Temperature Chart °C" (gGYM_HVAC)
+Group gGYM_HVAC_AMBIENT_TEMPERATURE_CHART_F "GYM Temperature Chart °F" (gGYM_HVAC)
 
 Number GYM_HVAC_AMBIENT_TEMPERATURE_MAX_C "GYM Maximum [%.1f °C]"	<temperature> (gGYM_HVAC_AMBIENT_TEMPERATURE_CHART_C)
 Number GYM_HVAC_AMBIENT_TEMPERATURE_MIN_C "GYM Minimum [%.1f °C]"	<temperature> (gGYM_HVAC_AMBIENT_TEMPERATURE_CHART_C)

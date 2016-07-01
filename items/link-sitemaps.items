@@ -1,0 +1,3 @@
+String URL_THERMOSTATS_SITEMAP "<a href='/openhab.app?sitemap=nest'>Thermostats</a>"
+
+String URL_DEFAULT_SITEMAP "<a href='/openhab.app?sitemap=default'>Main Menu</a>"

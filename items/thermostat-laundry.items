@@ -2,11 +2,11 @@
  * Laundry Thermostat Items
  */
 
-Group gLAUNDRY_HVAC "Laundry Thermostat"
+Group gLAUNDRY_HVAC "Laundry Thermostat" (THERMOSTATS)
 Group gLAUNDRY_HVAC_INFO "Detailed Information" (gLAUNDRY_HVAC)
 
-Group gLAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_C "Laundry Temperature Chart °C"
-Group gLAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_F "Laundry Temperature Chart °F"
+Group gLAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_C "Laundry Temperature Chart °C" (gLAUNDRY_HVAC)
+Group gLAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_F "Laundry Temperature Chart °F" (gLAUNDRY_HVAC)
 
 Number LAUNDRY_HVAC_AMBIENT_TEMPERATURE_MAX_C "Laundry Maximum [%.1f °C]"	<temperature> (gLAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_C)
 Number LAUNDRY_HVAC_AMBIENT_TEMPERATURE_MIN_C "Laundry Minimum [%.1f °C]"	<temperature> (gLAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_C)
@@ -30,7 +30,7 @@ Number LAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_PERIOD "Chart Period"
 String LAUNDRY_HVAC_STATE "State [MAP(nest_state_en.map):%s]"
    <climate>
    (gLAUNDRY_HVAC)
-   {nest="<[thermostats(Gym).hvac_state]"}
+   {nest="<[thermostats(Laundry).hvac_state]"}
 
 /**
  * Humidity, in percent (%) format, measured at the device.
@@ -45,7 +45,7 @@ String LAUNDRY_HVAC_STATE "State [MAP(nest_state_en.map):%s]"
 Number LAUNDRY_HVAC_HUMIDITY "Humidity [%d %%]"
     <humidity>
     (gLAUNDRY_HVAC)
-    {nest="<[thermostats(Gym).humidity]"}
+    {nest="<[thermostats(Laundry).humidity]"}
 
 /**
  * Fahrenheit or Celsius; used with temperature display.
@@ -59,7 +59,7 @@ Number LAUNDRY_HVAC_HUMIDITY "Humidity [%d %%]"
 String LAUNDRY_HVAC_TEMPERATURE_SCALE "Temperature Scale [°%s]"
     <temperature>
     (gLAUNDRY_HVAC_INFO)
-    {nest="<[thermostats(Gym).temperature_scale]"}
+    {nest="<[thermostats(Laundry).temperature_scale]"}
 
 /**
  * Emergency Heat status in systems with heat pumps for cooling.
@@ -75,7 +75,7 @@ String LAUNDRY_HVAC_TEMPERATURE_SCALE "Temperature Scale [°%s]"
  */
 Switch LAUNDRY_HVAC_IS_USING_EMERGENCY_HEAT "Is using emergency heat [%s]"
     (gLAUNDRY_HVAC)
-    {nest="<[thermostats(Gym).is_using_emergency_heat]"}
+    {nest="<[thermostats(Laundry).is_using_emergency_heat]"}
 
 /**
  * Temperature, measured at the device, in half degrees Celsius (0.5°C).
@@ -88,7 +88,7 @@ Switch LAUNDRY_HVAC_IS_USING_EMERGENCY_HEAT "Is using emergency heat [%s]"
 Number LAUNDRY_HVAC_AMBIENT_TEMPERATURE_C "Ambient Temperature [%.1f °C]"
     <temperature>
     (gLAUNDRY_HVAC,gLAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_C)
-    {nest="<[thermostats(Gym).ambient_temperature_c]"}
+    {nest="<[thermostats(Laundry).ambient_temperature_c]"}
 
 /**
  * Temperature, measured at the device, in whole degrees Fahrenheit (1°F).
@@ -101,7 +101,7 @@ Number LAUNDRY_HVAC_AMBIENT_TEMPERATURE_C "Ambient Temperature [%.1f °C]"
 Number LAUNDRY_HVAC_AMBIENT_TEMPERATURE_F "Ambient Temperature [%.1f °F]"
     <temperature>
     (gLAUNDRY_HVAC,gLAUNDRY_HVAC_AMBIENT_TEMPERATURE_CHART_C)
-    {nest="<[thermostats(Gym).ambient_temperature_f]"}
+    {nest="<[thermostats(Laundry).ambient_temperature_f]"}
 
 /**
  * Maximum away temperature, displayed in half degrees Celcius (0.5°C).
@@ -114,7 +114,7 @@ Number LAUNDRY_HVAC_AMBIENT_TEMPERATURE_F "Ambient Temperature [%.1f °F]"
 Number LAUNDRY_HVAC_AWAY_TEMPERATURE_HIGH_C "Away Temperature High [%.1f °C]"
     <temperature>
     (gLAUNDRY_HVAC)
-    {nest="<[thermostats(Gym).away_temperature_high_c]"}
+    {nest="<[thermostats(Laundry).away_temperature_high_c]"}
 
 /**
  * Maximum away temperature, displayed in whole degrees Fahrenheit (1°F).
@@ -127,7 +127,7 @@ Number LAUNDRY_HVAC_AWAY_TEMPERATURE_HIGH_C "Away Temperature High [%.1f °C]"
 Number LAUNDRY_HVAC_AWAY_TEMPERATURE_HIGH_F "Away Temperature High [%.1f °F]"
     <temperature>
     (gLAUNDRY_HVAC)
-    {nest="<[thermostats(Gym).away_temperature_high_f]"}
+    {nest="<[thermostats(Laundry).away_temperature_high_f]"}
 
 /**
  * Minimum away temperature, displayed in half degrees Celcius (0.5°C).
@@ -140,7 +140,7 @@ Number LAUNDRY_HVAC_AWAY_TEMPERATURE_HIGH_F "Away Temperature High [%.1f °F]"
 Number LAUNDRY_HVAC_AWAY_TEMPERATURE_LOW_C "Away Temperature Low [%.1f °C]"
     <temperature>
     (gLAUNDRY_HVAC)
-    {nest="<[thermostats(Gym).away_temperature_low_c]"}
+    {nest="<[thermostats(Laundry).away_temperature_low_c]"}
 
 /**
  * Minimum away temperature, displayed in whole degrees Fahrenheit (1°F).
@@ -153,7 +153,7 @@ Number LAUNDRY_HVAC_AWAY_TEMPERATURE_LOW_C "Away Temperature Low [%.1f °C]"
 Number LAUNDRY_HVAC_AWAY_TEMPERATURE_LOW_F "Away Temperature Low [%.1f °F]"
     <temperature>
     (gLAUNDRY_HVAC)
-    {nest="<[thermostats(Gym).away_temperature_low_f]"}
+    {nest="<[thermostats(Laundry).away_temperature_low_f]"}
 
 /**
  * Timestamp of the last successful interaction with the Nest service, in ISO 8601 format.
@@ -165,7 +165,7 @@ Number LAUNDRY_HVAC_AWAY_TEMPERATURE_LOW_F "Away Temperature Low [%.1f °F]"
 DateTime LAUNDRY_HVAC_LAST_CONNECTION "Last Connection [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"
     <calendar>
     (gLAUNDRY_HVAC)
-    {nest="<[thermostats(Gym).last_connection]"}
+    {nest="<[thermostats(Laundry).last_connection]"}
 
 /**
  * Display name of the device. This data value is presented in labels in the Nest app.
@@ -176,7 +176,7 @@ DateTime LAUNDRY_HVAC_LAST_CONNECTION "Last Connection [%1$tm/%1$td/%1$tY %1$tH:
  */
 String LAUNDRY_HVAC_NAME "Name [%s]"
     (gLAUNDRY_HVAC_INFO)
-    {nest="<[thermostats(Gym).name]"}
+    {nest="<[thermostats(Laundry).name]"}
 
 /**
  * Long display name of the device. This data value is selected by the user
@@ -189,7 +189,7 @@ String LAUNDRY_HVAC_NAME "Name [%s]"
  */
 String LAUNDRY_HVAC_NAME_LONG "Name Long [%s]"
     (gLAUNDRY_HVAC_INFO)
-    {nest="<[thermostats(Gym).name_long]"}
+    {nest="<[thermostats(Laundry).name_long]"}
 
 /**
  * Device connection status with the Nest Service.
@@ -200,7 +200,7 @@ String LAUNDRY_HVAC_NAME_LONG "Name Long [%s]"
  */
 Switch LAUNDRY_HVAC_IS_ONLINE "Is Online [MAP(nest_online_en.map):%s]"
     (gLAUNDRY_HVAC_INFO)
-    {nest="<[thermostats(Gym).is_online]"}
+    {nest="<[thermostats(Laundry).is_online]"}
 
 /**
  * Software version.
@@ -211,7 +211,7 @@ Switch LAUNDRY_HVAC_IS_ONLINE "Is Online [MAP(nest_online_en.map):%s]"
  */
 String LAUNDRY_HVAC_SOFTWARE_VERSION "Software Version [%s]"
     (gLAUNDRY_HVAC_INFO)
-    {nest="<[thermostats(Gym).software_version]"}
+    {nest="<[thermostats(Laundry).software_version]"}
 
 /**
  * Desired temperature, in half degrees Celcius (0.5°C). Used when
@@ -228,7 +228,7 @@ String LAUNDRY_HVAC_SOFTWARE_VERSION "Software Version [%s]"
 Number LAUNDRY_HVAC_TARGET_TEMPERATURE_C "Target Temperature [%.1f °C]"
     <temperature>
     (gLAUNDRY_HVAC)
-    {nest="=[thermostats(Gym).target_temperature_c]"}
+    {nest="=[thermostats(Laundry).target_temperature_c]"}
 /**
  * Desired temperature, in full degrees Fahrenheit (1°F). Used when
  * hvac_mode = "heat" or "cool".
@@ -244,7 +244,7 @@ Number LAUNDRY_HVAC_TARGET_TEMPERATURE_C "Target Temperature [%.1f °C]"
 Number LAUNDRY_HVAC_TARGET_TEMPERATURE_F "Target Temperature [%.1f °F]"
     <temperature>
     (gLAUNDRY_HVAC)
-    {nest="=[thermostats(Gym).target_temperature_f]"}
+    {nest="=[thermostats(Laundry).target_temperature_f]"}
 
 /**
  * Maximum target temperature, displayed in half degrees Celcius (0.5°C).
@@ -259,7 +259,7 @@ Number LAUNDRY_HVAC_TARGET_TEMPERATURE_F "Target Temperature [%.1f °F]"
 Number LAUNDRY_HVAC_TARGET_TEMPERATURE_HIGH_C "Target Temperature High [%.1f °C]"
     <temperature>
     (gLAUNDRY_HVAC)
-    {nest="=[thermostats(Gym).target_temperature_high_c]"}
+    {nest="=[thermostats(Laundry).target_temperature_high_c]"}
 
 /**
  * Maximum target temperature, displayed in whole degrees Fahrenheit (1°F).
@@ -274,7 +274,7 @@ Number LAUNDRY_HVAC_TARGET_TEMPERATURE_HIGH_C "Target Temperature High [%.1f °C
 Number LAUNDRY_HVAC_TARGET_TEMPERATURE_HIGH_F "Target Temperature High [%.1f °F]"
     <temperature>
     (gLAUNDRY_HVAC)
-    {nest="=[thermostats(Gym).target_temperature_high_f]"}
+    {nest="=[thermostats(Laundry).target_temperature_high_f]"}
 
 /**
  * Minimum target temperature, displayed in half degrees Celcius (0.5°C).
@@ -289,7 +289,7 @@ Number LAUNDRY_HVAC_TARGET_TEMPERATURE_HIGH_F "Target Temperature High [%.1f °F
 Number LAUNDRY_HVAC_TARGET_TEMPERATURE_LOW_C "Target Temperature Low [%.1f °C]"
     <temperature>
     (gLAUNDRY_HVAC)
-    {nest="=[thermostats(Gym).target_temperature_low_c]"}
+    {nest="=[thermostats(Laundry).target_temperature_low_c]"}
 
 /**
  * Minimum target temperature, displayed in whole degrees Fahrenheit (1°F).
@@ -304,7 +304,7 @@ Number LAUNDRY_HVAC_TARGET_TEMPERATURE_LOW_C "Target Temperature Low [%.1f °C]"
 Number LAUNDRY_HVAC_TARGET_TEMPERATURE_LOW_F "Target Temperature Low [%.1f °F]"
     <temperature>
     (gLAUNDRY_HVAC)
-    {nest="=[thermostats(Gym).target_temperature_low_f]"}
+    {nest="=[thermostats(Laundry).target_temperature_low_f]"}
 
 /**
  * Indicates HVAC system heating/cooling modes.
@@ -331,7 +331,7 @@ Number LAUNDRY_HVAC_TARGET_TEMPERATURE_LOW_F "Target Temperature Low [%.1f °F]"
 String LAUNDRY_HVAC_MODE "HVAC Mode [MAP(nest_mode_en.map):%s]"
     <climate>
     (gLAUNDRY_HVAC_INFO)
-    {nest="=[thermostats(Gym).hvac_mode]"}
+    {nest="=[thermostats(Laundry).hvac_mode]"}
 
 /**
  * System ability to heat
@@ -342,7 +342,7 @@ String LAUNDRY_HVAC_MODE "HVAC Mode [MAP(nest_mode_en.map):%s]"
  */
 Switch LAUNDRY_HVAC_CAN_HEAT "Can Heat [MAP(nest_bool_en.map):%s]"
     (gLAUNDRY_HVAC_INFO)
-    {nest="<[thermostats(Gym).can_heat]"}
+    {nest="<[thermostats(Laundry).can_heat]"}
 
 /**
  * System ability to cool (has AC).
@@ -353,7 +353,7 @@ Switch LAUNDRY_HVAC_CAN_HEAT "Can Heat [MAP(nest_bool_en.map):%s]"
  */
 Switch LAUNDRY_HVAC_CAN_COOL "Can Cool [MAP(nest_bool_en.map):%s]"
     (gLAUNDRY_HVAC_INFO)
-    {nest="<[thermostats(Gym).can_cool]"}
+    {nest="<[thermostats(Laundry).can_cool]"}
 /**
  * System ability to control the fan independently from heating or cooling.
  * Type     boolean
@@ -363,7 +363,7 @@ Switch LAUNDRY_HVAC_CAN_COOL "Can Cool [MAP(nest_bool_en.map):%s]"
  */
 Switch LAUNDRY_HVAC_HAS_FAN "Has Fan [MAP(nest_bool_en.map):%s]"
     (gLAUNDRY_HVAC_INFO)
-    {nest="<[thermostats(Gym).has_fan]"}
+    {nest="<[thermostats(Laundry).has_fan]"}
 
 /**
  * Displayed when the thermostat is set to an energy-saving temperature.
@@ -376,7 +376,7 @@ Switch LAUNDRY_HVAC_HAS_FAN "Has Fan [MAP(nest_bool_en.map):%s]"
  */
 Switch LAUNDRY_HVAC_HAS_LEAF "Has Leaf [MAP(nest_bool_en.map):%s]"
     (gLAUNDRY_HVAC_INFO)
-    {nest="<[thermostats(Gym).has_leaf]"}
+    {nest="<[thermostats(Laundry).has_leaf]"}
 
 /**
  * Indicates if the fan timer is engaged; used with 'fan_timer_timeout'
@@ -390,7 +390,7 @@ Switch LAUNDRY_HVAC_HAS_LEAF "Has Leaf [MAP(nest_bool_en.map):%s]"
  */
 Switch LAUNDRY_HVAC_FAN_TIMER_ACTIVE "Fan Timer Active [MAP(nest_bool_en.map):%s]"
     (gLAUNDRY_HVAC_INFO)
-    {nest="=[thermostats(Gym).fan_timer_active]"}
+    {nest="=[thermostats(Laundry).fan_timer_active]"}
 
 /**
  * Timestamp, showing when the fan timer reaches 0 (end of timer duration),
@@ -402,9 +402,9 @@ Switch LAUNDRY_HVAC_FAN_TIMER_ACTIVE "Fan Timer Active [MAP(nest_bool_en.map):%s
 DateTime LAUNDRY_HVAC_FAN_TIMER_TIMEOUT "Fan Timer Timeout [%1$tm/%1$td/%1$tY %1$tH:%1$tM:%1$tS]"
     <calendar>
     (gLAUNDRY_HVAC)
-    {nest="<[thermostats(Gym).fan_timer_timeout]"}
+    {nest="<[thermostats(Laundry).fan_timer_timeout]"}
 
 // Nest API: Read Only
 String LAUNDRY_HVAC_LOCALE "Locale [%s]"
     (gLAUNDRY_HVAC_INFO)
-    {nest="<[thermostats(Gym).locale]"}
+    {nest="<[thermostats(Laundry).locale]"}

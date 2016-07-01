@@ -1,0 +1,388 @@
+Group SMOKE_DETECTORS "Smoke Detectors"
+Group gSD_SMOKE "Smoke Alarm" (SMOKE_DETECTORS)
+Group gSD_CO "Carbon Monoxide Alarm" (SMOKE_DETECTORS)
+Group gSD_COLOR "Color State" (SMOKE_DETECTORS)
+Group gSD_BATTERY "Battery Health" (Battery, SMOKE_DETECTORS)
+
+/* Smoke+CO detectors */
+
+/**
+ * Corridor 1 Smoke Detector
+ */
+String C1_SD_SMOKE "Smoke Alarm State [%s]"
+	<smoke>
+	(gSD_SMOKE, C1)
+	{nest="<[smoke_co_alarms(Corridor 1).smoke_alarm_sate]"}
+
+String C1_SD_CO "CO Alarm State [%s]"
+	<co>
+	(gSD_CO, C1)
+	{nest="<[smoke_co_alarms(Corridor 1).co_alarm_sate]"}
+
+String C1_SD_COLOR "Satus Color [%s]"
+	{nest="<[smoke_co_alarms(Corridor 1).ui_color_sate]"}
+
+String C1_SD_NAME "Corridor 1 Smoke Detector [%s]"
+	(gSD_COLOR)
+	{nest="<[smoke_co_alarms(Corridor 1).name]"}
+
+String C1_SD_NAME_LONG "Long Name [%s]"
+	{nest="<[smoke_co_alarms(Corridor 1).name_long]"}
+
+String C1_SD_VERSION "Software Version [%s]"
+	{nest="<[smoke_co_alarms(Corridor 1).software_version]"}
+
+Switch C1_SD_IS_ONLINE "Is Online [MAP(nest_online_en.map):%s]"
+	{nest="<[smoke_co_alarms(Corridor 1).is_online]"}
+
+DateTime C1_SD_LAST_CONNECTION "Last Connection [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+	<calendar>
+	{nest="<[smoke_co_alarms(Corridor 1).last_connection]"}
+
+String C1_SD_BATTERY "Battery Health [%s]"
+	(gSD_BATTERY)
+	{nest="<[smoke_co_alarms(Corridor 1).battery_health]"}
+
+Switch C1_SD_IS_MANUAL_TEST_ACTIVE "Manual Test Active [%s]"
+	{nest="<[smoke_co_alarms(Corridor 1).is_manual_test_active]"}
+
+DateTime C1_SD_LAST_MANUAL_TEST_TIME "Last Manual Test [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+	<calendar>
+	{nest="<[smoke_co_alarms(Corridor 1).last_manual_test_time]"}
+
+String C1_SD_LOCALE "Locale [%s]"
+	{nest="<[smoke_co_alarms(Corridor 1).locale]"}
+
+/**
+ * Corridor 2 Smoke Detector
+ */
+String C2_SD_SMOKE "Smoke Alarm State [%s]"
+    <smoke>
+    (gSD_SMOKE, C2)
+    {nest="<[smoke_co_alarms(Corridor 2).smoke_alarm_sate]"}
+
+String C2_SD_CO "CO Alarm State [%s]"
+    <co>
+    (gSD_CO, C2)
+    {nest="<[smoke_co_alarms(Corridor 2).co_alarm_sate]"}
+
+String C2_SD_COLOR "Satus Color [%s]"
+    {nest="<[smoke_co_alarms(Corridor 2).ui_color_sate]"}
+
+String C2_SD_NAME "Corridor 2 Smoke Detector [%s]"
+    (gSD_COLOR)
+    {nest="<[smoke_co_alarms(Corridor 2).name]"}
+
+String C2_SD_NAME_LONG "Long Name [%s]"
+    {nest="<[smoke_co_alarms(Corridor 2).name_long]"}
+
+String C2_SD_VERSION "Software Version [%s]"
+    {nest="<[smoke_co_alarms(Corridor 2).software_version]"}
+
+Switch C2_SD_IS_ONLINE "Is Online [MAP(nest_online_en.map):%s]"
+    {nest="<[smoke_co_alarms(Corridor 2).is_online]"}
+
+DateTime C2_SD_LAST_CONNECTION "Last Connection [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    {nest="<[smoke_co_alarms(Corridor 2).last_connection]"}
+
+String C2_SD_BATTERY "Battery Health [%s]"
+    (gSD_BATTERY)
+    {nest="<[smoke_co_alarms(Corridor 2).battery_health]"}
+
+Switch C2_SD_IS_MANUAL_TEST_ACTIVE "Manual Test Active [%s]"
+    {nest="<[smoke_co_alarms(Corridor 2).is_manual_test_active]"}
+
+DateTime C2_SD_LAST_MANUAL_TEST_TIME "Last Manual Test [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    {nest="<[smoke_co_alarms(Corridor 2).last_manual_test_time]"}
+
+String C2_SD_LOCALE "Locale [%s]"
+    {nest="<[smoke_co_alarms(Corridor 2).locale]"}
+
+/**
+ * Guest Bedroom Smoke Detector
+ */
+String GUEST_SD_SMOKE "Smoke Alarm State [%s]"
+    <smoke>
+    (gSD_SMOKE, GUEST)
+    {nest="<[smoke_co_alarms(Guest Bedroom).smoke_alarm_sate]"}
+
+String GUEST_SD_CO "CO Alarm State [%s]"
+    <co>
+    (gSD_CO, GUEST)
+    {nest="<[smoke_co_alarms(Guest Bedroom).co_alarm_sate]"}
+
+String GUEST_SD_COLOR "Satus Color [%s]"
+    {nest="<[smoke_co_alarms(Guest Bedroom).ui_color_sate]"}
+
+String GUEST_SD_NAME "Guest Bedroom Smoke Detector [%s]"
+    (gSD_COLOR)
+    {nest="<[smoke_co_alarms(Guest Bedroom).name]"}
+
+String GUEST_SD_NAME_LONG "Long Name [%s]"
+    {nest="<[smoke_co_alarms(Guest Bedroom).name_long]"}
+
+String GUEST_SD_VERSION "Software Version [%s]"
+    {nest="<[smoke_co_alarms(Guest Bedroom).software_version]"}
+
+Switch GUEST_SD_IS_ONLINE "Is Online [MAP(nest_online_en.map):%s]"
+    {nest="<[smoke_co_alarms(Guest Bedroom).is_online]"}
+
+DateTime GUEST_SD_LAST_CONNECTION "Last Connection [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    {nest="<[smoke_co_alarms(Guest Bedroom).last_connection]"}
+
+String GUEST_SD_BATTERY "Battery Health [%s]"
+    (gSD_BATTERY)
+    {nest="<[smoke_co_alarms(Guest Bedroom).battery_health]"}
+
+Switch GUEST_SD_IS_MANUAL_TEST_ACTIVE "Manual Test Active [%s]"
+    {nest="<[smoke_co_alarms(Guest Bedroom).is_manual_test_active]"}
+
+DateTime GUEST_SD_LAST_MANUAL_TEST_TIME "Last Manual Test [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    {nest="<[smoke_co_alarms(Guest Bedroom).last_manual_test_time]"}
+
+String GUEST_SD_LOCALE "Locale [%s]"
+    {nest="<[smoke_co_alarms(Guest Bedroom).locale]"}
+
+/**
+ * Inlaws Bedroom Smoke Detector
+ */
+String INLAWS_SD_SMOKE "Smoke Alarm State [%s]"
+    <smoke>
+    (gSD_SMOKE, INLAWS)
+    {nest="<[smoke_co_alarms(Inlaws Room).smoke_alarm_sate]"}
+
+String INLAWS_SD_CO "CO Alarm State [%s]"
+    <co>
+    (gSD_CO, INLAWS)
+    {nest="<[smoke_co_alarms(Inlaws Room).co_alarm_sate]"}
+
+String INLAWS_SD_COLOR "Satus Color [%s]"
+    {nest="<[smoke_co_alarms(Inlaws Room).ui_color_sate]"}
+
+String INLAWS_SD_NAME "Inlaws Room Smoke Detector [%s]"
+    (gSD_COLOR)
+    {nest="<[smoke_co_alarms(Inlaws Room).name]"}
+
+String INLAWS_SD_NAME_LONG "Long Name [%s]"
+    {nest="<[smoke_co_alarms(Inlaws Room).name_long]"}
+
+String INLAWS_SD_VERSION "Software Version [%s]"
+    {nest="<[smoke_co_alarms(Inlaws Room).software_version]"}
+
+Switch INLAWS_SD_IS_ONLINE "Is Online [MAP(nest_online_en.map):%s]"
+    {nest="<[smoke_co_alarms(Inlaws Room).is_online]"}
+
+DateTime INLAWS_SD_LAST_CONNECTION "Last Connection [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    {nest="<[smoke_co_alarms(Inlaws Room).last_connection]"}
+
+String INLAWS_SD_BATTERY "Battery Health [%s]"
+    (gSD_BATTERY)
+    {nest="<[smoke_co_alarms(Inlaws Room).battery_health]"}
+
+Switch INLAWS_SD_IS_MANUAL_TEST_ACTIVE "Manual Test Active [%s]"
+    {nest="<[smoke_co_alarms(Inlaws Room).is_manual_test_active]"}
+
+DateTime INLAWS_SD_LAST_MANUAL_TEST_TIME "Last Manual Test [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    {nest="<[smoke_co_alarms(Inlaws Room).last_manual_test_time]"}
+
+String INLAWS_SD_LOCALE "Locale [%s]"
+    {nest="<[smoke_co_alarms(Inlaws Room).locale]"}
+
+
+/**
+ * Master Bedroom Smoke Detector
+ */
+String MASTER_SD_SMOKE "Smoke Alarm State [%s]"
+    <smoke>
+    (gSD_SMOKE, MASTER)
+    {nest="<[smoke_co_alarms(Master Bedroom).smoke_alarm_sate]"}
+
+String MASTER_SD_CO "CO Alarm State [%s]"
+    <co>
+    (gSD_CO, MASTER)
+    {nest="<[smoke_co_alarms(Master Bedroom).co_alarm_sate]"}
+
+String MASTER_SD_COLOR "Satus Color [%s]"
+    {nest="<[smoke_co_alarms(Master Bedroom).ui_color_sate]"}
+
+String MASTER_SD_NAME "Master Bedroom Smoke Detector [%s]"
+    (gSD_COLOR)
+    {nest="<[smoke_co_alarms(Master Bedroom).name]"}
+
+String MASTER_SD_NAME_LONG "Long Name [%s]"
+    {nest="<[smoke_co_alarms(Master Bedroom).name_long]"}
+
+String MASTER_SD_VERSION "Software Version [%s]"
+    {nest="<[smoke_co_alarms(Master Bedroom).software_version]"}
+
+Switch MASTER_SD_IS_ONLINE "Is Online [MAP(nest_online_en.map):%s]"
+    {nest="<[smoke_co_alarms(Master Bedroom).is_online]"}
+
+DateTime MASTER_SD_LAST_CONNECTION "Last Connection [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    {nest="<[smoke_co_alarms(Master Bedroom).last_connection]"}
+
+String MASTER_SD_BATTERY "Battery Health [%s]"
+    (gSD_BATTERY)
+    {nest="<[smoke_co_alarms(Master Bedroom).battery_health]"}
+
+Switch MASTER_SD_IS_MANUAL_TEST_ACTIVE "Manual Test Active [%s]"
+    {nest="<[smoke_co_alarms(Master Bedroom).is_manual_test_active]"}
+
+DateTime MASTER_SD_LAST_MANUAL_TEST_TIME "Last Manual Test [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    {nest="<[smoke_co_alarms(Master Bedroom).last_manual_test_time]"}
+
+String MASTER_SD_LOCALE "Locale [%s]"
+    {nest="<[smoke_co_alarms(Master Bedroom).locale]"}
+
+/**
+ * Office Smoke Detector
+ */
+String OFFICE_SD_SMOKE "Smoke Alarm State [%s]"
+    <smoke>
+    (gSD_SMOKE, OFFICE)
+    {nest="<[smoke_co_alarms(Office).smoke_alarm_sate]"}
+
+String OFFICE_SD_CO "CO Alarm State [%s]"
+    <co>
+    (gSD_CO, OFFICE)
+    {nest="<[smoke_co_alarms(Office).co_alarm_sate]"}
+
+String OFFICE_SD_COLOR "Satus Color [%s]"
+    {nest="<[smoke_co_alarms(Office).ui_color_sate]"}
+
+String OFFICE_SD_NAME "Office Smoke Detector [%s]"
+    (gSD_COLOR)
+    {nest="<[smoke_co_alarms(Office).name]"}
+
+String OFFICE_SD_NAME_LONG "Long Name [%s]"
+    {nest="<[smoke_co_alarms(Office).name_long]"}
+
+String OFFICE_SD_VERSION "Software Version [%s]"
+    {nest="<[smoke_co_alarms(Office).software_version]"}
+
+Switch OFFICE_SD_IS_ONLINE "Is Online [MAP(nest_online_en.map):%s]"
+    {nest="<[smoke_co_alarms(Office).is_online]"}
+
+DateTime OFFICE_SD_LAST_CONNECTION "Last Connection [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    {nest="<[smoke_co_alarms(Office).last_connection]"}
+
+String OFFICE_SD_BATTERY "Battery Health [%s]"
+    (gSD_BATTERY)
+    {nest="<[smoke_co_alarms(Office).battery_health]"}
+
+Switch OFFICE_SD_IS_MANUAL_TEST_ACTIVE "Manual Test Active [%s]"
+    {nest="<[smoke_co_alarms(Office).is_manual_test_active]"}
+
+DateTime OFFICE_SD_LAST_MANUAL_TEST_TIME "Last Manual Test [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    {nest="<[smoke_co_alarms(Office).last_manual_test_time]"}
+
+String OFFICE_SD_LOCALE "Locale [%s]"
+    {nest="<[smoke_co_alarms(Office).locale]"}
+
+
+/**
+ * Play Room Smoke Detector
+ */
+String PLAY_SD_SMOKE "Smoke Alarm State [%s]"
+    <smoke>
+    (gSD_SMOKE, PLAY)
+    {nest="<[smoke_co_alarms(PlayRoom).smoke_alarm_sate]"}
+
+String PLAY_SD_CO "CO Alarm State [%s]"
+    <co>
+    (gSD_CO, PLAY)
+    {nest="<[smoke_co_alarms(PlayRoom).co_alarm_sate]"}
+
+String PLAY_SD_COLOR "Satus Color [%s]"
+    {nest="<[smoke_co_alarms(PlayRoom).ui_color_sate]"}
+
+String PLAY_SD_NAME "Play Room Smoke Detector [%s]"
+    (gSD_COLOR)
+    {nest="<[smoke_co_alarms(PlayRoom).name]"}
+
+String PLAY_SD_NAME_LONG "Long Name [%s]"
+    {nest="<[smoke_co_alarms(PlayRoom).name_long]"}
+
+String PLAY_SD_VERSION "Software Version [%s]"
+    {nest="<[smoke_co_alarms(PlayRoom).software_version]"}
+
+Switch PLAY_SD_IS_ONLINE "Is Online [MAP(nest_online_en.map):%s]"
+    {nest="<[smoke_co_alarms(PlayRoom).is_online]"}
+
+DateTime PLAY_SD_LAST_CONNECTION "Last Connection [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    {nest="<[smoke_co_alarms(PlayRoom).last_connection]"}
+
+String PLAY_SD_BATTERY "Battery Health [%s]"
+    (gSD_BATTERY)
+    {nest="<[smoke_co_alarms(PlayRoom).battery_health]"}
+
+Switch PLAY_SD_IS_MANUAL_TEST_ACTIVE "Manual Test Active [%s]"
+    {nest="<[smoke_co_alarms(PlayRoom).is_manual_test_active]"}
+
+DateTime PLAY_SD_LAST_MANUAL_TEST_TIME "Last Manual Test [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    {nest="<[smoke_co_alarms(PlayRoom).last_manual_test_time]"}
+
+String PLAY_SD_LOCALE "Locale [%s]"
+    {nest="<[smoke_co_alarms(PlayRoom).locale]"}
+
+
+
+/**
+ * Rita Smoke Detector
+ */
+String RITA_SD_SMOKE "Smoke Alarm State [%s]"
+    <smoke>
+    (gSD_SMOKE, RITA)
+    {nest="<[smoke_co_alarms(Rita's Room).smoke_alarm_sate]"}
+
+String RITA_SD_CO "CO Alarm State [%s]"
+    <co>
+    (gSD_CO, RITA)
+    {nest="<[smoke_co_alarms(Rita's Room).co_alarm_sate]"}
+
+String RITA_SD_COLOR "Satus Color [%s]"
+    {nest="<[smoke_co_alarms(Rita's Room).ui_color_sate]"}
+
+String RITA_SD_NAME "Rita Smoke Detector [%s]"
+    (gSD_COLOR)
+    {nest="<[smoke_co_alarms(Rita's Room).name]"}
+
+String RITA_SD_NAME_LONG "Long Name [%s]"
+    {nest="<[smoke_co_alarms(Rita's Room).name_long]"}
+
+String RITA_SD_VERSION "Software Version [%s]"
+    {nest="<[smoke_co_alarms(Rita's Room).software_version]"}
+
+Switch RITA_SD_IS_ONLINE "Is Online [MAP(nest_online_en.map):%s]"
+    {nest="<[smoke_co_alarms(Rita's Room).is_online]"}
+
+DateTime RITA_SD_LAST_CONNECTION "Last Connection [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    {nest="<[smoke_co_alarms(Rita's Room).last_connection]"}
+
+String RITA_SD_BATTERY "Battery Health [%s]"
+    (gSD_BATTERY)
+    {nest="<[smoke_co_alarms(Rita's Room).battery_health]"}
+
+Switch RITA_SD_IS_MANUAL_TEST_ACTIVE "Manual Test Active [%s]"
+    {nest="<[smoke_co_alarms(Rita's Room).is_manual_test_active]"}
+
+DateTime RITA_SD_LAST_MANUAL_TEST_TIME "Last Manual Test [%1$tm/%1$td/%1$tY  %1$tH:%1$tM:%1$tS]"
+    <calendar>
+    {nest="<[smoke_co_alarms(Rita's Room).last_manual_test_time]"}
+
+String RITA_SD_LOCALE "Locale [%s]"
+    {nest="<[smoke_co_alarms(Rita's Room).locale]"}
+
